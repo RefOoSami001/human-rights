@@ -313,20 +313,24 @@ def get_questions_data():
 
 def generate_room_code(length=6):
     chars = string.ascii_uppercase + string.digits
-    return ''.join(random.choices(chars, k=length))
+    while True:
+        code = ''.join(random.choices(chars, k=length))
+        if code not in GAMES:
+            return code
 
 @socketio.on('create_room')
 def handle_create_room(data):
     name = data.get('name', 'مجهول')
+    client_id = data.get('client_id')
     session_id = request.sid
     room_code = generate_room_code()
     questions = load_questions()
     seed = random.randint(1, 1000000)
     randomized_questions = randomize_questions_and_options(questions, seed, True)
     GAMES[room_code] = {
-        'host': session_id,
+        'host': client_id,
         'players': {
-            session_id: {'name': name, 'score': 0, 'time': 0, 'finished': False}
+            client_id: {'name': name, 'score': 0, 'time': 0, 'finished': False, 'sid': session_id}
         },
         'questions': randomized_questions,
         'started': False,
@@ -340,20 +344,24 @@ def handle_create_room(data):
 @socketio.on('join_room')
 def handle_join_room(data):
     name = data.get('name', 'مجهول')
-    room_code = data.get('room_code')
+    room_code = data.get('room_code', '').upper().strip()
+    client_id = data.get('client_id')
     session_id = request.sid
     if room_code not in GAMES:
         emit('error', {'message': 'رمز الغرفة غير صحيح.'}, room=session_id)
         return
-    GAMES[room_code]['players'][session_id] = {'name': name, 'score': 0, 'time': 0, 'finished': False}
+    # Always update or create player by client_id
+    GAMES[room_code]['players'][client_id] = GAMES[room_code]['players'].get(client_id, {'name': name, 'score': 0, 'time': 0, 'finished': False})
+    GAMES[room_code]['players'][client_id]['sid'] = session_id
     join_room(room_code)
     emit('player_joined', {'players': GAMES[room_code]['players']}, room=room_code)
 
 @socketio.on('start_game')
 def handle_start_game(data):
     room_code = data.get('room_code')
+    client_id = data.get('client_id')
     session_id = request.sid
-    if room_code not in GAMES or GAMES[room_code]['host'] != session_id:
+    if room_code not in GAMES or GAMES[room_code]['host'] != client_id:
         emit('error', {'message': 'غير مصرح لك ببدء الامتحان.'}, room=session_id)
         return
     GAMES[room_code]['started'] = True
@@ -389,9 +397,15 @@ def handle_progress_update(data):
 def handle_submit_answers(data):
     room_code = data.get('room_code')
     answers = data.get('answers', {})
+    client_id = data.get('client_id')
     session_id = request.sid
-    if room_code not in GAMES or session_id not in GAMES[room_code]['players']:
+
+    if room_code not in GAMES or client_id not in GAMES[room_code]['players']:
         emit('error', {'message': 'حدث خطأ في إرسال الإجابات.'}, room=session_id)
+        return
+    player = GAMES[room_code]['players'][client_id]
+    if player.get('submitted'):
+        emit('error', {'message': 'لقد أرسلت إجاباتك بالفعل.'}, room=session_id)
         return
     questions = GAMES[room_code]['questions']
     correct = 0
@@ -400,10 +414,11 @@ def handle_submit_answers(data):
         if user_answer is not None and int(user_answer) == int(q['correct_answer']):
             correct += 1
     finish_time = (datetime.now() - datetime.fromisoformat(GAMES[room_code]['start_time'])).total_seconds()
-    GAMES[room_code]['players'][session_id]['score'] = correct
-    GAMES[room_code]['players'][session_id]['time'] = finish_time
-    GAMES[room_code]['players'][session_id]['finished'] = True
-    GAMES[room_code]['players'][session_id]['progress'] = len(questions)
+    player['score'] = correct
+    player['time'] = finish_time
+    player['finished'] = True
+    player['progress'] = len(questions)
+    player['submitted'] = True
     # Broadcast leaderboard update
     leaderboard = [
         {

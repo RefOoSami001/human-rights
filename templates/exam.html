@@ -10,34 +10,50 @@
         </div>
         <div class="card-body">
             <div id="lobbyStepCreateJoin">
-                <div class="mb-3">
-                    <label class="form-label">اسمك</label>
-                    <input type="text" id="playerName" class="form-control" placeholder="أدخل اسمك" autocomplete="off">
-                </div>
-                <div class="d-flex gap-2 mb-3">
-                    <button class="btn btn-primary flex-fill" id="createRoomBtn"><i class="fas fa-plus"></i> إنشاء
-                        غرفة</button>
-                    <input type="text" id="joinRoomCode" class="form-control w-auto" maxlength="6"
-                        placeholder="رمز الغرفة">
-                    <button class="btn btn-success flex-fill" id="joinRoomBtn"><i class="fas fa-sign-in-alt"></i>
-                        انضمام</button>
+                <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                        <label class="form-label">اسمك</label>
+                        <input type="text" id="playerName" class="form-control" placeholder="أدخل اسمك"
+                            autocomplete="off">
+                    </div>
+                    <div class="col-12 col-md-4 d-grid">
+                        <button class="btn btn-primary mb-2 mb-md-0 w-100" id="createRoomBtn"><i
+                                class="fas fa-plus"></i> إنشاء غرفة</button>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <input type="text" id="joinRoomCode" class="form-control" maxlength="6"
+                            placeholder="رمز الغرفة">
+                    </div>
+                    <div class="col-6 col-md-2 d-grid">
+                        <button class="btn btn-success w-100" id="joinRoomBtn"><i class="fas fa-sign-in-alt"></i>
+                            انضمام</button>
+                    </div>
                 </div>
             </div>
             <div id="lobbyStepRoom" style="display:none;">
-                <div class="mb-2">
-                    <span class="fw-bold">رمز الغرفة:</span>
-                    <span id="roomCodeDisplay" class="badge bg-primary fs-5"></span>
-                    <button class="btn btn-outline-secondary btn-sm ms-2" id="copyRoomCodeBtn"><i
-                            class="fas fa-copy"></i></button>
+                <div class="row g-2 align-items-center mb-2">
+                    <div class="col-12 col-md-auto mb-2 mb-md-0">
+                        <span class="fw-bold">رمز الغرفة:</span>
+                        <span id="roomCodeDisplay" class="badge bg-primary fs-5"></span>
+                        <button class="btn btn-outline-secondary btn-sm ms-2" id="copyRoomCodeBtn"><i
+                                class="fas fa-copy"></i></button>
+                    </div>
                 </div>
-                <div class="mb-2">
-                    <span class="fw-bold">اللاعبون في الغرفة:</span>
-                    <ul id="playersList" class="list-group list-group-flush mb-2"></ul>
+                <div class="row g-2 mb-2">
+                    <div class="col-12">
+                        <span class="fw-bold">اللاعبون في الغرفة:</span>
+                        <ul id="playersList" class="list-group list-group-flush mb-2"></ul>
+                    </div>
                 </div>
-                <div id="hostControls" style="display:none;">
-                    <button class="btn btn-warning" id="startGameBtn"><i class="fas fa-play"></i> بدء الامتحان</button>
+                <div class="row g-2 mb-2">
+                    <div class="col-12 d-grid">
+                        <div id="hostControls" style="display:none;">
+                            <button class="btn btn-warning w-100" id="startGameBtn"><i class="fas fa-play"></i> بدء
+                                الامتحان</button>
+                        </div>
+                        <div class="alert alert-info mt-2" id="waitingMsg">بانتظار بدء الامتحان من قبل المضيف...</div>
+                    </div>
                 </div>
-                <div class="alert alert-info mt-2" id="waitingMsg">بانتظار بدء الامتحان من قبل المضيف...</div>
             </div>
         </div>
     </div>
@@ -248,7 +264,7 @@
 <script>
     // Multiplayer variables
     let socket = io();
-    let roomCode = null;
+    let roomCode = localStorage.getItem('room_code') || null;
     let isHost = false;
     let playerName = '';
     let gameStarted = false;
@@ -262,11 +278,22 @@
     const hostControls = document.getElementById('hostControls');
     const waitingMsg = document.getElementById('waitingMsg');
 
+    // Persistent client_id for each browser
+    function getClientId() {
+        let cid = localStorage.getItem('client_id');
+        if (!cid) {
+            cid = self.crypto?.randomUUID ? self.crypto.randomUUID() : ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+            localStorage.setItem('client_id', cid);
+        }
+        return cid;
+    }
+    const clientId = getClientId();
+
     // Lobby event listeners
     if (document.getElementById('createRoomBtn')) {
         document.getElementById('createRoomBtn').onclick = function () {
             playerName = document.getElementById('playerName').value.trim() || 'مجهول';
-            socket.emit('create_room', { name: playerName });
+            socket.emit('create_room', { name: playerName, client_id: clientId });
         };
     }
     if (document.getElementById('joinRoomBtn')) {
@@ -274,7 +301,9 @@
             playerName = document.getElementById('playerName').value.trim() || 'مجهول';
             const code = document.getElementById('joinRoomCode').value.trim().toUpperCase();
             if (code.length === 6) {
-                socket.emit('join_room', { name: playerName, room_code: code });
+                roomCode = code;
+                localStorage.setItem('room_code', roomCode);
+                socket.emit('join_room', { name: playerName, room_code: code, client_id: clientId });
             }
         };
     }
@@ -287,6 +316,7 @@
     // Socket.IO events
     socket.on('room_created', function (data) {
         roomCode = data.room_code;
+        localStorage.setItem('room_code', roomCode);
         isHost = true;
         showRoomLobby(data.players);
     });
@@ -303,6 +333,9 @@
         document.getElementById('multiplayerLobby').style.display = 'none';
         examContainer.style.display = 'block';
         leaderboardSection.style.display = 'block';
+        // Reset answers and question index for each user
+        userAnswers = {};
+        currentQuestionIndex = 0;
         loadQuestions();
         showQuestion(0);
         updateProgress();
@@ -342,7 +375,7 @@
     }
     if (document.getElementById('startGameBtn')) {
         document.getElementById('startGameBtn').onclick = function () {
-            socket.emit('start_game', { room_code: roomCode });
+            socket.emit('start_game', { room_code: roomCode, client_id: clientId });
         };
     }
 
@@ -374,7 +407,8 @@
     // Exam logic integration
     function finishExam() {
         // Submit exam to server via Socket.IO
-        socket.emit('submit_answers', { room_code: roomCode, answers: userAnswers });
+        const codeToSend = roomCode || localStorage.getItem('room_code');
+        socket.emit('submit_answers', { room_code: codeToSend, answers: userAnswers, client_id: clientId });
     }
 
     // Show leaderboard after submit
