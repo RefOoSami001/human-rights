@@ -43,8 +43,10 @@
                     </div>
                 </div>
 
-                <div class="progress mb-4" style="height: 20px;">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ score_percentage }}%">
+                <div class="progress mb-4 results-progress">
+                    <div class="progress-bar bg-success results-progress-bar" role="progressbar"
+                        data-score="{{ score_percentage }}" data-correct="{{ correct_answers }}"
+                        data-total="{{ total_questions }}">
                         {{ correct_answers }}/{{ total_questions }}
                     </div>
                 </div>
@@ -83,4 +85,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Set progress bar width using data attributes
+    document.addEventListener('DOMContentLoaded', function () {
+        const progressBar = document.querySelector('.results-progress-bar');
+        if (progressBar) {
+            const score = progressBar.getAttribute('data-score');
+            progressBar.style.width = score + '%';
+        }
+    });
+</script>
 {% endblock %}

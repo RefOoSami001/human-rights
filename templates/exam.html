@@ -5,60 +5,16 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-12">
-        <!-- Progress Bar -->
-        <div class="card mb-3">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h6 class="mb-0 progress-text">التقدم في الامتحان</h6>
-                    <span id="progressText" class="progress-text">1 من {{ total_questions }}</span>
-                </div>
-                <div class="progress" style="height: 10px;">
-                    <div class="progress-bar" id="progressBar" role="progressbar" style="width: 1%">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Randomization Controls -->
-        <div class="card mb-3">
-            <div class="card-header bg-info text-white">
-                <h6 class="mb-0">
-                    <i class="fas fa-random me-2"></i>
-                    إعدادات الامتحان
-                </h6>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="randomizeQuestions" {{ 'checked' if
-                                randomize_questions else '' }}>
-                            <label class="form-check-label" for="randomizeQuestions">
-                                <i class="fas fa-list-ol me-2"></i>
-                                ترتيب عشوائي للأسئلة
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="randomizeOptions" {{ 'checked' if
-                                randomize_options else '' }}>
-                            <label class="form-check-label" for="randomizeOptions">
-                                <i class="fas fa-sort me-2"></i>
-                                ترتيب عشوائي للخيارات
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="alert alert-info mb-0">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <small>يمكنك تغيير هذه الإعدادات في أي وقت. سيتم تطبيق التغييرات على الأسئلة التالية.</small>
-                </div>
-            </div>
-        </div>
-
         <!-- Question Container -->
         <div class="card">
+            <!-- Progress Bar -->
+            <div class="card-header bg-primary text-white">
+                <div class="progress" style="height: 8px; background-color: rgba(255,255,255,0.2);">
+                    <div class="progress-bar bg-light" id="progressBar" role="progressbar" style="width: 1%">
+                    </div>
+                </div>
+            </div>
+
             <div class="card-header bg-primary text-white">
                 <div class="row align-items-center">
                     <div class="col">
@@ -67,11 +23,12 @@
                             السؤال <span id="questionNumber">1</span> من {{ total_questions }}
                         </h5>
                     </div>
-                    <div class="col-auto">
-                        <button class="btn btn-light btn-sm" onclick="showQuestionList()">
-                            <i class="fas fa-list me-1"></i>
-                            <span class="d-none d-sm-inline">قائمة الأسئلة</span>
-                            <span class="d-sm-none">القائمة</span>
+                    <div class="col-auto d-flex gap-2">
+                        <button class="toggle-btn" id="randomizeToggle" title="ترتيب عشوائي للأسئلة">
+                            <i class="fas fa-random"></i>
+                        </button>
+                        <button class="toggle-btn" onclick="showQuestionList()" title="قائمة الأسئلة">
+                            <i class="fas fa-list"></i>
                         </button>
                     </div>
                 </div>
@@ -212,24 +169,43 @@
 {% endblock %}
 
 {% block scripts %}
+<!-- Pass server data to JavaScript -->
+<script type="application/json" id="serverData">
+{
+    "questions": {{ questions | tojson | safe }},
+    "totalQuestions": {{ total_questions }},
+    "randomizeQuestions": {{ 'true' if randomize_questions else 'false' }}
+}
+</script>
+
 <script>
     // Global variables
     let currentQuestionIndex = 0;
-    let questions = {{ questions | tojson | safe }};
+    let questions = [];
     let userAnswers = {};
-    let totalQuestions = {{ total_questions }};
+    let totalQuestions = 0;
     let incorrectAnswers = [];
-    let randomizeQuestions = {{ 'true' if randomize_questions else 'false' }};
-    let randomizeOptions = {{ 'true' if randomize_options else 'false' }};
+    let randomizeQuestions = true;
 
     // Initialize the exam
     document.addEventListener('DOMContentLoaded', function () {
+        // Load server data
+        try {
+            const serverData = JSON.parse(document.getElementById('serverData').textContent);
+            questions = serverData.questions;
+            totalQuestions = serverData.totalQuestions;
+            randomizeQuestions = serverData.randomizeQuestions;
+        } catch (e) {
+            console.error('Error loading server data:', e);
+        }
+
         loadQuestions();
         showQuestion(0);
         updateProgress();
         generateQuestionList();
         updateNavigationButtons();
         setupRandomizationControls();
+        updateRandomizationStatus();
 
         // Prevent zoom on double tap for mobile
         let lastTouchEnd = 0;
@@ -243,18 +219,24 @@
     });
 
     function setupRandomizationControls() {
-        const questionsCheckbox = document.getElementById('randomizeQuestions');
-        const optionsCheckbox = document.getElementById('randomizeOptions');
+        const randomizeToggle = document.getElementById('randomizeToggle');
 
-        questionsCheckbox.addEventListener('change', function () {
-            randomizeQuestions = this.checked;
+        randomizeToggle.addEventListener('click', function () {
+            randomizeQuestions = !randomizeQuestions;
             updateRandomizationSettings();
+            updateRandomizationStatus();
         });
+    }
 
-        optionsCheckbox.addEventListener('change', function () {
-            randomizeOptions = this.checked;
-            updateRandomizationSettings();
-        });
+    function updateRandomizationStatus() {
+        const randomizeToggle = document.getElementById('randomizeToggle');
+        if (randomizeQuestions) {
+            randomizeToggle.classList.add('active');
+            randomizeToggle.classList.remove('inactive');
+        } else {
+            randomizeToggle.classList.add('inactive');
+            randomizeToggle.classList.remove('active');
+        }
     }
 
     function updateRandomizationSettings() {
@@ -264,8 +246,7 @@
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                randomize_questions: randomizeQuestions,
-                randomize_options: randomizeOptions
+                randomize_questions: randomizeQuestions
             })
         })
             .then(response => response.json())
@@ -301,7 +282,6 @@
                 questions = data.questions;
                 totalQuestions = data.total_questions;
                 randomizeQuestions = data.randomize_questions;
-                randomizeOptions = data.randomize_options;
 
                 // Reload questions in the container
                 loadQuestions();
@@ -399,7 +379,7 @@
                 // Store the answer
                 userAnswers[questionIndex] = optionIndex;
 
-                // Show feedback with sound
+                // Show feedback
                 showAnswerFeedback(questionIndex, optionIndex, correctAnswer);
 
                 // Update navigation buttons
@@ -429,18 +409,9 @@
             opt.classList.remove('correct', 'incorrect');
         });
 
-        // Show feedback and play sound
+        // Show feedback
         if (selectedAnswer === correctAnswer) {
             options[selectedAnswer].classList.add('correct');
-
-            // Play sound with error handling
-            try {
-                if (typeof window.playSound === 'function') {
-                    window.playSound('correctSound');
-                }
-            } catch (e) {
-                console.log('Sound play failed:', e);
-            }
 
             // Add celebration animation
             setTimeout(() => {
@@ -449,15 +420,6 @@
         } else {
             options[selectedAnswer].classList.add('incorrect');
             options[correctAnswer].classList.add('correct');
-
-            // Play sound with error handling
-            try {
-                if (typeof window.playSound === 'function') {
-                    window.playSound('incorrectSound');
-                }
-            } catch (e) {
-                console.log('Sound play failed:', e);
-            }
 
             // Store incorrect answer for review
             incorrectAnswers.push({
@@ -546,7 +508,6 @@
     function updateProgress() {
         const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
         document.getElementById('progressBar').style.width = progress + '%';
-        document.getElementById('progressText').textContent = `${currentQuestionIndex + 1} من ${totalQuestions}`;
     }
 
     function generateQuestionList() {
@@ -592,15 +553,6 @@
         })
             .then(response => response.json())
             .then(data => {
-                // Play completion sound with error handling
-                try {
-                    if (typeof window.playSound === 'function') {
-                        window.playSound('completeSound');
-                    }
-                } catch (e) {
-                    console.log('Completion sound failed:', e);
-                }
-
                 showResults(data);
             })
             .catch(error => {
