@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+{% block title %}السؤال {{ question_num }} - امتحان حقوق الإنسان{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="mb-0">
+                            <i class="fas fa-question-circle me-2"></i>
+                            السؤال {{ question_num }} من {{ total_questions }}
+                        </h5>
+                    </div>
+                    <div class="col-auto">
+                        <div class="progress" style="width: 200px;">
+                            <div class="progress-bar" role="progressbar"
+                                style="width: {{ (question_num / total_questions) * 100 }}%">
+                                {{ question_num }}/{{ total_questions }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body p-4">
+                <div class="question-text">
+                    {{ question.text }}
+                </div>
+
+                <form id="answerForm" method="POST" action="{{ url_for('submit_answer') }}">
+                    <input type="hidden" name="question_num" value="{{ question_num }}">
+
+                    <div class="options-container">
+                        {% for option in question.options %}
+                        <div class="option-item" data-option="{{ loop.index0 }}"
+                            data-correct="{{ question.correct_answer }}">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="answer" id="option{{ loop.index0 }}"
+                                    value="{{ loop.index0 }}" {% if user_answer==loop.index0 %}checked{% endif %}>
+                                <label class="form-check-label" for="option{{ loop.index0 }}">
+                                    {{ option }}
+                                </label>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{{ url_for('previous_question', question_num=question_num) }}"
+                            class="btn btn-secondary" {% if question_num==1 %}disabled{% endif %}>
+                            <i class="fas fa-arrow-right me-2"></i>
+                            السابق
+                        </a>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary" id="nextBtn" disabled>
+                                {% if question_num == total_questions %}
+                                <i class="fas fa-check me-2"></i>
+                                إنهاء الامتحان
+                                {% else %}
+                                <i class="fas fa-arrow-left me-2"></i>
+                                التالي
+                                {% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const options = document.querySelectorAll('.option-item');
+        const radioButtons = document.querySelectorAll('input[name="answer"]');
+        const nextBtn = document.getElementById('nextBtn');
+        const form = document.getElementById('answerForm');
+        let answerSubmitted = false;
+
+        // Handle option selection
+        options.forEach((option, index) => {
+            option.addEventListener('click', function () {
+                if (answerSubmitted) return; // Prevent multiple selections
+
+                // Remove selected class from all options
+                options.forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                });
+
+                // Add selected class to clicked option
+                this.classList.add('selected');
+
+                // Check the radio button
+                radioButtons[index].checked = true;
+
+                // Get correct answer
+                const correctAnswer = parseInt(this.dataset.correct);
+                const selectedAnswer = index;
+
+                // Show correct/incorrect feedback immediately
+                if (selectedAnswer === correctAnswer) {
+                    this.classList.add('correct');
+                } else {
+                    this.classList.add('incorrect');
+                    // Also highlight the correct answer
+                    options[correctAnswer].classList.add('correct');
+                }
+
+                // Enable next button
+                nextBtn.disabled = false;
+                answerSubmitted = true;
+
+                // Auto-submit after a delay
+                setTimeout(() => {
+                    form.submit();
+                }, 1500); // 1.5 seconds delay to show the feedback
+            });
+        });
+
+        // Handle radio button changes (backup)
+        radioButtons.forEach((radio, index) => {
+            radio.addEventListener('change', function () {
+                if (answerSubmitted) return;
+
+                // Remove selected class from all options
+                options.forEach(opt => {
+                    opt.classList.remove('selected', 'correct', 'incorrect');
+                });
+
+                // Add selected class to corresponding option
+                if (this.checked) {
+                    options[index].classList.add('selected');
+
+                    // Get correct answer
+                    const correctAnswer = parseInt(options[index].dataset.correct);
+                    const selectedAnswer = index;
+
+                    // Show correct/incorrect feedback immediately
+                    if (selectedAnswer === correctAnswer) {
+                        options[index].classList.add('correct');
+                    } else {
+                        options[index].classList.add('incorrect');
+                        // Also highlight the correct answer
+                        options[correctAnswer].classList.add('correct');
+                    }
+
+                    nextBtn.disabled = false;
+                    answerSubmitted = true;
+
+                    // Auto-submit after a delay
+                    setTimeout(() => {
+                        form.submit();
+                    }, 1500);
+                }
+            });
+        });
+
+        // Enable next button if an answer is already selected
+        if (document.querySelector('input[name="answer"]:checked')) {
+            nextBtn.disabled = false;
+            const selectedIndex = document.querySelector('input[name="answer"]:checked').value;
+            options[selectedIndex].classList.add('selected');
+
+            // Show previous answer feedback
+            const correctAnswer = parseInt(options[selectedIndex].dataset.correct);
+            if (parseInt(selectedIndex) === correctAnswer) {
+                options[selectedIndex].classList.add('correct');
+            } else {
+                options[selectedIndex].classList.add('incorrect');
+                options[correctAnswer].classList.add('correct');
+            }
+            answerSubmitted = true;
+        }
+
+        // Manual next button click
+        nextBtn.addEventListener('click', function (e) {
+            if (!answerSubmitted) {
+                e.preventDefault();
+                alert('يرجى اختيار إجابة أولاً');
+                return;
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (answerSubmitted) return;
+
+            if (e.key >= '1' && e.key <= '3') {
+                const optionIndex = parseInt(e.key) - 1;
+                if (optionIndex < options.length) {
+                    radioButtons[optionIndex].checked = true;
+                    options.forEach(opt => opt.classList.remove('selected', 'correct', 'incorrect'));
+                    options[optionIndex].classList.add('selected');
+
+                    // Get correct answer
+                    const correctAnswer = parseInt(options[optionIndex].dataset.correct);
+                    if (optionIndex === correctAnswer) {
+                        options[optionIndex].classList.add('correct');
+                    } else {
+                        options[optionIndex].classList.add('incorrect');
+                        options[correctAnswer].classList.add('correct');
+                    }
+
+                    nextBtn.disabled = false;
+                    answerSubmitted = true;
+
+                    setTimeout(() => {
+                        form.submit();
+                    }, 1500);
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

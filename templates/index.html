@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}الرئيسية - امتحان حقوق الإنسان{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card text-center">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    امتحان حقوق الإنسان
+                </h3>
+            </div>
+            <div class="card-body p-4 p-md-5">
+                <div class="mb-4">
+                    <i class="fas fa-book-open fa-3x text-primary mb-3"></i>
+                    <h4 class="mb-3">مرحباً بك في امتحان حقوق الإنسان</h4>
+                    <p class="text-muted mb-4">
+                        هذا الامتحان يحتوي على أسئلة متعددة الخيارات حول حقوق الإنسان.
+                        <br class="d-none d-sm-block">
+                        اختر الإجابة الصحيحة لكل سؤال.
+                    </p>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
+                                style="width: 50px; height: 50px;">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div class="small text-muted">عدد الأسئلة</div>
+                            <div class="fw-bold">{{ total_questions if total_questions else 147 }}</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
+                                style="width: 50px; height: 50px;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="small text-muted">الوقت المتوقع</div>
+                            <div class="fw-bold">30 دقيقة</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
+                                style="width: 50px; height: 50px;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="small text-muted">خيار واحد</div>
+                            <div class="fw-bold">لكل سؤال</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
+                                style="width: 50px; height: 50px;">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="small text-muted">النتيجة</div>
+                            <div class="fw-bold">فورية</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>تعليمات:</strong>
+                    <ul class="mb-0 mt-2 text-start">
+                        <li>اقرأ كل سؤال بعناية قبل الإجابة</li>
+                        <li>يمكنك العودة للسؤال السابق في أي وقت</li>
+                        <li>ستظهر النتيجة النهائية بعد الانتهاء من جميع الأسئلة</li>
+                        <li>يمكنك إعادة الامتحان في أي وقت</li>
+                    </ul>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('start_exam') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play me-2"></i>
+                        بدء الامتحان
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

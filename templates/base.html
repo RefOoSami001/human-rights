@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{% block title %}امتحان حقوق الإنسان{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --font-family-primary: 'Alexandria', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+        }
+
+        * {
+            font-family: var(--font-family-primary);
+        }
+
+        body {
+            font-family: var(--font-family-primary);
+            font-weight: var(--font-weight-regular);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Mobile-first responsive design */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .card {
+                margin-bottom: 15px;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .btn-lg {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            .question-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .option-item {
+                padding: 12px;
+                margin-bottom: 8px;
+            }
+
+            .score-display {
+                font-size: 2.5rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .card-body {
+                padding: 0.75rem;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .question-text {
+                font-size: 0.95rem;
+            }
+
+            .option-item {
+                padding: 10px;
+                margin-bottom: 6px;
+            }
+
+            .score-display {
+                font-size: 2rem;
+            }
+
+            .progress {
+                height: 8px;
+            }
+
+            .modal-dialog {
+                margin: 10px;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .form-check-input:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+
+        .progress-bar {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-medium);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .option-item {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: var(--font-weight-regular);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:hover {
+            border-color: #667eea;
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-item.selected {
+            border-color: #667eea;
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-item.correct {
+            border-color: #28a745;
+            background-color: #d4edda;
+            animation: correctPulse 0.6s ease-in-out;
+        }
+
+        .option-item.correct::before {
+            content: "✓";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #28a745;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: 14px;
+            animation: bounceIn 0.6s ease-in-out;
+        }
+
+        .option-item.incorrect {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+            animation: incorrectShake 0.6s ease-in-out;
+        }
+
+        .option-item.incorrect::before {
+            content: "✗";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #dc3545;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: 14px;
+            animation: shake 0.6s ease-in-out;
+        }
+
+        @keyframes correctPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes incorrectShake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-10deg);
+            }
+
+            75% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: #667eea;
+            animation: scoreAppear 1s ease-in-out;
+        }
+
+        @keyframes scoreAppear {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .navbar-brand {
+            font-weight: var(--font-weight-bold);
+            font-size: 1.5rem;
+        }
+
+        /* Typography improvements */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .card-title {
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .alert {
+            font-weight: var(--font-weight-regular);
+        }
+
+        .modal-title {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .progress-text {
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Disable pointer events after answer is selected */
+        .option-item.correct,
+        .option-item.incorrect {
+            pointer-events: none;
+        }
+
+        /* Style for disabled next button */
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Question navigation buttons */
+        .question-nav-btn {
+            transition: all 0.3s ease;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .question-nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-nav-btn.answered {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+        .question-nav-btn.current {
+            background-color: #667eea;
+            border-color: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Question slides */
+        .question-slide {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Modal improvements */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* Smooth transitions */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form elements */
+        .form-check-label {
+            font-weight: var(--font-weight-regular);
+            cursor: pointer;
+            width: 100%;
+            margin-right: 10px;
+        }
+
+        .form-check-input {
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Button text weights */
+        .btn {
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .btn-sm {
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Card body text */
+        .card-text {
+            font-weight: var(--font-weight-regular);
+        }
+
+        /* Alert text */
+        .alert strong {
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* List items */
+        li {
+            font-weight: var(--font-weight-regular);
+        }
+
+        /* Small text */
+        .text-muted {
+            font-weight: var(--font-weight-light);
+        }
+
+        /* Review section styles */
+        .review-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-in-out;
+        }
+
+        .review-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .review-question {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #dc3545;
+            animation: slideInRight 0.5s ease-in-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .review-question.correct {
+            border-left-color: #28a745;
+        }
+
+        .review-option {
+            padding: 0.5rem;
+            margin: 0.25rem 0;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .review-option.user-answer {
+            background-color: #f8d7da;
+            border: 1px solid #dc3545;
+            color: #721c24;
+        }
+
+        .review-option.correct-answer {
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            color: #155724;
+        }
+
+        .review-option.user-answer.correct-answer {
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            color: #155724;
+        }
+
+        /* Page transitions */
+        .page-transition {
+            animation: pageSlide 0.5s ease-in-out;
+        }
+
+        @keyframes pageSlide {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Sound control */
+        .sound-control {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .sound-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .sound-control.muted {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+        }
+
+        /* Mobile-specific improvements */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+
+            .mt-4 {
+                margin-top: 1rem !important;
+            }
+
+            .mb-4 {
+                margin-bottom: 1rem !important;
+            }
+
+            .p-4 {
+                padding: 1rem !important;
+            }
+
+            .p-5 {
+                padding: 1.5rem !important;
+            }
+
+            .row {
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+
+            .col-md-3 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .modal-dialog {
+                margin: 10px;
+                max-width: calc(100% - 20px);
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+
+            .modal-footer {
+                padding: 0.75rem 1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-group .btn {
+                margin-bottom: 0.5rem;
+                width: 100%;
+            }
+
+            .d-flex.justify-content-between {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .d-flex.justify-content-between>div {
+                width: 100%;
+                text-align: center;
+            }
+
+            .sound-control {
+                top: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .card {
+                border-radius: 10px;
+            }
+
+            .btn {
+                border-radius: 20px;
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+
+            .option-item {
+                border-radius: 8px;
+                padding: 8px;
+            }
+
+            .question-text {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .score-display {
+                font-size: 1.8rem;
+            }
+
+            .progress {
+                height: 6px;
+            }
+
+            .modal-dialog {
+                margin: 5px;
+            }
+
+            .modal-content {
+                border-radius: 10px;
+            }
+
+            .modal-header {
+                border-radius: 10px 10px 0 0;
+                padding: 0.75rem;
+            }
+
+            .modal-body {
+                padding: 0.75rem;
+            }
+
+            .modal-footer {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .review-section {
+                padding: 1rem;
+            }
+
+            .review-question {
+                padding: 0.75rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .option-item {
+                min-height: 70px;
+                padding: 15px;
+            }
+
+            .btn {
+                min-height: 44px;
+                padding: 12px 20px;
+            }
+
+            .form-check-input {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* Landscape orientation adjustments */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .container {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+
+            .card {
+                margin-bottom: 10px;
+            }
+
+            .card-body {
+                padding: 0.75rem;
+            }
+
+            .question-text {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .option-item {
+                padding: 8px;
+                margin-bottom: 5px;
+                min-height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sound Control -->
+    <div class="sound-control" id="soundControl" onclick="toggleSound()">
+        <i class="fas fa-volume-up" id="soundIcon"></i>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-graduation-cap me-2"></i>
+                امتحان حقوق الإنسان-By RefOo
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="correctSound" preload="auto">
+        <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT"
+            type="audio/wav">
+    </audio>
+    <audio id="incorrectSound" preload="auto">
+        <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT"
+            type="audio/wav">
+    </audio>
+    <audio id="completeSound" preload="auto">
+        <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT"
+            type="audio/wav">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Sound control functionality
+        let soundEnabled = true;
+        let audioContext = null;
+        let audioInitialized = false;
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const control = document.getElementById('soundControl');
+
+            if (soundEnabled) {
+                icon.className = 'fas fa-volume-up';
+                control.classList.remove('muted');
+            } else {
+                icon.className = 'fas fa-volume-mute';
+                control.classList.add('muted');
+            }
+        }
+
+        function initializeAudio() {
+            if (audioInitialized) return;
+
+            try {
+                // Try to initialize Web Audio API
+                if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    audioInitialized = true;
+                }
+            } catch (e) {
+                console.log('Web Audio API not supported:', e);
+            }
+        }
+
+        function playSound(soundId) {
+            if (!soundEnabled) return;
+
+            // Initialize audio on first play
+            if (!audioInitialized) {
+                initializeAudio();
+            }
+
+            try {
+                // Try Web Audio API first for better control
+                if (audioContext && audioContext.state === 'running') {
+                    playWebAudio(soundId);
+                } else {
+                    // Fallback to HTML5 audio
+                    playHTML5Audio(soundId);
+                }
+            } catch (e) {
+                console.log('Audio play failed:', e);
+                // Final fallback to HTML5 audio
+                playHTML5Audio(soundId);
+            }
+        }
+
+        function playHTML5Audio(soundId) {
+            const audio = document.getElementById(soundId);
+            if (audio) {
+                audio.currentTime = 0;
+                audio.volume = 0.3;
+                audio.play().catch(e => {
+                    console.log('HTML5 audio failed:', e);
+                });
+            }
+        }
+
+        function playWebAudio(soundId) {
+            if (!audioContext || audioContext.state !== 'running') return;
+
+            try {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                // Different sounds for different events
+                switch (soundId) {
+                    case 'correctSound':
+                        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                        oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.1);
+                        oscillator.frequency.setValueAtTime(1200, audioContext.currentTime + 0.2);
+                        gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.3);
+                        break;
+
+                    case 'incorrectSound':
+                        oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+                        oscillator.frequency.setValueAtTime(300, audioContext.currentTime + 0.1);
+                        oscillator.frequency.setValueAtTime(200, audioContext.currentTime + 0.2);
+                        gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.3);
+                        break;
+
+                    case 'completeSound':
+                        // Play a sequence of notes for completion
+                        const notes = [523, 659, 784, 1047]; // C, E, G, C
+                        notes.forEach((note, index) => {
+                            const osc = audioContext.createOscillator();
+                            const gain = audioContext.createGain();
+                            osc.connect(gain);
+                            gain.connect(audioContext.destination);
+
+                            osc.frequency.setValueAtTime(note, audioContext.currentTime);
+                            gain.gain.setValueAtTime(0.15, audioContext.currentTime);
+                            gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+
+                            osc.start(audioContext.currentTime + index * 0.15);
+                            osc.stop(audioContext.currentTime + index * 0.15 + 0.2);
+                        });
+                        break;
+                }
+            } catch (e) {
+                console.log('Web Audio failed:', e);
+                // Fallback to HTML5 audio
+                playHTML5Audio(soundId);
+            }
+        }
+
+        // Resume audio context on user interaction (required by browsers)
+        function resumeAudioContext() {
+            if (audioContext && audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+        }
+
+        // Page transition effect
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('page-transition');
+
+            // Initialize audio on first user interaction
+            const initAudioOnInteraction = function () {
+                initializeAudio();
+                resumeAudioContext();
+                document.removeEventListener('click', initAudioOnInteraction);
+                document.removeEventListener('touchstart', initAudioOnInteraction);
+                document.removeEventListener('keydown', initAudioOnInteraction);
+            };
+
+            document.addEventListener('click', initAudioOnInteraction);
+            document.addEventListener('touchstart', initAudioOnInteraction);
+            document.addEventListener('keydown', initAudioOnInteraction);
+        });
+
+        // Make playSound function globally available
+        window.playSound = playSound;
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

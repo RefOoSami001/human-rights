@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}النتيجة - امتحان حقوق الإنسان{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-success text-white text-center">
+                <h3 class="mb-0">
+                    <i class="fas fa-trophy me-2"></i>
+                    نتيجة الامتحان
+                </h3>
+            </div>
+
+            <div class="card-body text-center p-5">
+                <div class="score-display mb-4">
+                    {{ "%.1f"|format(score_percentage) }}%
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="text-success">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    الإجابات الصحيحة
+                                </h5>
+                                <h2 class="text-success">{{ correct_answers }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="text-danger">
+                                    <i class="fas fa-times-circle me-2"></i>
+                                    الإجابات الخاطئة
+                                </h5>
+                                <h2 class="text-danger">{{ total_questions - correct_answers }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress mb-4" style="height: 20px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ score_percentage }}%">
+                        {{ correct_answers }}/{{ total_questions }}
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <h5>
+                        <i class="fas fa-info-circle me-2"></i>
+                        ملخص الأداء
+                    </h5>
+                    <p class="mb-0">
+                        {% if score_percentage >= 90 %}
+                        <strong>ممتاز!</strong> أداء رائع، احتفظ بهذا المستوى.
+                        {% elif score_percentage >= 80 %}
+                        <strong>جيد جداً!</strong> أداء ممتاز، واصل التقدم.
+                        {% elif score_percentage >= 70 %}
+                        <strong>جيد!</strong> أداء مقبول، يمكنك التحسن أكثر.
+                        {% elif score_percentage >= 60 %}
+                        <strong>مقبول!</strong> تحتاج إلى مراجعة أكثر.
+                        {% else %}
+                        <strong>تحتاج إلى تحسين!</strong> راجع المادة جيداً وحاول مرة أخرى.
+                        {% endif %}
+                    </p>
+                </div>
+
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url_for('restart') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-redo me-2"></i>
+                        إعادة الامتحان
+                    </a>
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-home me-2"></i>
+                        العودة للرئيسية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
