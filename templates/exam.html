@@ -46,19 +46,21 @@
                 </div>
 
                 <!-- Navigation Buttons -->
-                <div class="d-flex justify-content-between mt-4 flex-wrap gap-2">
-                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <button class="btn btn-secondary flex-fill me-2" id="prevBtn" onclick="previousQuestion()">
                         <i class="fas fa-arrow-right me-2"></i>
                         السابق
                     </button>
 
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">
+                    <div class="d-flex gap-2 flex-fill">
+                        <button class="btn btn-primary flex-fill" id="nextBtn" onclick="nextQuestion()"
+                            style="display: none;">
                             <i class="fas fa-arrow-left me-2"></i>
                             التالي
                         </button>
 
-                        <button class="btn btn-success" id="finishBtn" onclick="finishExam()" style="display: none;">
+                        <button class="btn btn-success flex-fill" id="finishBtn" onclick="finishExam()"
+                            style="display: none;">
                             <i class="fas fa-check me-2"></i>
                             إنهاء الامتحان
                         </button>

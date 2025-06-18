@@ -60,8 +60,9 @@
             }
 
             .btn {
-                padding: 10px 20px;
+                padding: 12px 16px;
                 font-size: 0.9rem;
+                white-space: nowrap;
             }
 
             .btn-lg {
@@ -86,6 +87,31 @@
             .navbar-brand {
                 font-size: 1.2rem;
             }
+
+            .btn i {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+
+            /* Ensure buttons stay in same row */
+            .d-flex.justify-content-between {
+                flex-wrap: nowrap !important;
+            }
+
+            /* Equal width for navigation buttons */
+            .btn.flex-fill {
+                flex: 1 1 0% !important;
+                min-width: 0;
+            }
+
+            /* Proper spacing between button groups */
+            .me-2 {
+                margin-right: 0.75rem !important;
+            }
+
+            .gap-2 {
+                gap: 0.5rem !important;
+            }
         }
 
         @media (max-width: 576px) {
@@ -99,8 +125,22 @@
             }
 
             .btn {
-                padding: 8px 16px;
+                padding: 10px 12px;
                 font-size: 0.85rem;
+            }
+
+            .btn i {
+                margin-left: 0.25rem;
+                margin-right: 0.25rem;
+            }
+
+            /* Tighter spacing on very small screens */
+            .me-2 {
+                margin-right: 0.5rem !important;
+            }
+
+            .gap-2 {
+                gap: 0.25rem !important;
             }
 
             .question-text {
