@@ -191,6 +191,32 @@ def restart():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/get_questions_data')
+def get_questions_data():
+    """Get questions data with current randomization settings"""
+    if not session.get('exam_started'):
+        return jsonify({'error': 'No exam started'}), 400
+    
+    # Load and randomize questions using the stored seed and settings
+    questions = load_questions()
+    exam_seed = session.get('exam_seed')
+    randomize_questions = session.get('randomize_questions', True)
+    randomize_options = session.get('randomize_options', True)
+    
+    randomized_questions = randomize_questions_and_options(
+        questions, 
+        exam_seed, 
+        randomize_questions, 
+        randomize_options
+    )
+    
+    return jsonify({
+        'questions': randomized_questions,
+        'total_questions': len(randomized_questions),
+        'randomize_questions': randomize_questions,
+        'randomize_options': randomize_options
+    })
+
 if __name__ == '__main__':
     # Get port from environment variable or use default
     port = int(os.environ.get('PORT', 5000))

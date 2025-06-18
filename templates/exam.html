@@ -273,10 +273,59 @@
                 if (data.success) {
                     // Show success feedback
                     showRandomizationFeedback();
+
+                    // Reload questions with new settings
+                    reloadQuestionsWithNewSettings();
                 }
             })
             .catch(error => {
                 console.error('Error updating randomization settings:', error);
+            });
+    }
+
+    function reloadQuestionsWithNewSettings() {
+        // Store current question index and answers
+        const currentIndex = currentQuestionIndex;
+        const savedAnswers = { ...userAnswers };
+
+        // Get updated questions data from server
+        fetch('/get_questions_data')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error:', data.error);
+                    return;
+                }
+
+                // Update global variables
+                questions = data.questions;
+                totalQuestions = data.total_questions;
+                randomizeQuestions = data.randomize_questions;
+                randomizeOptions = data.randomize_options;
+
+                // Reload questions in the container
+                loadQuestions();
+
+                // Restore current question and answers
+                currentQuestionIndex = currentIndex;
+                userAnswers = savedAnswers;
+
+                // Show the current question with restored state
+                showQuestion(currentIndex);
+
+                // Update question list
+                generateQuestionList();
+
+                // Update progress
+                updateProgress();
+
+                // Show success message
+                showRandomizationFeedback();
+            })
+            .catch(error => {
+                console.error('Error reloading questions:', error);
+                // Fallback: reload the page
+                window.location.reload();
             });
     }
 
