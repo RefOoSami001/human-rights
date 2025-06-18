@@ -202,12 +202,18 @@ def submit_exam():
     
     correct_answers = 0
     total_questions = len(randomized_questions)
-    
-    # Score the exam
-    for i, question in enumerate(randomized_questions, 1):
-        user_answer = answers.get(str(i))
-        if user_answer is not None and user_answer == question['correct_answer']:
-            correct_answers += 1
+
+    # Score the exam (robust to key and type issues)
+    for idx, question in enumerate(randomized_questions):
+        user_answer = answers.get(str(idx))
+        if user_answer is None:
+            user_answer = answers.get(idx)
+        if user_answer is not None:
+            try:
+                if int(user_answer) == int(question['correct_answer']):
+                    correct_answers += 1
+            except Exception:
+                pass
     
     score_percentage = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
     
