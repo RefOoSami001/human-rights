@@ -66,18 +66,20 @@
             <h5 class="mb-0"><i class="fas fa-trophy me-2"></i> لوحة المتصدرين</h5>
         </div>
         <div class="card-body p-2">
-            <table class="table table-bordered table-sm text-center mb-0">
-                <thead>
-                    <tr>
-                        <th>الترتيب</th>
-                        <th>الاسم</th>
-                        <th>النتيجة</th>
-                        <th>الزمن (ثانية)</th>
-                        <th>الحالة</th>
-                    </tr>
-                </thead>
-                <tbody id="leaderboardBody"></tbody>
-            </table>
+            <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
+                <table class="table table-bordered table-sm text-center mb-0">
+                    <thead class="sticky-top bg-white">
+                        <tr>
+                            <th>الترتيب</th>
+                            <th>الاسم</th>
+                            <th>النتيجة</th>
+                            <th>الزمن (ثانية)</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -322,9 +324,25 @@
     });
     socket.on('player_joined', function (data) {
         showRoomLobby(data.players);
+        // Show leaderboard immediately with all participants
+        updateLeaderboard(Object.values(data.players).map(p => ({
+            name: p.name,
+            score: p.score || 0,
+            time: p.time || 0,
+            finished: p.finished || false,
+            progress: p.progress || 0
+        })));
     });
     socket.on('player_left', function (data) {
         showRoomLobby(data.players);
+        // Update leaderboard when players leave
+        updateLeaderboard(Object.values(data.players).map(p => ({
+            name: p.name,
+            score: p.score || 0,
+            time: p.time || 0,
+            finished: p.finished || false,
+            progress: p.progress || 0
+        })));
     });
     socket.on('game_started', function (data) {
         gameStarted = true;
@@ -372,6 +390,14 @@
             hostControls.style.display = 'none';
             waitingMsg.style.display = 'block';
         }
+        // Show leaderboard immediately with all participants
+        updateLeaderboard(Object.values(players).map(p => ({
+            name: p.name,
+            score: p.score || 0,
+            time: p.time || 0,
+            finished: p.finished || false,
+            progress: p.progress || 0
+        })));
     }
     if (document.getElementById('startGameBtn')) {
         document.getElementById('startGameBtn').onclick = function () {
@@ -386,18 +412,18 @@
             const progressPercent = Math.round((player.progress || 0) / totalQuestions * 100);
             const isMe = player.name === playerName;
             const rowClass = isMe ? 'table-primary fw-bold' : '';
-            tr = document.createElement('tr');
+            const tr = document.createElement('tr');
             tr.className = rowClass;
             tr.innerHTML = `
                 <td>${idx + 1}</td>
                 <td>${player.name} ${isMe ? '<i class=\'fas fa-user\'></i>' : ''}</td>
-                <td>${player.score}</td>
-                <td>${player.finished ? player.time.toFixed(1) : '-'}</td>
+                <td>${player.score || 0}</td>
+                <td>${player.finished ? (player.time || 0).toFixed(1) : '-'}</td>
                 <td>
                     ${player.finished ? '<span class=\'badge bg-success\'>انتهى</span>' :
-                    `<div class=\'progress\' style=\'height:12px; min-width:60px;\'>
+                    gameStarted ? `<div class=\'progress\' style=\'height:12px; min-width:60px;\'>
                             <div class=\'progress-bar bg-info\' role=\'progressbar\' style=\'width:${progressPercent}%;\'>${progressPercent}%</div>
-                        </div>`}
+                        </div>` : '<span class=\'badge bg-warning\'>في الانتظار</span>'}
                 </td>
             `;
             tbody.appendChild(tr);
@@ -714,7 +740,7 @@
 
         // Emit progress update for multiplayer
         if (multiplayerMode && roomCode) {
-            socket.emit('progress_update', { room_code: roomCode, current_index: index });
+            socket.emit('progress_update', { room_code: roomCode, current_index: index, client_id: clientId });
         }
     }
 
@@ -929,10 +955,5 @@
             }
         }
     }
-
-    // Make leaderboard sticky for mobile
-    leaderboardSection.classList.add('sticky-top');
-    leaderboardSection.style.zIndex = '1051';
-    leaderboardSection.style.top = '0';
 </script>
 {% endblock %}

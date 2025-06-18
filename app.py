@@ -350,6 +350,10 @@ def handle_join_room(data):
     if room_code not in GAMES:
         emit('error', {'message': 'رمز الغرفة غير صحيح.'}, room=session_id)
         return
+    # Check if game has already started
+    if GAMES[room_code]['started']:
+        emit('error', {'message': 'الامتحان قد بدأ بالفعل، لا يمكن الانضمام الآن.'}, room=session_id)
+        return
     # Always update or create player by client_id
     GAMES[room_code]['players'][client_id] = GAMES[room_code]['players'].get(client_id, {'name': name, 'score': 0, 'time': 0, 'finished': False})
     GAMES[room_code]['players'][client_id]['sid'] = session_id
@@ -375,10 +379,11 @@ def handle_start_game(data):
 def handle_progress_update(data):
     room_code = data.get('room_code')
     current_index = data.get('current_index', 0)
+    client_id = data.get('client_id')
     session_id = request.sid
-    if room_code not in GAMES or session_id not in GAMES[room_code]['players']:
+    if room_code not in GAMES or client_id not in GAMES[room_code]['players']:
         return
-    GAMES[room_code]['players'][session_id]['progress'] = current_index
+    GAMES[room_code]['players'][client_id]['progress'] = current_index
     # Broadcast updated leaderboard
     leaderboard = [
         {
