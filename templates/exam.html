@@ -52,7 +52,12 @@
                         السابق
                     </button>
 
-                    <div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            التالي
+                        </button>
+
                         <button class="btn btn-success" id="finishBtn" onclick="finishExam()" style="display: none;">
                             <i class="fas fa-check me-2"></i>
                             إنهاء الامتحان
@@ -249,12 +254,8 @@
                 // Update navigation buttons
                 updateNavigationButtons();
 
-                // Auto-advance after delay
-                setTimeout(() => {
-                    if (currentQuestionIndex < totalQuestions - 1) {
-                        nextQuestion();
-                    }
-                }, 1500);
+                // Show next button instead of auto-advancing
+                showNextButton();
             });
 
             // Add touch event listeners for better mobile experience
@@ -343,6 +344,9 @@
         if (userAnswers[index] !== undefined) {
             const question = questions[index];
             showAnswerFeedback(index, userAnswers[index], question.correct_answer);
+            showNextButton(); // Show next button if question was already answered
+        } else {
+            hideNextButton(); // Hide next button for unanswered questions
         }
     }
 
@@ -358,19 +362,34 @@
         }
     }
 
+    function showNextButton() {
+        const nextBtn = document.getElementById('nextBtn');
+        const finishBtn = document.getElementById('finishBtn');
+
+        if (currentQuestionIndex === totalQuestions - 1) {
+            // Last question - show finish button
+            nextBtn.style.display = 'none';
+            finishBtn.style.display = 'inline-block';
+        } else {
+            // Not last question - show next button
+            nextBtn.style.display = 'inline-block';
+            finishBtn.style.display = 'none';
+        }
+    }
+
+    function hideNextButton() {
+        const nextBtn = document.getElementById('nextBtn');
+        const finishBtn = document.getElementById('finishBtn');
+
+        nextBtn.style.display = 'none';
+        finishBtn.style.display = 'none';
+    }
+
     function updateNavigationButtons() {
         const prevBtn = document.getElementById('prevBtn');
-        const finishBtn = document.getElementById('finishBtn');
 
         // Enable/disable previous button
         prevBtn.disabled = currentQuestionIndex === 0;
-
-        // Show/hide finish button on last question
-        if (currentQuestionIndex === totalQuestions - 1) {
-            finishBtn.style.display = 'inline-block';
-        } else {
-            finishBtn.style.display = 'none';
-        }
     }
 
     function updateProgress() {
