@@ -17,7 +17,7 @@ def load_questions():
             QUESTIONS = json.load(file)
     return QUESTIONS
 
-def randomize_questions_and_options(questions, seed=None):
+def randomize_questions_and_options(questions, seed=None, randomize_questions=True, randomize_options=True):
     """Randomize questions and options while maintaining correct answer tracking"""
     if seed is not None:
         random.seed(seed)
@@ -32,26 +32,32 @@ def randomize_questions_and_options(questions, seed=None):
         original_options = question['options']
         original_correct = question['correct_answer']
         
-        # Create list of option indices
-        option_indices = list(range(len(original_options)))
-        
-        # Randomize option order
-        random.shuffle(option_indices)
-        
-        # Create new options list with randomized order
-        new_options = [original_options[i] for i in option_indices]
-        
-        # Find the new index of the correct answer
-        new_correct_index = option_indices.index(original_correct)
-        
-        # Update question with randomized options and correct answer
-        new_question['options'] = new_options
-        new_question['correct_answer'] = new_correct_index
+        if randomize_options:
+            # Create list of option indices
+            option_indices = list(range(len(original_options)))
+            
+            # Randomize option order
+            random.shuffle(option_indices)
+            
+            # Create new options list with randomized order
+            new_options = [original_options[i] for i in option_indices]
+            
+            # Find the new index of the correct answer
+            new_correct_index = option_indices.index(original_correct)
+            
+            # Update question with randomized options and correct answer
+            new_question['options'] = new_options
+            new_question['correct_answer'] = new_correct_index
+        else:
+            # Keep original options order
+            new_question['options'] = original_options
+            new_question['correct_answer'] = original_correct
         
         randomized_questions.append(new_question)
     
-    # Randomize question order
-    random.shuffle(randomized_questions)
+    # Randomize question order if requested
+    if randomize_questions:
+        random.shuffle(randomized_questions)
     
     return randomized_questions
 
@@ -69,6 +75,8 @@ def index():
     session['answers'] = {}
     session['total_questions'] = len(questions)
     session['exam_seed'] = exam_seed
+    session['randomize_questions'] = True  # Default to true
+    session['randomize_options'] = True    # Default to true
     
     return redirect(url_for('exam'))
 
@@ -86,6 +94,8 @@ def start_exam():
     session['answers'] = {}
     session['total_questions'] = len(questions)
     session['exam_seed'] = exam_seed
+    session['randomize_questions'] = True  # Default to true
+    session['randomize_options'] = True    # Default to true
     
     return redirect(url_for('exam'))
 
@@ -100,15 +110,39 @@ def exam():
         session['answers'] = {}
         session['total_questions'] = len(questions)
         session['exam_seed'] = exam_seed
+        session['randomize_questions'] = True  # Default to true
+        session['randomize_options'] = True    # Default to true
     
-    # Load and randomize questions using the stored seed
+    # Load and randomize questions using the stored seed and settings
     questions = load_questions()
     exam_seed = session.get('exam_seed')
-    randomized_questions = randomize_questions_and_options(questions, exam_seed)
+    randomize_questions = session.get('randomize_questions', True)
+    randomize_options = session.get('randomize_options', True)
+    
+    randomized_questions = randomize_questions_and_options(
+        questions, 
+        exam_seed, 
+        randomize_questions, 
+        randomize_options
+    )
     
     return render_template('exam.html', 
                          questions=randomized_questions,
-                         total_questions=len(randomized_questions))
+                         total_questions=len(randomized_questions),
+                         randomize_questions=randomize_questions,
+                         randomize_options=randomize_options)
+
+@app.route('/update_randomization', methods=['POST'])
+def update_randomization():
+    """Update randomization settings"""
+    if not session.get('exam_started'):
+        return jsonify({'error': 'No exam started'}), 400
+    
+    data = request.json
+    session['randomize_questions'] = data.get('randomize_questions', True)
+    session['randomize_options'] = data.get('randomize_options', True)
+    
+    return jsonify({'success': True})
 
 @app.route('/submit_exam', methods=['POST'])
 def submit_exam():
@@ -119,10 +153,18 @@ def submit_exam():
     # Get answers from request
     answers = request.json.get('answers', {})
     
-    # Regenerate questions using the same seed for consistent scoring
+    # Regenerate questions using the same seed and settings for consistent scoring
     questions = load_questions()
     exam_seed = session.get('exam_seed')
-    randomized_questions = randomize_questions_and_options(questions, exam_seed)
+    randomize_questions = session.get('randomize_questions', True)
+    randomize_options = session.get('randomize_options', True)
+    
+    randomized_questions = randomize_questions_and_options(
+        questions, 
+        exam_seed, 
+        randomize_questions, 
+        randomize_options
+    )
     
     correct_answers = 0
     total_questions = len(randomized_questions)

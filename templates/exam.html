@@ -19,6 +19,44 @@
             </div>
         </div>
 
+        <!-- Randomization Controls -->
+        <div class="card mb-3">
+            <div class="card-header bg-info text-white">
+                <h6 class="mb-0">
+                    <i class="fas fa-random me-2"></i>
+                    إعدادات الامتحان
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="randomizeQuestions" {{ 'checked' if
+                                randomize_questions else '' }}>
+                            <label class="form-check-label" for="randomizeQuestions">
+                                <i class="fas fa-list-ol me-2"></i>
+                                ترتيب عشوائي للأسئلة
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="randomizeOptions" {{ 'checked' if
+                                randomize_options else '' }}>
+                            <label class="form-check-label" for="randomizeOptions">
+                                <i class="fas fa-sort me-2"></i>
+                                ترتيب عشوائي للخيارات
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-info mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <small>يمكنك تغيير هذه الإعدادات في أي وقت. سيتم تطبيق التغييرات على الأسئلة التالية.</small>
+                </div>
+            </div>
+        </div>
+
         <!-- Question Container -->
         <div class="card">
             <div class="card-header bg-primary text-white">
@@ -181,6 +219,8 @@
     let userAnswers = {};
     let totalQuestions = {{ total_questions }};
     let incorrectAnswers = [];
+    let randomizeQuestions = {{ 'true' if randomize_questions else 'false' }};
+    let randomizeOptions = {{ 'true' if randomize_options else 'false' }};
 
     // Initialize the exam
     document.addEventListener('DOMContentLoaded', function () {
@@ -189,6 +229,7 @@
         updateProgress();
         generateQuestionList();
         updateNavigationButtons();
+        setupRandomizationControls();
 
         // Prevent zoom on double tap for mobile
         let lastTouchEnd = 0;
@@ -200,6 +241,65 @@
             lastTouchEnd = now;
         }, false);
     });
+
+    function setupRandomizationControls() {
+        const questionsCheckbox = document.getElementById('randomizeQuestions');
+        const optionsCheckbox = document.getElementById('randomizeOptions');
+
+        questionsCheckbox.addEventListener('change', function () {
+            randomizeQuestions = this.checked;
+            updateRandomizationSettings();
+        });
+
+        optionsCheckbox.addEventListener('change', function () {
+            randomizeOptions = this.checked;
+            updateRandomizationSettings();
+        });
+    }
+
+    function updateRandomizationSettings() {
+        fetch('/update_randomization', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                randomize_questions: randomizeQuestions,
+                randomize_options: randomizeOptions
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success feedback
+                    showRandomizationFeedback();
+                }
+            })
+            .catch(error => {
+                console.error('Error updating randomization settings:', error);
+            });
+    }
+
+    function showRandomizationFeedback() {
+        // Create a temporary success message
+        const feedback = document.createElement('div');
+        feedback.className = 'alert alert-success alert-dismissible fade show position-fixed';
+        feedback.style.cssText = 'top: 20px; right: 20px; z-index: 1050; min-width: 300px;';
+        feedback.innerHTML = `
+            <i class="fas fa-check-circle me-2"></i>
+            تم تحديث إعدادات الامتحان بنجاح
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        document.body.appendChild(feedback);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 3000);
+    }
 
     function loadQuestions() {
         const container = document.getElementById('questionsContainer');

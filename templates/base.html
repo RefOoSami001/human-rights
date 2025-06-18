@@ -214,8 +214,37 @@
         }
 
         .form-check-input:checked {
-            background-color: #667eea;
-            border-color: #667eea;
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .form-check-input:focus {
+            border-color: #17a2b8;
+            box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+        }
+
+        .form-check-label {
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .form-check-label:hover {
+            color: #17a2b8;
+        }
+
+        .form-switch .form-check-input {
+            width: 3rem;
+            height: 1.5rem;
+            margin-top: 0.125rem;
+        }
+
+        .form-switch .form-check-input:checked {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 0.85%29'/%3e%3c/svg%3e");
+        }
+
+        .form-switch .form-check-input:not(:checked) {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
         }
 
         .progress {
@@ -1085,6 +1114,23 @@
             50% {
                 transform: scale(1.5);
                 opacity: 0.6;
+            }
+        }
+
+        /* Success feedback animation */
+        .alert-success {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
             }
         }
     </style>
