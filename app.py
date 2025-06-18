@@ -4,12 +4,31 @@ import os
 import random
 import uuid
 from datetime import datetime, timedelta
+from flask_socketio import SocketIO, join_room, leave_room, emit
+from flask import copy_current_request_context
+import string
 
 app = Flask(__name__)
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 app.secret_key = 'your-secret-key-here'  # Change this to a secure secret key
 
 # Global variable to store questions (loaded once)
 QUESTIONS = None
+
+# Global dictionary to store active games and their state
+GAMES = {}
+# Structure:
+# GAMES = {
+#   room_code: {
+#       'host': session_id,
+#       'players': { session_id: { 'name': str, 'score': int, 'time': float, 'finished': bool } },
+#       'questions': [...],
+#       'started': bool,
+#       'start_time': datetime,
+#       'end_time': datetime or None
+#   },
+#   ...
+# }
 
 # Load questions from JSON file
 def load_questions():
@@ -292,9 +311,133 @@ def get_questions_data():
         'randomize_questions': randomize_questions
     })
 
+def generate_room_code(length=6):
+    chars = string.ascii_uppercase + string.digits
+    return ''.join(random.choices(chars, k=length))
+
+@socketio.on('create_room')
+def handle_create_room(data):
+    name = data.get('name', 'مجهول')
+    session_id = request.sid
+    room_code = generate_room_code()
+    questions = load_questions()
+    seed = random.randint(1, 1000000)
+    randomized_questions = randomize_questions_and_options(questions, seed, True)
+    GAMES[room_code] = {
+        'host': session_id,
+        'players': {
+            session_id: {'name': name, 'score': 0, 'time': 0, 'finished': False}
+        },
+        'questions': randomized_questions,
+        'started': False,
+        'start_time': None,
+        'end_time': None,
+        'seed': seed
+    }
+    join_room(room_code)
+    emit('room_created', {'room_code': room_code, 'players': GAMES[room_code]['players']}, room=session_id)
+
+@socketio.on('join_room')
+def handle_join_room(data):
+    name = data.get('name', 'مجهول')
+    room_code = data.get('room_code')
+    session_id = request.sid
+    if room_code not in GAMES:
+        emit('error', {'message': 'رمز الغرفة غير صحيح.'}, room=session_id)
+        return
+    GAMES[room_code]['players'][session_id] = {'name': name, 'score': 0, 'time': 0, 'finished': False}
+    join_room(room_code)
+    emit('player_joined', {'players': GAMES[room_code]['players']}, room=room_code)
+
+@socketio.on('start_game')
+def handle_start_game(data):
+    room_code = data.get('room_code')
+    session_id = request.sid
+    if room_code not in GAMES or GAMES[room_code]['host'] != session_id:
+        emit('error', {'message': 'غير مصرح لك ببدء الامتحان.'}, room=session_id)
+        return
+    GAMES[room_code]['started'] = True
+    GAMES[room_code]['start_time'] = datetime.now().isoformat()
+    emit('game_started', {
+        'questions': GAMES[room_code]['questions'],
+        'start_time': GAMES[room_code]['start_time']
+    }, room=room_code)
+
+@socketio.on('progress_update')
+def handle_progress_update(data):
+    room_code = data.get('room_code')
+    current_index = data.get('current_index', 0)
+    session_id = request.sid
+    if room_code not in GAMES or session_id not in GAMES[room_code]['players']:
+        return
+    GAMES[room_code]['players'][session_id]['progress'] = current_index
+    # Broadcast updated leaderboard
+    leaderboard = [
+        {
+            'name': p['name'],
+            'score': p['score'],
+            'time': p['time'],
+            'finished': p['finished'],
+            'progress': p.get('progress', 0)
+        }
+        for p in GAMES[room_code]['players'].values()
+    ]
+    leaderboard.sort(key=lambda x: (-x['score'], x['time']))
+    emit('leaderboard_update', {'leaderboard': leaderboard}, room=room_code)
+
+@socketio.on('submit_answers')
+def handle_submit_answers(data):
+    room_code = data.get('room_code')
+    answers = data.get('answers', {})
+    session_id = request.sid
+    if room_code not in GAMES or session_id not in GAMES[room_code]['players']:
+        emit('error', {'message': 'حدث خطأ في إرسال الإجابات.'}, room=session_id)
+        return
+    questions = GAMES[room_code]['questions']
+    correct = 0
+    for idx, q in enumerate(questions):
+        user_answer = answers.get(str(idx))
+        if user_answer is not None and int(user_answer) == int(q['correct_answer']):
+            correct += 1
+    finish_time = (datetime.now() - datetime.fromisoformat(GAMES[room_code]['start_time'])).total_seconds()
+    GAMES[room_code]['players'][session_id]['score'] = correct
+    GAMES[room_code]['players'][session_id]['time'] = finish_time
+    GAMES[room_code]['players'][session_id]['finished'] = True
+    GAMES[room_code]['players'][session_id]['progress'] = len(questions)
+    # Broadcast leaderboard update
+    leaderboard = [
+        {
+            'name': p['name'],
+            'score': p['score'],
+            'time': p['time'],
+            'finished': p['finished'],
+            'progress': p.get('progress', 0)
+        }
+        for p in GAMES[room_code]['players'].values()
+    ]
+    leaderboard.sort(key=lambda x: (-x['score'], x['time']))
+    emit('leaderboard_update', {'leaderboard': leaderboard}, room=room_code)
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    session_id = request.sid
+    # Remove player from all rooms
+    for room_code, game in list(GAMES.items()):
+        if session_id in game['players']:
+            leave_room(room_code)
+            del game['players'][session_id]
+            # If host left, assign new host or delete game if empty
+            if game['host'] == session_id:
+                if game['players']:
+                    game['host'] = next(iter(game['players']))
+                else:
+                    del GAMES[room_code]
+                    continue
+            emit('player_left', {'players': game['players']}, room=room_code)
+
 if __name__ == '__main__':
     # Get port from environment variable or use default
     port = int(os.environ.get('PORT', 5000))
     
     # Run the app
-    app.run(host='0.0.0.0', port=port, debug=False)
+    socketio.run(app, host='0.0.0.0', port=port, debug=False)
