@@ -1,552 +1,1644 @@
+{"list1":
 [
-   {
-      "number": 1,
-      "text": "stages of labor:",
-      "options": [
-         "the first stage commences at the time of membranes rupture",
-         "The cervix dilates at consistent rate of 3 cm per hour in the first stage",
-         "The third stage end with the delivery of the placenta and membranes",
-         "Forceps or ventose may be useful in slow progress of the late 1st stage"
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 2,
-      "text": "Hyperextension of the fetal head is found in:",
-      "options": [
-         "Vertex presentation",
-         "Face presentation",
-         "Shoulder presentation",
-         "Hydrocephalic baby"
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 3,
-      "text": "All the following characteristics are applied to a pelvis favorable to vaginal delivery, EXCEPT:",
-      "options": [
-         "Sacral promontory can't be felt.",
-         "Obstetric conjugate is less than 10 cm.",
-         "Ischial spines are not prominent.",
-         "Sub pubic arch accepts 2 fingers."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 4,
-      "text": "In the fetus:",
-      "options": [
-         "The coronal suture lies between the two parietal bones.",
-         "The umbilical artery normally contains one artery and two veins.",
-         "Fetal lie describes the long axis of the fetus to the long axis of the mother.",
-         "The anterior Fontanelle is usually closed by the time of labor."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 5,
-      "text": "Which of the following terms best describes the pelvic type of small posterior sagittal diameter, convergent sidewalls, prominent ischial spines, and narrow pubic arch?",
-      "options": [
-         "Android.",
-         "Gynecoid",
-         "Anthropoid.",
-         "Platypelloid."
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 6,
-      "text": "The second stage of labor involves:",
-      "options": [
-         "Separation of the placenta.",
-         "Effacement of the cervix.",
-         "Expulsion of the placenta.",
-         "Expulsion of the fetus."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 7,
-      "text": "A pelvic inlet is felt to be contracted if :",
-      "options": [
-         "The anterio-posterior diameter is only 12 cm.",
-         "The transverse diameter is only 10 cm .",
-         "Platypelloid pelvis.",
-         "The mother is short."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 8,
-      "text": "During clinical pelvimerty, which of the following is routinely measured ?",
-      "options": [
-         "Bi-ischeal diameter.",
-         "Transverse diameter of the inlet.",
-         "Shape of the pubic arch.",
-         "Elasticity of the levator muscles."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 9,
-      "text": "At term, the ligaments of the pelvis are changed, this can result in:",
-      "options": [
-         "Increasing rigidity of the pelvis.",
-         "Increasing rigidity of the pelvis.",
-         "Decreasing width of the symphysis.",
-         "Enlargement of the pelvic cavity."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 10,
-      "text": "During clinical pelvimetry, which of the following is routinely measured ?",
-      "options": [
-         "True conjugate.",
-         "Transverse diameter of the inlet.",
-         "Shape of the pubic arch.",
-         "Flare of the iliac crest."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 11,
-      "text": "During the delivery, the fetal head follow the pelvic axis, the axis is best described as:",
-      "options": [
-         "A straight line.",
-         "A curved line, 1st directed anteriorly then caudal.",
-         "A curved line, 1ST directed posteriorly then caudal.",
-         "A curved line, 1ST directed posteriorly then cephalic."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 12,
-      "text": "A head of level (one fifth) indicates:",
-      "options": [
-         "Indicates that one fifth of the head is below the pelvic brim.",
-         "Indicates that the head is engaged.",
-         "Always occur in a term brow presentation.",
-         "Indicates that head is at the level of the ischial spines."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 13,
-      "text": "In a vertex presentation, the position is determined by the relationship of what fetal part to the Mother's pelvis:",
-      "options": [
-         "Mentum.",
-         "Sacrum.",
-         "Occiput.",
-         "Sinciput."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 14,
-      "text": "Signs of Placental separation after delivery include:",
-      "options": [
-         "Vaginal Bleeding.",
-         "Lengthening of the umbilical cord.",
-         "Presentation of the placenta at the cervical os.",
-         "All of the above."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 15,
-      "text": "An unstable lie is related to all of the following, EXCEPT:",
-      "options": [
-         "Prematurity.",
-         "Fundal fibroid.",
-         "Grand multiparty.",
-         "Cervical fibroid."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 16,
-      "text": "The relation of the fetal parts to one another determines:",
-      "options": [
-         "Presentation of the fetus.",
-         "Lie of the fetus.",
-         "Attitude of the fetus.",
-         "Position of the fetus."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 17,
-      "text": "The relationship of the long axis of the fetus to the long axis of the mother is called:",
-      "options": [
-         "Lie of the fetus",
-         "Presentation of the fetus",
-         "Position of the fetus",
-         "Attitude of the fetus"
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 18,
-      "text": "Engagement is strictly defined as:",
-      "options": [
-         "When the presenting part goes through the pelvic inlet.",
-         "When the presenting part is level with the ischial spines.",
-         "When the greatest Biparietal diameter of the fetal head passes the pelvic inlet.",
-         "When the greatest Biparietal diameter of the fetal head is at the level of ischial spines."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 19,
-      "text": "The fetal head may undergo changes in shape during normal delivery. The most common etiology listed is:",
-      "options": [
-         "Cephalohematoma.",
-         "Moulding.",
-         "Subdural hematoma.",
-         "Hydrocephalus."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 20,
-      "text": "If the large fontanel is the presenting part, what is the presentation?",
-      "options": [
-         "Sinciput.",
-         "Breech.",
-         "Face.",
-         "Brow."
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 21,
-      "text": "Methods of determining fetal presentation & position include:",
-      "options": [
-         "Cullen's sign.",
-         "Leopold's maneuver.",
-         "Mauriceau-Smelli-Veit maneuver.",
-         "Carful history taking."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 22,
-      "text": "A transverse lie of the fetus is least likely in the presence of:",
-      "options": [
-         "Placenta previa.",
-         "Pelvic contraction.",
-         "Preterm fetus.",
-         "Normal term fetus."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 23,
-      "text": "What is the station where the presenting part is at the level of the ischial spines:",
-      "options": [
-         "-2 .",
-         "-1 .",
-         "0 .",
-         "+2 ."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 24,
-      "text": "A primpara is in labor, an advantage of medio-lateral episiotomy is :",
-      "options": [
-         "Ease of repair",
-         "Lower blood loss",
-         "Less dyspareunia",
-         "Less extension of the incision"
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 25,
-      "text": "If Episiotomy incision involved the muscles of Perineal body but not the anal sphincter. Such a laceration would be classified as :",
-      "options": [
-         "First degree",
-         "Second degree",
-         "Third degree",
-         "Fourth degree"
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 26,
-      "text": "Regarding Episiotomy:",
-      "options": [
-         "Commonly done in Left medio lateral side.",
-         "External anal sphincter is included in episiotomy.",
-         "Must be done in multigravida",
-         "It is done after the head crown appear ( crowning )."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 27,
-      "text": "The first stage of labor :",
-      "options": [
-         "Effacement of the cervix.",
-         "Separation of the placenta",
-         "With fully Dilation of the cervix.",
-         "Expulsion of the fetus."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 28,
-      "text": "The heart rate of a normal fetus at term:",
-      "options": [
-         "80-100 bpm.",
-         "100-120 bpm.",
-         "120-160 bpm.",
-         "160-180 bpm."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 29,
-      "text": "Repetitive late decelerations most commonly indicate:",
-      "options": [
-         "Fetal acedemia.",
-         "Fetal hypoxia.",
-         "Fetal sleep state.",
-         "Rapid cervical dilatation"
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 30,
-      "text": "Electronic fetal monitoring:",
-      "options": [
-         "Has low specificity but high sensitivity.",
-         "Has high specificity but low sensitivity.",
-         "Has low specificity & sensitivity.",
-         "Has high specificity & sensitivity."
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 31,
-      "text": "What is the uterine blood flow at term:",
-      "options": [
-         "100 to 150 ml/min.",
-         "300 to 500 ml/min.",
-         "500 to 750 ml/min.",
-         "200 ml/min."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 32,
-      "text": "Regarding Fetal blood pH:",
-      "options": [
-         "Is not a reliable way of assessing fetal distress.",
-         "Can only be measured postnatal.",
-         "Is dangerous to perform & should not be done.",
-         "Can be measured during labor."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 33,
-      "text": "The following are major indicators of fetal asphyxia:",
-      "options": [
-         "Loss of acceleration.",
-         "Old meconium at the time of induction of labor.",
-         "Deep type I deceleration in the second stage of labor.",
-         "Type II (late) decelerations with tachycardia."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 34,
-      "text": "Which of the following is NOT a characteristic of normal labor:",
-      "options": [
-         "Progressive cervical dilation.",
-         "Moderate bleeding.",
-         "Moderate pain.",
-         "Increasing intensity of contractions."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 35,
-      "text": "Bishop score includes all the followings, EXCEPT:",
-      "options": [
-         "Dilation of the cervix.",
-         "Position of the cervix.",
-         "The presenting part of the fetus.",
-         "Length of the cervix."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 36,
-      "text": "During which of the following conditions would the serum Prolactin level be greatest:",
-      "options": [
-         "Parturition.",
-         "Sleep",
-         "ovulation",
-         "Suckling of the breast"
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 37,
-      "text": "Regarding Prostaglandins:",
-      "options": [
-         "Maintain the corpus luteum of early pregnancy.",
-         "Have no role in the development of menorrhagia.",
-         "Are involved in the onset of labor.",
-         "Have no rule in the development of dysmenorrhea."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 38,
-      "text": "Early deceleration is :",
-      "options": [
-         "Associated with unengaged head of the fetus.",
-         "Associated usually with brain asphyxia.",
-         "A decrease in the fetal heart beat that peaks after the peak of uterine contraction.",
-         "Results from increased vagal tone secondary to head compression."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 39,
-      "text": "The normal cord pH is ",
-      "options": [
-         "6.1.",
-         "6.2",
-         "7.1.",
-         "7.2."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 40,
-      "text": "The bishop score is used to predict :",
-      "options": [
-         "The state of the fetus at the time of delivery.",
-         "The success rate of the induction of the labor.",
-         "The fetal condition in the uterus.",
-         "The maternal wellbeing in labor."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 41,
-      "text": "The volume of amniotic fluid is:",
-      "options": [
-         "Maybe predicted by Ultrasound.",
-         "Is reduced in sever rhesus disease.",
-         "Increases following amniocentesis.",
-         "Is increased in sever pre-eclampsia."
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 42,
-      "text": "Fetal nutrition is dependent on:",
-      "options": [
-         "Maternal nutrient stores.",
-         "Maternal diet.",
-         "Placental exchange.",
-         "All of the above."
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 43,
-      "text": "Cephalopelvic disproportion in the absence of gross pelvic abnormality can be diagnosed by:",
-      "options": [
-         "Ultrasound.",
-         "X-ray pelvimetry.",
-         "Trial of labor.",
-         "Pelvic examination"
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 44,
-      "text": "Maternal mortality is lowest in mothers between what age groups:",
-      "options": [
-         "10 -20 years old",
-         "20 - 30 years old",
-         "30 - 40 years old",
-         "40 - 50 years old"
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 45,
-      "text": "Umbilical cord prolapse is associated with all the following, EXCEPT :",
-      "options": [
-         "Post maturity.",
-         "Anencephaly.",
-         "Cephalo pelvic disproportion.",
-         "Footing breech presentation."
-      ],
-      "correct_answer": 1
-   },
-   {
-      "number": 46,
-      "text": "The major cause of the increased risk of morbidity & mortality among twin gestation is:",
-      "options": [
-         "Gestational diabetes.",
-         "Placenta previa.",
-         "Malpresentation",
-         "Preterm delivery"
-      ],
-      "correct_answer": 3
-   },
-   {
-      "number": 47,
-      "text": "The most common cause of perinatal death in mono-amniotic twin is:",
-      "options": [
-         "Cord entrapment.",
-         "Cord prolapse.",
-         "Twin-twin transfusion syndrome.",
-         "Placental abruption."
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 48,
-      "text": "If twin A is in a transverse lie & twin B is vertex, what is the most appropriate route for delivery ?",
-      "options": [
-         "Cesarean-section (CS)",
-         "Internal podalic version followed by breech extraction.",
-         "Both of them.",
-         "Neither of them."
-      ],
-      "correct_answer": 0
-   },
-   {
-      "number": 49,
-      "text": "All of the following increased in multiple gestation, EXCEPT:",
-      "options": [
-         "Blood loss at delivery.",
-         "The incidence of congenital anomalies.",
-         "The incidence of cephalo-pelvic disproportion.",
-         "The incidence of Malpresentation."
-      ],
-      "correct_answer": 2
-   },
-   {
-      "number": 50,
-      "text": "Monozygotic twins, All of the following are correct, EXCEPT :",
-      "options": [
-         "Has a constant incidence of 1:250 births",
-         "Has a constant incidence 1:600 births",
-         "Has more complications than dizygotic twins.",
-         "Is not affected by heredity."
-      ],
-      "correct_answer": 1
-   }
-]
+      {
+         "number": 1,
+         "text": "stages of labor:",
+         "options": [
+            "the first stage commences at the time of membranes rupture",
+            "The cervix dilates at consistent rate of 3 cm per hour in the first stage",
+            "The third stage end with the delivery of the placenta and membranes",
+            "Forceps or ventose may be useful in slow progress of the late 1st stage"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 2,
+         "text": "Hyperextension of the fetal head is found in:",
+         "options": [
+            "Vertex presentation",
+            "Face presentation",
+            "Shoulder presentation",
+            "Hydrocephalic baby"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 3,
+         "text": "All the following characteristics are applied to a pelvis favorable to vaginal delivery, EXCEPT:",
+         "options": [
+            "Sacral promontory can't be felt.",
+            "Obstetric conjugate is less than 10 cm.",
+            "Ischial spines are not prominent.",
+            "Sub pubic arch accepts 2 fingers."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 4,
+         "text": "In the fetus:",
+         "options": [
+            "The coronal suture lies between the two parietal bones.",
+            "The umbilical artery normally contains one artery and two veins.",
+            "Fetal lie describes the long axis of the fetus to the long axis of the mother.",
+            "The anterior Fontanelle is usually closed by the time of labor."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 5,
+         "text": "Which of the following terms best describes the pelvic type of small posterior sagittal diameter, convergent sidewalls, prominent ischial spines, and narrow pubic arch?",
+         "options": [
+            "Android.",
+            "Gynecoid",
+            "Anthropoid.",
+            "Platypelloid."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 6,
+         "text": "The second stage of labor involves:",
+         "options": [
+            "Separation of the placenta.",
+            "Effacement of the cervix.",
+            "Expulsion of the placenta.",
+            "Expulsion of the fetus."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 7,
+         "text": "A pelvic inlet is felt to be contracted if :",
+         "options": [
+            "The anterio-posterior diameter is only 12 cm.",
+            "The transverse diameter is only 10 cm .",
+            "Platypelloid pelvis.",
+            "The mother is short."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 8,
+         "text": "During clinical pelvimerty, which of the following is routinely measured ?",
+         "options": [
+            "Bi-ischeal diameter.",
+            "Transverse diameter of the inlet.",
+            "Shape of the pubic arch.",
+            "Elasticity of the levator muscles."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 9,
+         "text": "At term, the ligaments of the pelvis are changed, this can result in:",
+         "options": [
+            "Increasing rigidity of the pelvis.",
+            "Increasing rigidity of the pelvis.",
+            "Decreasing width of the symphysis.",
+            "Enlargement of the pelvic cavity."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 10,
+         "text": "During clinical pelvimetry, which of the following is routinely measured ?",
+         "options": [
+            "True conjugate.",
+            "Transverse diameter of the inlet.",
+            "Shape of the pubic arch.",
+            "Flare of the iliac crest."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 11,
+         "text": "During the delivery, the fetal head follow the pelvic axis, the axis is best described as:",
+         "options": [
+            "A straight line.",
+            "A curved line, 1st directed anteriorly then caudal.",
+            "A curved line, 1ST directed posteriorly then caudal.",
+            "A curved line, 1ST directed posteriorly then cephalic."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 12,
+         "text": "A head of level (one fifth) indicates:",
+         "options": [
+            "Indicates that one fifth of the head is below the pelvic brim.",
+            "Indicates that the head is engaged.",
+            "Always occur in a term brow presentation.",
+            "Indicates that head is at the level of the ischial spines."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 13,
+         "text": "In a vertex presentation, the position is determined by the relationship of what fetal part to the Mother's pelvis:",
+         "options": [
+            "Mentum.",
+            "Sacrum.",
+            "Occiput.",
+            "Sinciput."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 14,
+         "text": "Signs of Placental separation after delivery include:",
+         "options": [
+            "Vaginal Bleeding.",
+            "Lengthening of the umbilical cord.",
+            "Presentation of the placenta at the cervical os.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 15,
+         "text": "An unstable lie is related to all of the following, EXCEPT:",
+         "options": [
+            "Prematurity.",
+            "Fundal fibroid.",
+            "Grand multiparty.",
+            "Cervical fibroid."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 16,
+         "text": "The relation of the fetal parts to one another determines:",
+         "options": [
+            "Presentation of the fetus.",
+            "Lie of the fetus.",
+            "Attitude of the fetus.",
+            "Position of the fetus."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 17,
+         "text": "The relationship of the long axis of the fetus to the long axis of the mother is called:",
+         "options": [
+            "Lie of the fetus",
+            "Presentation of the fetus",
+            "Position of the fetus",
+            "Attitude of the fetus"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 18,
+         "text": "Engagement is strictly defined as:",
+         "options": [
+            "When the presenting part goes through the pelvic inlet.",
+            "When the presenting part is level with the ischial spines.",
+            "When the greatest Biparietal diameter of the fetal head passes the pelvic inlet.",
+            "When the greatest Biparietal diameter of the fetal head is at the level of ischial spines."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 19,
+         "text": "The fetal head may undergo changes in shape during normal delivery. The most common etiology listed is:",
+         "options": [
+            "Cephalohematoma.",
+            "Moulding.",
+            "Subdural hematoma.",
+            "Hydrocephalus."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 20,
+         "text": "If the large fontanel is the presenting part, what is the presentation?",
+         "options": [
+            "Sinciput.",
+            "Breech.",
+            "Face.",
+            "Brow."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 21,
+         "text": "Methods of determining fetal presentation & position include:",
+         "options": [
+            "Cullen's sign.",
+            "Leopold's maneuver.",
+            "Mauriceau-Smelli-Veit maneuver.",
+            "Carful history taking."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 22,
+         "text": "A transverse lie of the fetus is least likely in the presence of:",
+         "options": [
+            "Placenta previa.",
+            "Pelvic contraction.",
+            "Preterm fetus.",
+            "Normal term fetus."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 23,
+         "text": "What is the station where the presenting part is at the level of the ischial spines:",
+         "options": [
+            "-2 .",
+            "-1 .",
+            "0 .",
+            "+2 ."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 24,
+         "text": "A primpara is in labor, an advantage of medio-lateral episiotomy is :",
+         "options": [
+            "Ease of repair",
+            "Lower blood loss",
+            "Less dyspareunia",
+            "Less extension of the incision"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 25,
+         "text": "If Episiotomy incision involved the muscles of Perineal body but not the anal sphincter. Such a laceration would be classified as :",
+         "options": [
+            "First degree",
+            "Second degree",
+            "Third degree",
+            "Fourth degree"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 26,
+         "text": "Regarding Episiotomy:",
+         "options": [
+            "Commonly done in Left medio lateral side.",
+            "External anal sphincter is included in episiotomy.",
+            "Must be done in multigravida",
+            "It is done after the head crown appear ( crowning )."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 27,
+         "text": "The first stage of labor :",
+         "options": [
+            "Effacement of the cervix.",
+            "Separation of the placenta",
+            "With fully Dilation of the cervix.",
+            "Expulsion of the fetus."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 28,
+         "text": "The heart rate of a normal fetus at term:",
+         "options": [
+            "80-100 bpm.",
+            "100-120 bpm.",
+            "120-160 bpm.",
+            "160-180 bpm."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 29,
+         "text": "Repetitive late decelerations most commonly indicate:",
+         "options": [
+            "Fetal acedemia.",
+            "Fetal hypoxia.",
+            "Fetal sleep state.",
+            "Rapid cervical dilatation"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 30,
+         "text": "Electronic fetal monitoring:",
+         "options": [
+            "Has low specificity but high sensitivity.",
+            "Has high specificity but low sensitivity.",
+            "Has low specificity & sensitivity.",
+            "Has high specificity & sensitivity."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 31,
+         "text": "What is the uterine blood flow at term:",
+         "options": [
+            "100 to 150 ml/min.",
+            "300 to 500 ml/min.",
+            "500 to 750 ml/min.",
+            "200 ml/min."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 32,
+         "text": "Regarding Fetal blood pH:",
+         "options": [
+            "Is not a reliable way of assessing fetal distress.",
+            "Can only be measured postnatal.",
+            "Is dangerous to perform & should not be done.",
+            "Can be measured during labor."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 33,
+         "text": "The following are major indicators of fetal asphyxia:",
+         "options": [
+            "Loss of acceleration.",
+            "Old meconium at the time of induction of labor.",
+            "Deep type I deceleration in the second stage of labor.",
+            "Type II (late) decelerations with tachycardia."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 34,
+         "text": "Which of the following is NOT a characteristic of normal labor:",
+         "options": [
+            "Progressive cervical dilation.",
+            "Moderate bleeding.",
+            "Moderate pain.",
+            "Increasing intensity of contractions."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 35,
+         "text": "Bishop score includes all the followings, EXCEPT:",
+         "options": [
+            "Dilation of the cervix.",
+            "Position of the cervix.",
+            "The presenting part of the fetus.",
+            "Length of the cervix."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 36,
+         "text": "During which of the following conditions would the serum Prolactin level be greatest:",
+         "options": [
+            "Parturition.",
+            "Sleep",
+            "ovulation",
+            "Suckling of the breast"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 37,
+         "text": "Regarding Prostaglandins:",
+         "options": [
+            "Maintain the corpus luteum of early pregnancy.",
+            "Have no role in the development of menorrhagia.",
+            "Are involved in the onset of labor.",
+            "Have no rule in the development of dysmenorrhea."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 38,
+         "text": "Early deceleration is :",
+         "options": [
+            "Associated with unengaged head of the fetus.",
+            "Associated usually with brain asphyxia.",
+            "A decrease in the fetal heart beat that peaks after the peak of uterine contraction.",
+            "Results from increased vagal tone secondary to head compression."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 39,
+         "text": "The normal cord pH is ",
+         "options": [
+            "6.1.",
+            "6.2",
+            "7.1.",
+            "7.2."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 40,
+         "text": "The bishop score is used to predict :",
+         "options": [
+            "The state of the fetus at the time of delivery.",
+            "The success rate of the induction of the labor.",
+            "The fetal condition in the uterus.",
+            "The maternal wellbeing in labor."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 41,
+         "text": "The volume of amniotic fluid is:",
+         "options": [
+            "Maybe predicted by Ultrasound.",
+            "Is reduced in sever rhesus disease.",
+            "Increases following amniocentesis.",
+            "Is increased in sever pre-eclampsia."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 42,
+         "text": "Fetal nutrition is dependent on:",
+         "options": [
+            "Maternal nutrient stores.",
+            "Maternal diet.",
+            "Placental exchange.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 43,
+         "text": "Cephalopelvic disproportion in the absence of gross pelvic abnormality can be diagnosed by:",
+         "options": [
+            "Ultrasound.",
+            "X-ray pelvimetry.",
+            "Trial of labor.",
+            "Pelvic examination"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 44,
+         "text": "Maternal mortality is lowest in mothers between what age groups:",
+         "options": [
+            "10 -20 years old",
+            "20 - 30 years old",
+            "30 - 40 years old",
+            "40 - 50 years old"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 45,
+         "text": "Umbilical cord prolapse is associated with all the following, EXCEPT :",
+         "options": [
+            "Post maturity.",
+            "Anencephaly.",
+            "Cephalo pelvic disproportion.",
+            "Footing breech presentation."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 46,
+         "text": "The major cause of the increased risk of morbidity & mortality among twin gestation is:",
+         "options": [
+            "Gestational diabetes.",
+            "Placenta previa.",
+            "Malpresentation",
+            "Preterm delivery"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 47,
+         "text": "The most common cause of perinatal death in mono-amniotic twin is:",
+         "options": [
+            "Cord entrapment.",
+            "Cord prolapse.",
+            "Twin-twin transfusion syndrome.",
+            "Placental abruption."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 48,
+         "text": "If twin A is in a transverse lie & twin B is vertex, what is the most appropriate route for delivery ?",
+         "options": [
+            "Cesarean-section (CS)",
+            "Internal podalic version followed by breech extraction.",
+            "Both of them.",
+            "Neither of them."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 49,
+         "text": "All of the following increased in multiple gestation, EXCEPT:",
+         "options": [
+            "Blood loss at delivery.",
+            "The incidence of congenital anomalies.",
+            "The incidence of cephalo-pelvic disproportion.",
+            "The incidence of Malpresentation."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 50,
+         "text": "Monozygotic twins, All of the following are correct, EXCEPT :",
+         "options": [
+            "Has a constant incidence of 1:250 births",
+            "Has a constant incidence 1:600 births",
+            "Has more complications than dizygotic twins.",
+            "Is not affected by heredity."
+         ],
+         "correct_answer": 1
+      }
+   ],
+"list2":
+   [  {
+         "number": 1,
+         "text": "Regarding magnesium sulphate, all of the followings are correct, EXCEPT:",
+         "options": [
+            "CNS depression",
+            "This drug acts only on motor end plate",
+            "Respiratory depression",
+            "muscle relaxant"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 2,
+         "text": "All of the followings drugs can be used in hypertension in Pregnancy, EXCEPT:",
+         "options": [
+            "Hydralazine",
+            "Labetalol",
+            "Captopril",
+            "Alpha methyl dopa"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 3,
+         "text": "Which of the following are necessary for a diagnosis of preeclampsia?",
+         "options": [
+            "Morning Headache",
+            "Edema in the lower part of the body",
+            "Proteinuria of 1+ or greater with Bp 140/90",
+            "Blood pressure of 130/80 mmHg"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 4,
+         "text": "Maternal hypertension increases the risks for all of the following, EXCEPT:",
+         "options": [
+            "Placenta previa",
+            "Preterm delivery",
+            "Fetal distress during labor",
+            "Maternal congestive heart failure"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 5,
+         "text": "Which of the following are appropriate measures for a woman with severe preeclampsia?",
+         "options": [
+            "Give magnesium sulfate",
+            "Give antihypertensive medication to lower blood pressure to a maximum of 110/80 mmHg.",
+            "Termination of pregnancy after patient stabilization",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 6,
+         "text": "Criteria of severe pre-eclampsia include all of the following, EXCEPT:",
+         "options": [
+            "No symptoms",
+            "Blurring of vision",
+            "High blood pressure ≥ 160/110",
+            "Hellp syndrome"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 7,
+         "text": "Presence of hypertension with proteinuria during second half of pregnancy is called:",
+         "options": [
+            "Pre-eclampsia",
+            "Multiple pregnancies",
+            "Diabetes mellitus",
+            "Chronic hypertension"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 8,
+         "text": "Risk factor for pre-eclampsia include all of the following, EXCEPT:",
+         "options": [
+            "Anemia with pregnancy",
+            "Primigravida",
+            "Multiple gestation",
+            "Diabetes mellitus"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 9,
+         "text": "Therapeutic termination of early pregnancy is indicated in:",
+         "options": [
+            "Uterine fibroid",
+            "Maternal pulmonary hypertension",
+            "Placenta previa",
+            "Maternal blood sugar >12 mmol/ L"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 10,
+         "text": "In Pre-eclampsia, right upper quadrant part abdominal pain is due:",
+         "options": [
+            "Tension of the liver capsule",
+            "Cholecystitis",
+            "Pancreatitis",
+            "Gastric ulcer"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 11,
+         "text": "In eclampsia: Which is true?",
+         "options": [
+            "Cesarean section must be carried out in all cases",
+            "Hypotensive drugs should not be used",
+            "Antidiuretic drugs are essential in all cases",
+            "Ergometrine should be avoided in the third stage"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 12,
+         "text": "Immediate appropriate response to an initial eclamptic seizure include all of the following, EXCEPT:",
+         "options": [
+            "Ultrasound for fetal growth",
+            "Maintain adequate oxygenation",
+            "Administer magnesium sulphate",
+            "Prevent maternal injury"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 13,
+         "text": "Severely pre-eclamptic patients have a decrease in:",
+         "options": [
+            "Plasma volume",
+            "Total body sodium",
+            "Uric acid",
+            "None of the above"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 14,
+         "text": "A syndrome seen in pre-eclampsia called HELLP syndrome is characterized by all of the following, EXCEPT:",
+         "options": [
+            "Elevation of liver enzymes",
+            "Hemolysis",
+            "Low platelet count",
+            "Prolongation of the prothrombin time"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 15,
+         "text": "Of the following, the most common cause of maternal death from eclampsia is:",
+         "options": [
+            "Infection",
+            "Uremia",
+            "Congestive heart failure",
+            "Cerebral hemorrhage"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 16,
+         "text": "The criteria for severe pre-eclampsia include all the following, EXCEPT:",
+         "options": [
+            "Diastolic blood pressure of 110 mm hg or more",
+            "Proteinuria more than 5 g/24 hours",
+            "Decreased hematocrit",
+            "Oliguria."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 17,
+         "text": "What is the definition of hypertension in pregnancy?",
+         "options": [
+            "A diastoic blood pressure of ≥ 80 mm Hg and/or a systolic blood pressure of ≥ 120 mm Hg.",
+            "A diastoic blood pressure of ≥ 90 mm Hg and/or a systolic blood pressure of ≥ 140 mm Hg.",
+            "A diastoic blood pressure of ≥ 100 mm Hg and/or a systolic blood pressure of ≥ 160 mm Hg.",
+            "A rise in diastoic blood pressure of 10 mm Hg."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 18,
+         "text": "What is an important complication of pre-eclampsia?",
+         "options": [
+            "Decrease in placental blood flow",
+            "Severe protein loss in the mother's urine",
+            "Fetal hypertension",
+            "Congenital abnormalities caused by antihypertensive drug"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 19,
+         "text": "What is an important sign of magnesium sulfate over dosage?",
+         "options": [
+            "Vomiting",
+            "Hyperventilation",
+            "Urine output of less than 20 ml / hour",
+            "Depressed tendon reflexes"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 20,
+         "text": "Patients with severe pre-eclampsia have decreased in:",
+         "options": [
+            "Total body sodium",
+            "Plasma volume",
+            "Uric acid",
+            "None of the above"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 21,
+         "text": "What drug is used to prevent and manage eclampsia?",
+         "options": [
+            "Magnesium trisilicate",
+            "Alpha methyl dopa (Aldomet)",
+            "Magnesium sulphate"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 22,
+         "text": "Which type of eclampsia has the worsts prognosis:",
+         "options": [
+            "Antepartum eclampsia",
+            "Post-partum eclampsia",
+            "Intrapartum eclampsia",
+            "Imminent eclampsia"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 23,
+         "text": "Hellp syndrome characterized by all of the followings, EXCEPT:",
+         "options": [
+            "Elevation of liver enzymes",
+            "Hemolysis",
+            "Prolongation of the prothrombin time (PT)",
+            "Low platelet count"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 24,
+         "text": "Which one of the following may be an early warning sign of pre-eclampsia ?",
+         "options": [
+            "Weight loss during the last weeks of pregnancy",
+            "Generalized edema particularly in the face",
+            "Edema of the feet at the end of the day",
+            "Dysuria"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 25,
+         "text": "What drug is used to manage a diastolic blood pressure of ≥ 110 mmHg ?",
+         "options": [
+            "Alpha methyl dopa (Aldomet)",
+            "Nifidipine (Adalat)",
+            "Diazepam (Valium)",
+            "Propranolol (Inderal)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 26,
+         "text": "The criteria for severe pre-eclampsia include all the following, EXCEPT:",
+         "options": [
+            "Diastolic blood pressure of 110 mm hg or more",
+            "Proteinuria more than 5g/24 hours.",
+            "Decreased hematocrit.",
+            "Oliguria"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 27,
+         "text": "Which of the following antihypertensive drug is not safe in pregnancy?",
+         "options": [
+            "Clonidine",
+            "ACE inhibitor (Enalapril)",
+            "Amlodipine",
+            "Alpha methyl dopa (Aldomet)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 28,
+         "text": "All are prognostic indicators of pregnancy induced hypertension, EXCEPT:",
+         "options": [
+            "Low platelet count",
+            "Hypercalcemia",
+            "High serum uric acid"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 29,
+         "text": "Pre-eclampsia may cause fetal distress because it results in:",
+         "options": [
+            "A decrease in placental blood flow",
+            "Severe protein loss in the mother's urine",
+            "Fetal hypertension",
+            "Congenital abnormalities caused by antihypertensive drugs"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 30,
+         "text": "What is the definition of significant proteinuria in pregnancy?",
+         "options": [
+            "A trace of protein",
+            "1 + protein or more",
+            "2 + protein or more",
+            "3 + protein or more"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 31,
+         "text": "How common is pre-eclampsia?",
+         "options": [
+            "Most pregnant women develop pre-eclampsia",
+            "About 25% of all pregnant women develop pre-eclampsia",
+            "About 5 - 6% of all pregnant women develop pre-eclampsia",
+            "Very rare"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 32,
+         "text": "Which fetal condition is most common in pregnancies complicated by pre-eclampsia ?",
+         "options": [
+            "Congenital malformations of the fetus",
+            "Heart failure due to hypertension",
+            "Hemorrhagic diseases of the newborn",
+            "Intra-uterine growth restriction"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 33,
+         "text": "Which of the following is the correct method of treatment for a patient with mild pre-eclampsia?",
+         "options": [
+            "Cesearean section (CS)",
+            "The patient should immediately be delivered by cesearean section at a level 2 hospital",
+            "Induction of labor followed by vaginal delivery at 32 weeks",
+            "Waiting until 40 weeks for spontaneous onset of labor"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 34,
+         "text": "Which one of the following is the method of delivery usually chosen in a patient with severe pre-eclampsia ?",
+         "options": [
+            "The patient should be stabilized first, then be moved to a level 2 hospital for further management.",
+            "Waiting until 40 weeks for spontaneous onset of labor",
+            "Induction of labor followed by vaginal delivery at 34 weeks",
+            "Induction of labor followed by vaginal delivery at 32 weeks"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 35,
+         "text": "Which of the following women has the highest risk of pre-eclampsia?",
+         "options": [
+            "A patient with a history of pre-eclampsia starting early in the third trimester of a previous pregnancy",
+            "A patient with a history of a preterm delivery in her previous pregnancy",
+            "A patient who previously had a twin pregnancy",
+            "Grand Multipara"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 36,
+         "text": "What is the correct definition of chronic hypertension?",
+         "options": [
+            "Hypertension without proteinuria, that is present in the first half of pregnancy",
+            "Hypertension with proteinuria, that is present in the second half of pregnancy",
+            "Hypertension that is present in the first half of pregnancy, plus proteinuria in the second half of pregnancy",
+            "Hypertension alone which is present at the time of booking at 28 weeks of pregnancy"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 37,
+         "text": "A patient with pre-eclammpsia who develop a diastolic blood pressure of 105 mm Hg and 3+ proteinuria at 36 weshould be graded as having:",
+         "options": [
+            "Pre-eclampsia",
+            "Severe pre-eclampsia",
+            "Chronic hypertension with super imposed pre-eclampsia",
+            "Eclampsia"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 38,
+         "text": "The most important reason to give antihypertensive drug for hypertension in pregnancy is to decrease the:",
+         "options": [
+            "Incidence of IUGR",
+            "Incidence of fetal death",
+            "Incidence of oligohydramnios",
+            "Risks of maternal complications such as cerebral stroke"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 39,
+         "text": "Pregnancy induced hypertension:",
+         "options": [
+            "Means high blood pressure at 10 weeks gestation",
+            "Needs no treatment",
+            "Fetus will be at risk of fetal anomalies",
+            "Fetus will be at risk of IUGR"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 40,
+         "text": "Pre-eclampsia is associated with an increased risk of all of the following, EXCEPT:",
+         "options": [
+            "IUGR",
+            "Placental abruption",
+            "Pulmonary edema",
+            "Prolonged duration of labor"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 41,
+         "text": "The most common presenting prodromal sign or symptom in patient with eclampsia is:",
+         "options": [
+            "Right upper quadrant pain",
+            "Edema of the face",
+            "Headache",
+            "Severe hypertension"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 42,
+         "text": "The most consistent finding in eclampsia patients is:",
+         "options": [
+            "Hyperreflexia",
+            "4+ proteinuria",
+            "Generalized edema",
+            "Convulsions"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 43,
+         "text": "Eclampsia occurring prior to 20 weeks of gestation is most commonly seen in women with:",
+         "options": [
+            "A history of chronic hypertension",
+            "Multiple pregnancy",
+            "Gestational trophoblastic diseases",
+            "A history of seizure disorders"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 44,
+         "text": "Likely contributory mechanism of the anticonvulsant action of Mg sulphate includes all the following, EXCEPT:",
+         "options": [
+            "Neural calcium channel blochade",
+            "Peripheral neuromuscular blockade",
+            "Release of endothelial prostacyclin",
+            "Inhibition of platelet aggregation"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 45,
+         "text": "Which of the following laboratory tests would be most suggestive of pre-eclampsia?",
+         "options": [
+            "Elevated bilirubin",
+            "Decreased hematocrit",
+            "Elevated lactate dehydrogenase (LDH)",
+            "Elevated uric acid"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 46,
+         "text": "Proteinuria in pregnancy may be caused by :",
+         "options": [
+            "Urinary tract infection",
+            "Pre-eclampsia",
+            "Contamination with vaginal discharge",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 47,
+         "text": "Markedly obese pregnant patients often experience all the following complications, EXCEPT :",
+         "options": [
+            "Hypertension",
+            "Diabetes mellitus",
+            "Thromboembolism",
+            "IUGR"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 48,
+         "text": "What is the mechanism of action of alpha methyl dopa?",
+         "options": [
+            "Increase peripheral vascular resistance",
+            "Increase sodium and water retention",
+            "Act centerally to decrease sympathetic activity",
+            "Relaxes arterial smooth muscles"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 49,
+         "text": "The following are true regarding patients with essential hypertension in labor, EXCEPT :",
+         "options": [
+            "Shouldn't have epidural anesthesia",
+            "Can be safely given intravenous syntocinon",
+            "Shouldn't be given methergine as a routine in the third stage of labor Intravenous",
+            "labetalol is a safe antihypertensive drug when required"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 50,
+         "text": "Which adverse pregnancy outcome is not increased in pregnancies complicated by chronic hypertension :",
+         "options": [
+            "IUGR",
+            "Post-term birth",
+            "Spontaneous premature rupture of membrane",
+            "Pre-term labor"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 51,
+         "text": "Excessive cyclic vaginal bleeding is called:",
+         "options": [
+            "Menorrhagia",
+            "Metrorrhagia",
+            "Oligomenorrhea",
+            "Polymenorrhea"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 52,
+         "text": "The clots passed with menorrhagia perhaps indicate:",
+         "options": [
+            "No endometrial regeneration",
+            "No terminal arteriolar spasm",
+            "Large amount of bleeding",
+            "Rupture of endometrial vessels into endometrial cavity"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 53,
+         "text": "Interstitial uterine myomas most often cause menorrhagia due to:",
+         "options": [
+            "Secondary degeneration",
+            "Rupture into endometrial cavity",
+            "Pressure necrosis",
+            "Inhibition of uterine contractility"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 54,
+         "text": "The commonest uterine fibroid to cause excessive bleeding is:",
+         "options": [
+            "Subserous fibroid",
+            "Intramural fibroid",
+            "Submucous fibroid",
+            "Cervical fibroid"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 55,
+         "text": "Dysfunctional Uterine Bleeding (DUB) is defined as abnormal uterine bleeding?",
+         "options": [
+            "Secondary to hormonal dysfunction",
+            "Caused by cancer",
+            "In a patient with von Willebrand's disease",
+            "With no organic cause"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 56,
+         "text": "Abnormal Uterine bleeding (AUB) is defined by all of the following, except:",
+         "options": [
+            "Excessive Blood loss (> 80 ml) during menses",
+            "Menstrual length less than 7 days",
+            "An interval of less than 21 days between the starts of successive menses",
+            "Irregular bleeding episodes between menses"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 57,
+         "text": "Criteria for reliable date of last menstrual period:",
+         "options": [
+            "Sure of date",
+            "Regular of the last 3-6 cycles",
+            "Patient was not lactating",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 58,
+         "text": "The luteal phase of the menstrual cycle is associated with:",
+         "options": [
+            "High luteinizing hormone level",
+            "High progesterone levels",
+            "Low basal body temperature",
+            "High prolactin level"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 59,
+         "text": "The follicular phase of menstrual cycle is characterized by:",
+         "options": [
+            "Endometrial gland proliferation",
+            "Decreased Ovarian Estradiol production",
+            "Progesterone dominance",
+            "A fixed length of 8 days"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 60,
+         "text": "All the following are possible causes of menorrhagia, EXCEPT:",
+         "options": [
+            "Uterine fibroid and adenomyosis",
+            "Pelvic inflammatory disease (PID)",
+            "Endometrial hyperplasia",
+            "Combined oral contraceptive pills"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 61,
+         "text": "Menorrhagia is defined as:",
+         "options": [
+            "Intermittent irregular vaginal bleeding",
+            "Commonly presents as postmenopausal bleeding",
+            "Heavy menstrual cycle more than 80 ml",
+            "Infrequent spaced cycles every 45 days"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 62,
+         "text": "Amount of blood loss during the normal menses:",
+         "options": [
+            "10 to 25 ml.",
+            "25 to 75 ml",
+            "80 to 120 ml",
+            "125 to 175 ml"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 63,
+         "text": "The most common cause of menstrual abnormality in reproductive-aged women is:",
+         "options": [
+            "Ectopic pregnancy",
+            "Uterine leiomyomas and adenomyosis",
+            "Anovulation",
+            "Coagulopathy"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 64,
+         "text": "Recognized feature of Sheehan syndrome :",
+         "options": [
+            "Menorrhagia",
+            "Galactorrhea",
+            "Dwarfism",
+            "Hypothyroidism"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 65,
+         "text": "The earliest sign of Sheehan syndrome is :",
+         "options": [
+            "Failure of lactation",
+            "Secondary amenorrhea",
+            "Loss of axillary and pubic hair",
+            "Bleeding per vagina"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 66,
+         "text": "A 26 years old lady presented with secondary amenorrhea and FSH and LH are found to be high,",
+         "options": [
+            "your diagnosis will be?",
+            "Sheehan syndrome",
+            "Asherman syndrome",
+            "Premature ovarian failure",
+            "Imperforate hymen"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 67,
+         "text": "Patients with the following condition present with primary amenorrhea:",
+         "options": [
+            "Anorexia nervosa",
+            "Bicornuate uterus",
+            "Polycystic ovary syndrome",
+            "Imperforate hymen"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 68,
+         "text": "The presentation of Asherman's Syndrome typically involves:",
+         "options": [
+            "Hypomenorrhea and amenorrhea",
+            "Galactorrhea",
+            "Menorrhagia",
+            "Metrorrhagia"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 69,
+         "text": "Secondary amenorrhea is a recognized feature of:",
+         "options": [
+            "Testicular feminization syndrome",
+            "Imperforate hymen",
+            "Pregnancy",
+            "Mullerian agenesis"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 70,
+         "text": "Pituitary insufficiency & amenorrhea is best treated with:",
+         "options": [
+            "Low potent estrogen",
+            "FSH and GnRH",
+            "Cyclic progesterone",
+            "Clomiphene citrate (Clomide)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 71,
+         "text": "After menopause:",
+         "options": [
+            "There is increase in vaginal acidity",
+            "Gonadotropins level Fall",
+            "Any post-menopausal women should be investigated by endometrial biopsy"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 72,
+         "text": "Regarding hot flushes in the menopausal period. All the following are true, EXCEPT:",
+         "options": [
+            "They are reduced by exercise",
+            "They are less in obese women",
+            "The best treatment is hormonal replacement therapy (HRT)",
+            "It usually disappears in one month"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 73,
+         "text": "The severity of menopausal vasomotor symptoms correlates best with:",
+         "options": [
+            "Serum estrogen concentration",
+            "Serum LH concentration",
+            "Serum FSH concentration",
+            "Rate of estrogen withdrawal"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 74,
+         "text": "The following is a symptom of Climacteric (menopause):",
+         "options": [
+            "Hot flushes",
+            "Obesity",
+            "Menorrhagia",
+            "Premenstural tension syndrome"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 75,
+         "text": "The main risk of hormonal replacement therapy after menopause is:",
+         "options": [
+            "Hirsutism",
+            "Cancer breast",
+            "Genital atrophy",
+            "Cancer colon"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 76,
+         "text": "An increased risk of Osteoporosis in female patient is associated with:",
+         "options": [
+            "Bromocriptine treatment",
+            "Early menarche",
+            "Excess gluco-cortecosteroid uses",
+            "Androgen excess"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 77,
+         "text": "Amount of blood loss during the normal labor :",
+         "options": [
+            "50 - 100 ml",
+            "100 - 150 ml",
+            "200 - 250 ml",
+            "250 - 300 ml"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 78,
+         "text": "Initial management for patient with post-menopausal bleeding is:",
+         "options": [
+            "Pap smear",
+            "Pelvic ultrasound",
+            "Dilatation and curettage (D&C)",
+            "History and physical examination"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 79,
+         "text": "The most common cause of menstrual abnormality in peri-menopausal-aged women is:",
+         "options": [
+            "Coagulopathy",
+            "Adenomyosis",
+            "Uterine fibroids",
+            "Dysfunctional uterine bleeding (DUB)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 80,
+         "text": "The most common symptom of endometrial hyperplasia:",
+         "options": [
+            "Vaginal discharge & itching",
+            "Vaginal bleeding",
+            "Amenorrhea.",
+            "Pelvic pain."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 81,
+         "text": "Menorrhagia occurring at the age of puberty may be due to:",
+         "options": [
+            "Folic acid deficiency anemia.",
+            "Congenital adrenal hyperplasia.",
+            "Von Willbrand’s disease (Congenital coagulopathy)",
+            "Androgen insensitivity syndrome"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 82,
+         "text": "The initial attempt to control uterine bleeding due to blood dyscrasia (Prothrombin deficiency) after ruling out",
+         "options": [
+            "anatomic lesions should be:",
+            "Cyclic estrogens.",
+            "D&C then hysterectomy.",
+            "Oral contraceptive pills.",
+            "Pregnancy."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 83,
+         "text": "In PCOS patients all are true, EXCEPT:",
+         "options": [
+            "They have hirsutism and oligomenorrhea",
+            "Underweight and low BMI",
+            "High prolactin level",
+            "They have subfertility"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 84,
+         "text": "Which of the following features is associated with imperforate hymen?",
+         "options": [
+            "Closed spina bifida and short stature",
+            "Hirsuitism",
+            "Cyclic lower abdominal pain and primary amenorrhea",
+            "Absence of secondary sexual characters"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 85,
+         "text": "Failure of initiation of menses by age of 16 called:",
+         "options": [
+            "Primary amenorrhea",
+            "Secondary amenorrhea",
+            "Dysmenorrhea",
+            "Anovulation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 86,
+         "text": "Patients with Turner's syndrome, they have:",
+         "options": [
+            "45 XY chromosome",
+            "Secondary amenorrhea",
+            "Streaks ovaries",
+            "Polycystic ovaries"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 87,
+         "text": "In patients with androgen insensitivity syndrome; which is true:",
+         "options": [
+            "Phenotype female with ill-defined breast",
+            "Usually have secondary amenorrhea",
+            "They have no uterus",
+            "They have no breast"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 88,
+         "text": "Regarding androgen insensitivity syndrome, all are true, EXCEPT:",
+         "options": [
+            "Chromosome pattern 46 XX",
+            "Scanty or no pubic and axillary hair",
+            "Normal female external genitalia",
+            "They have no uterus"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 89,
+         "text": "In Turner's syndrome, all are true, EXCEPT:",
+         "options": [
+            "Usually short stature with webbed neck",
+            "They have raised FSH level",
+            "Streaks ovaries must be removed due to 25% → Malignancy",
+            "They have female internal genitalia"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 90,
+         "text": "Turner's syndrome is associated with:",
+         "options": [
+            "Normal breast development",
+            "Primary amenorrhea and primary infertility",
+            "Hirsuitism",
+            "Absent uterus"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 91,
+         "text": "Feature characteristically associated with imperforated hymen in a 16 year old girl include:",
+         "options": [
+            "Acute retention of the urine",
+            "Absence of secondary sexual characteristics.",
+            "Hirsutism.",
+            "Presented with secondary amenorrhea"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 92,
+         "text": "In Sheehan syndrome ,changes that take place include all of the following, EXCEPT:",
+         "options": [
+            "Genital atrophy",
+            "Complete lactation failure",
+            "Secondary amenorrhea",
+            "Increased basal metabolic rate"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 93,
+         "text": "Secondary amenorrhea may be due to all of the following, EXCEPT:",
+         "options": [
+            "Imperforate hymen.",
+            "Pregnancy.",
+            "Anorexia nervosa",
+            "Premature ovarian failure"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 94,
+         "text": "The ovary in polycystic ovarian syndrome characteristically shows:",
+         "options": [
+            "Theca cells hyperplasia.",
+            "Granulosa cells hyperplasia.",
+            "Increased fatty infiltration",
+            "Capsular thinning"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 95,
+         "text": "The following is related to premature ovarian failure:",
+         "options": [
+            "Is associated with autoimmune disease.",
+            "There are decrease levels of FSH.",
+            "There are decreased levels of estrogen",
+            "Karyotype is indicated in women who develop the problem before 25 years of age"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 96,
+         "text": "A Feature of Polycystic ovarian syndrome:",
+         "options": [
+            "Endometrial hyperplasia.",
+            "Breast atrophy.",
+            "Elevated level of serum LH",
+            "Regular ovulation"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 97,
+         "text": "Hypothalamic cause of secondary amenorrhea include all of the following, EXCEPT:",
+         "options": [
+            "Significant weight loss.",
+            "Strenuous exercise.",
+            "Sheehan's syndrome.",
+            "Dilation and Curettage (D&C)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 98,
+         "text": "Which statement regarding menstrual abnormality is CORRECT ?",
+         "options": [
+            "Menorrhagia is defined as a \"frequent period\"",
+            "Bleeding due to uterine polyps is called dysfunctional uterine bleeding.",
+            "Oligomenrrhea means periods with more than 35 days apart.",
+            "Polymenorrhea means periods that occur every 28 days."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 99,
+         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding. After",
+         "options": [
+            "adequate history and physical examination, what is your recommendation ?",
+            "Dilatation and curettage (D&C)",
+            "Cycling with progestin",
+            "Laparoscopy",
+            "Official visit every 6 month for the evaluation."
+         ],
+         "correct_answer": 1
+   }]
+}
