@@ -724,7 +724,7 @@
                 // Show next button instead of auto-advancing
                 showNextButton();
 
-                if (!window.isMuted) {
+                if (!window.isMuted && gameStarted) {
                     if (optionIndex === correctAnswer) {
                         playSound('correct');
                     } else {
@@ -1006,6 +1006,8 @@
 
     // Keyboard navigation
     document.addEventListener('keydown', function (e) {
+        if (!gameStarted) return; // Only allow keyboard navigation when game has started
+
         if (e.key >= '1' && e.key <= '3') {
             const currentQuestion = questions[currentQuestionIndex];
             const optionIndex = parseInt(e.key) - 1;
