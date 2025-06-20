@@ -190,11 +190,12 @@
       "number": 18,
       "text": "Engagement is strictly defined as:",
       "options": [
-         "When the presenting part goes through the pelvic inlet. When the presenting part is level with the ischial spines.",
+         "When the presenting part goes through the pelvic inlet.",
+         "When the presenting part is level with the ischial spines.",
          "When the greatest Biparietal diameter of the fetal head passes the pelvic inlet.",
          "When the greatest Biparietal diameter of the fetal head is at the level of ischial spines."
       ],
-      "correct_answer": 1
+      "correct_answer": 2
    },
    {
       "number": 19,
