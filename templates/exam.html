@@ -20,6 +20,10 @@
                         <input type="text" id="playerName" class="form-control form-control-lg rounded-pill"
                             placeholder="أدخل اسمك" autocomplete="off">
                     </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label fw-semibold"><i class="fas fa-list me-1"></i>اختر قائمة الأسئلة</label>
+                        <select id="questionListSelect" class="form-select form-select-lg rounded-pill"></select>
+                    </div>
                     <div class="col-12 col-md-4 d-grid">
                         <button class="btn btn-primary btn-lg rounded-pill mb-2 mb-md-0 w-100" id="createRoomBtn">
                             <i class="fas fa-plus me-1"></i> إنشاء غرفة جديدة
@@ -114,7 +118,7 @@
                         <div class="col">
                             <h5 class="mb-0">
                                 <i class="fas fa-question-circle me-2"></i>
-                                السؤال <span id="questionNumber">1</span> من {{ total_questions }}
+                                السؤال <span id="questionNumber">1</span>
                             </h5>
                         </div>
                         <div class="col-auto d-flex gap-2">
@@ -307,7 +311,8 @@
     if (document.getElementById('createRoomBtn')) {
         document.getElementById('createRoomBtn').onclick = function () {
             playerName = document.getElementById('playerName').value.trim() || 'مجهول';
-            socket.emit('create_room', { name: playerName, client_id: clientId });
+            const questionList = document.getElementById('questionListSelect').value || 'list1';
+            socket.emit('create_room', { name: playerName, client_id: clientId, question_list: questionList });
         };
     }
     if (document.getElementById('joinRoomBtn')) {
@@ -332,10 +337,10 @@
         roomCode = data.room_code;
         localStorage.setItem('room_code', roomCode);
         isHost = true;
-        showRoomLobby(data.players);
+        showRoomLobby(data.players, data.question_list, data.total_questions);
     });
     socket.on('player_joined', function (data) {
-        showRoomLobby(data.players);
+        showRoomLobby(data.players, data.question_list, data.total_questions);
         // Show leaderboard immediately with all participants
         updateLeaderboard(Object.values(data.players).map(p => ({
             name: p.name,
@@ -346,7 +351,7 @@
         })));
     });
     socket.on('player_left', function (data) {
-        showRoomLobby(data.players);
+        showRoomLobby(data.players, data.question_list, data.total_questions);
         // Update leaderboard when players leave
         updateLeaderboard(Object.values(data.players).map(p => ({
             name: p.name,
@@ -359,7 +364,7 @@
     socket.on('game_started', function (data) {
         gameStarted = true;
         questions = data.questions;
-        totalQuestions = questions.length;
+        totalQuestions = data.total_questions;
         document.getElementById('multiplayerLobby').style.display = 'none';
         examContainer.style.display = 'block';
         leaderboardSection.style.display = 'block';
@@ -375,15 +380,34 @@
     });
     socket.on('leaderboard_update', function (data) {
         updateLeaderboard(data.leaderboard);
+        if (data.total_questions) totalQuestions = data.total_questions;
+        // If this player finished, show results modal
+        const me = data.leaderboard.find(p => p.name === playerName);
+        if (me && me.finished) {
+            showResults({
+                correct_answers: me.score,
+                total_questions: totalQuestions,
+                score_percentage: (me.score / totalQuestions) * 100
+            });
+        }
     });
     socket.on('error', function (data) {
         alert(data.message);
     });
 
-    function showRoomLobby(players) {
+    function showRoomLobby(players, questionList, totalQuestions) {
         lobbyStepCreateJoin.style.display = 'none';
         lobbyStepRoom.style.display = 'block';
         document.getElementById('roomCodeDisplay').textContent = roomCode;
+        // Show selected list
+        let listLabel = document.getElementById('selectedListLabel');
+        if (!listLabel) {
+            listLabel = document.createElement('div');
+            listLabel.id = 'selectedListLabel';
+            listLabel.className = 'mt-2 mb-2';
+            document.getElementById('lobbyStepRoom').prepend(listLabel);
+        }
+        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
         // List players
         const playersList = document.getElementById('playersList');
         playersList.innerHTML = '';
@@ -504,6 +528,18 @@
             }
             lastTouchEnd = now;
         }, false);
+
+        // Fetch available question lists and populate the select
+        fetch('/get_question_lists').then(r => r.json()).then(lists => {
+            const select = document.getElementById('questionListSelect');
+            select.innerHTML = '';
+            Object.entries(lists).forEach(([key, count]) => {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = `${key === 'list1' ? 'اخر 50 سؤال' : key === 'list2' ? 'اول 99 سؤال' : key} (${count} سؤال)`;
+                select.appendChild(option);
+            });
+        });
     });
 
     function setupRandomizationControls() {
@@ -528,7 +564,11 @@
     }
 
     function updateRandomizationSettings() {
-        fetch('/update_randomization', {
+        let url = '/update_randomization';
+        if (multiplayerMode && roomCode) {
+            url += `?room_code=${encodeURIComponent(roomCode)}`;
+        }
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -558,7 +598,11 @@
         const savedAnswers = { ...userAnswers };
 
         // Get updated questions data from server
-        fetch('/get_questions_data')
+        let url = '/get_questions_data';
+        if (multiplayerMode && roomCode) {
+            url += `?room_code=${encodeURIComponent(roomCode)}`;
+        }
+        fetch(url)
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
