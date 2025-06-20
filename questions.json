@@ -1630,14 +1630,13 @@
       },
       {
          "number": 99,
-         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding. After",
+         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding After adequate history and physical examination, what is your recommendation ?",
          "options": [
-            "adequate history and physical examination, what is your recommendation ?",
             "Dilatation and curettage (D&C)",
             "Cycling with progestin",
             "Laparoscopy",
             "Official visit every 6 month for the evaluation."
          ],
-         "correct_answer": 1
+         "correct_answer": 0
    }]
 }
