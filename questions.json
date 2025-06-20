@@ -1,5 +1,5 @@
-{"list1":
-[
+{
+   "list1": [
       {
          "number": 1,
          "text": "stages of labor:",
@@ -551,8 +551,8 @@
          "correct_answer": 1
       }
    ],
-"list2":
-   [  {
+   "list2": [
+      {
          "number": 1,
          "text": "Regarding magnesium sulphate, all of the followings are correct, EXCEPT:",
          "options": [
@@ -1267,15 +1267,14 @@
       },
       {
          "number": 66,
-         "text": "A 26 years old lady presented with secondary amenorrhea and FSH and LH are found to be high,",
+         "text": "A 26 years old lady presented with secondary amenorrhea and FSH and LH are found to be high, your diagnosis will be?",
          "options": [
-            "your diagnosis will be?",
             "Sheehan syndrome",
             "Asherman syndrome",
             "Premature ovarian failure",
             "Imperforate hymen"
          ],
-         "correct_answer": 3
+         "correct_answer": 2
       },
       {
          "number": 67,
@@ -1443,9 +1442,8 @@
       },
       {
          "number": 82,
-         "text": "The initial attempt to control uterine bleeding due to blood dyscrasia (Prothrombin deficiency) after ruling out",
+         "text": "The initial attempt to control uterine bleeding due to blood dyscrasia (Prothrombin deficiency) after ruling out anatomic lesions should be:",
          "options": [
-            "anatomic lesions should be:",
             "Cyclic estrogens.",
             "D&C then hysterectomy.",
             "Oral contraceptive pills.",
@@ -1631,14 +1629,14 @@
       },
       {
          "number": 99,
-         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding. After",
+         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding After adequate history and physical examination, what is your recommendation ?",
          "options": [
-            "adequate history and physical examination, what is your recommendation ?",
             "Dilatation and curettage (D&C)",
             "Cycling with progestin",
             "Laparoscopy",
             "Official visit every 6 month for the evaluation."
          ],
-         "correct_answer": 1
-   }]
+         "correct_answer": 0
+      }
+   ]
 }

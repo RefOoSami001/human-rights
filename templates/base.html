@@ -15,6 +15,13 @@
     <style>
         :root {
             --font-family-primary: 'Alexandria', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --primary: #3a47d5;
+            --secondary: #00d2ff;
+            --success: #28a745;
+            --danger: #dc3545;
+            --info: #17a2b8;
+            --light: #f8f9fa;
+            --dark: #22223b;
             --font-weight-light: 300;
             --font-weight-regular: 400;
             --font-weight-medium: 500;
@@ -23,275 +30,259 @@
             --font-weight-extrabold: 800;
         }
 
-        * {
-            font-family: var(--font-family-primary);
+        html,
+        body {
+            min-height: 100vh;
+            height: 100%;
         }
 
         body {
             font-family: var(--font-family-primary);
-            font-weight: var(--font-weight-regular);
-            background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+            background: linear-gradient(120deg, var(--secondary) 0%, var(--primary) 100%);
             min-height: 100vh;
             direction: rtl;
             overflow-x: hidden;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             padding-left: 15px;
             padding-right: 15px;
+            flex: 1 0 auto;
+            /* Allow content to grow and push footer down */
         }
 
         /* Mobile-first responsive design */
         @media (max-width: 768px) {
             .container {
                 max-width: 100%;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            .card {
-                margin-bottom: 15px;
-            }
-
-            .card-body {
-                padding: 1rem;
-            }
-
-            .btn {
-                padding: 12px 16px;
-                font-size: 0.9rem;
-                white-space: nowrap;
-            }
-
-            .btn-lg {
-                padding: 12px 24px;
-                font-size: 1rem;
-            }
-
-            .question-text {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-
-            .option-item {
-                padding: 12px;
-                margin-bottom: 8px;
-            }
-
-            .score-display {
-                font-size: 2.5rem;
-            }
-
-            .navbar-brand {
-                font-size: 1.2rem;
-            }
-
-            .btn i {
-                margin-left: 0.5rem;
-                margin-right: 0.5rem;
-            }
-
-            /* Ensure buttons stay in same row */
-            .d-flex.justify-content-between {
-                flex-wrap: nowrap !important;
-            }
-
-            /* Equal width for navigation buttons */
-            .btn.flex-fill {
-                flex: 1 1 0% !important;
-                min-width: 0;
-            }
-
-            /* Proper spacing between button groups */
-            .me-2 {
-                margin-right: 0.75rem !important;
-            }
-
-            .gap-2 {
-                gap: 0.5rem !important;
-            }
-
-            .floating-toggle {
-                top: 15px;
-                left: 15px;
-            }
-
-            .toggle-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
-            .score-display {
-                font-size: 2.5rem;
-            }
-
-            .card-body.p-5 {
-                padding: 1.5rem !important;
-            }
-
-            .d-flex.justify-content-center.gap-3 {
-                flex-direction: column;
-                gap: 1rem !important;
-            }
-
-            .btn-lg {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
                 padding-left: 8px;
                 padding-right: 8px;
             }
 
-            .card-body {
-                padding: 0.75rem;
-            }
-
-            .btn {
-                padding: 10px 12px;
-                font-size: 0.85rem;
-            }
-
-            .btn i {
-                margin-left: 0.25rem;
-                margin-right: 0.25rem;
-            }
-
-            /* Tighter spacing on very small screens */
-            .me-2 {
-                margin-right: 0.5rem !important;
-            }
-
-            .gap-2 {
-                gap: 0.25rem !important;
-            }
-
-            .question-text {
-                font-size: 0.95rem;
-            }
-
-            .option-item {
-                padding: 10px;
-                margin-bottom: 6px;
+            .card {
+                border-radius: 12px;
             }
 
             .score-display {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .score-display {
+                font-size: 1.5rem;
             }
 
-            .progress {
-                height: 8px;
-            }
-
-            .modal-dialog {
-                margin: 10px;
-            }
-
-            .modal-body {
-                padding: 1rem;
+            .card {
+                border-radius: 8px;
             }
         }
 
         .card {
             border: none;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-            transition: all 0.3s ease;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+            background: rgba(255, 255, 255, 0.97);
+            transition: box-shadow 0.3s, transform 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.13);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .btn-primary,
+        .btn-success,
+        .btn-secondary {
+            border-radius: 25px;
+            font-weight: 600;
+            transition: box-shadow 0.2s, transform 0.2s;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #667eea, #3a47d5);
             border: none;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-weight: var(--font-weight-semibold);
-            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(45deg, #6c757d, #495057);
-            border: none;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-weight: var(--font-weight-semibold);
+            box-shadow: 0 4px 16px #3a47d555;
+            transform: scale(1.04);
         }
 
         .btn-success {
             background: linear-gradient(45deg, #28a745, #20c997);
             border: none;
-            border-radius: 25px;
-            padding: 12px 30px;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #6c757d, #495057);
+            border: none;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--success);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Animations for micro-interactions */
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .bounce {
+            animation: bounce 0.7s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Animated background: floating SVG waves and animated gradient */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .animated-bg svg {
+            position: absolute;
+            width: 100vw;
+            left: 0;
+        }
+
+        .wave1 {
+            top: 0;
+            animation: waveMove 12s linear infinite alternate;
+        }
+
+        .wave2 {
+            top: 40vh;
+            opacity: 0.7;
+            animation: waveMove2 18s linear infinite alternate;
+        }
+
+        @keyframes waveMove {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100px);
+            }
+        }
+
+        @keyframes waveMove2 {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100px);
+            }
+        }
+
+        /* Floating shapes */
+        .float-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            animation: floatShape 10s ease-in-out infinite alternate;
+        }
+
+        .float-shape1 {
+            width: 120px;
+            height: 120px;
+            top: 10%;
+            left: 10%;
+            background: var(--primary);
+            animation-delay: 0s;
+        }
+
+        .float-shape2 {
+            width: 80px;
+            height: 80px;
+            top: 60%;
+            left: 80%;
+            background: var(--secondary);
+            animation-delay: 2s;
+        }
+
+        .float-shape3 {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            left: 20%;
+            background: var(--info);
+            animation-delay: 4s;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(-40px) scale(1.1);
+            }
+        }
+
+        /* Typography improvements */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .card-title {
             font-weight: var(--font-weight-semibold);
         }
 
-        .form-check-input:checked {
-            background-color: #17a2b8;
-            border-color: #17a2b8;
+        .alert {
+            font-weight: var(--font-weight-regular);
         }
 
-        .form-check-input:focus {
-            border-color: #17a2b8;
-            box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+        .modal-title {
+            font-weight: var(--font-weight-bold);
         }
 
-        .form-check-label {
+        .progress-text {
             font-weight: var(--font-weight-medium);
-            cursor: pointer;
-            user-select: none;
         }
 
-        .form-check-label:hover {
-            color: #17a2b8;
-        }
-
-        .form-switch .form-check-input {
-            width: 3rem;
-            height: 1.5rem;
-            margin-top: 0.125rem;
-        }
-
-        .form-switch .form-check-input:checked {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 0.85%29'/%3e%3c/svg%3e");
-        }
-
-        .form-switch .form-check-input:not(:checked) {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
-        }
-
-        .progress {
-            height: 10px;
-            border-radius: 5px;
-            background-color: #e9ecef;
-        }
-
-        .progress-bar {
-            background: linear-gradient(45deg, #ffffff, #ffffff);
-        }
-
-        .question-text {
-            font-size: 1.2rem;
-            font-weight: var(--font-weight-medium);
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
+        /* Disable pointer events after answer is selected */
         .option-item {
             border: 2px solid #e9ecef;
             border-radius: 10px;
@@ -429,50 +420,6 @@
             }
         }
 
-        .score-display {
-            font-size: 3rem;
-            font-weight: var(--font-weight-bold);
-            color: #28a745;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-weight: var(--font-weight-bold);
-            font-size: 1.5rem;
-        }
-
-        /* Typography improvements */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: var(--font-weight-bold);
-        }
-
-        .card-title {
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .alert {
-            font-weight: var(--font-weight-regular);
-        }
-
-        .modal-title {
-            font-weight: var(--font-weight-bold);
-        }
-
-        .progress-text {
-            font-weight: var(--font-weight-medium);
-        }
-
-        /* Disable pointer events after answer is selected */
-        .option-item.correct,
-        .option-item.incorrect {
-            pointer-events: none;
-        }
-
         /* Style for disabled next button */
         .btn:disabled {
             opacity: 0.6;
@@ -503,9 +450,29 @@
             transform: scale(1.1);
         }
 
-        /* Question slides */
+        /* Question navigation animations */
         .question-slide {
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .question-slide.fade-out {
+            opacity: 0;
+        }
+
+        .question-slide.fade-in {
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Modal improvements */
@@ -517,23 +484,6 @@
 
         .modal-header {
             border-radius: 15px 15px 0 0;
-        }
-
-        /* Smooth transitions */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Form elements */
@@ -934,46 +884,133 @@
         .results-progress-bar {
             transition: width 0.6s ease;
         }
+
+        /* Navigation button group styling */
+        .nav-btn-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        #prevBtn {
+            flex: 1 1 0px;
+            /* Takes 1 part of the available space */
+        }
+
+        .next-finish-wrapper {
+            flex: 2 1 0px;
+            /* Takes 2 parts of the available space */
+            display: grid;
+            /* Allows buttons to stack, so only one is visible without breaking layout */
+        }
+
+        .next-finish-wrapper>.btn {
+            grid-column: 1;
+            grid-row: 1;
+            width: 100%;
+        }
+
+        /* Leaderboard progress bar styling */
+        .leaderboard-progress-bar {
+            background-color: #e9ecef !important;
+            /* Grey background for the track */
+        }
+
+        .leaderboard-progress-bar .progress-bar {
+            background-color: var(--primary) !important;
+            /* Blue color for the progress */
+        }
+
+        .leaderboard-progress-bar .progress-bar.bg-success {
+            background-color: var(--success) !important;
+            /* Keep green for finished */
+        }
+
+        /* Hide default radio button indicator in options */
+        .option-item .form-check-input {
+            opacity: 0;
+            position: absolute;
+            left: -9999px;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fixed bottom navigation */
+        .fixed-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exam-container {
+            padding-bottom: 120px;
+            /* Space for fixed navigation + footer */
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            /* Bold question text */
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Exam footer text */
+        .exam-footer {
+            text-align: center;
+            padding-top: 0.5rem;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Background Particles -->
-    <div class="particles-container" id="particlesContainer">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-
-        <!-- Floating elements -->
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-
-
-        <!-- Glow effects -->
-        <div class="glow"></div>
-        <div class="glow"></div>
+    <div class="animated-bg">
+        <svg class="wave1" viewBox="0 0 1440 320">
+            <path fill="#3a47d5" fill-opacity="0.3"
+                d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+            </path>
+        </svg>
+        <svg class="wave2" viewBox="0 0 1440 320">
+            <path fill="#00d2ff" fill-opacity="0.2"
+                d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,197.3C840,224,960,224,1080,197.3C1200,171,1320,117,1380,90.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+            </path>
+        </svg>
+        <div class="float-shape float-shape1"></div>
+        <div class="float-shape float-shape2"></div>
+        <div class="float-shape float-shape3"></div>
     </div>
-
-
 
     <div class="container mt-4">
         {% block content %}{% endblock %}
     </div>
 
+    <footer class="site-footer">
+        Made with ❤️ by Raafat Sami
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Page transition effect
         document.addEventListener('DOMContentLoaded', function () {
-            document.body.classList.add('page-transition');
+            document.body.classList.add('fade-in');
         });
     </script>
 

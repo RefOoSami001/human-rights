@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, send_file
 import json
 import os
 import random
@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from flask_socketio import SocketIO, join_room, leave_room, emit
 from flask import copy_current_request_context
 import string
+from io import BytesIO
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
@@ -29,6 +30,11 @@ GAMES = {}
 #   },
 #   ...
 # }
+
+# Example short sound bytes (replace with your own or use real MP3 bytes)
+CORRECT_SOUND = b"\x49\x44\x33..."  # TODO: Replace with real MP3 bytes
+WRONG_SOUND = b"\x49\x44\x33..."    # TODO: Replace with real MP3 bytes
+TOGGLE_SOUND = b"\x49\x44\x33..."   # TODO: Replace with real MP3 bytes
 
 # Load questions from JSON file
 def load_questions():
@@ -495,6 +501,25 @@ def handle_disconnect():
                     del GAMES[room_code]
                     continue
             emit('player_left', {'players': game['players']}, room=room_code)
+
+@app.route('/sound/correct')
+def sound_correct():
+    return send_file(BytesIO(CORRECT_SOUND), mimetype='audio/mpeg', as_attachment=False, download_name='correct.mp3')
+
+@app.route('/sound/wrong')
+def sound_wrong():
+    return send_file(BytesIO(WRONG_SOUND), mimetype='audio/mpeg', as_attachment=False, download_name='wrong.mp3')
+
+@app.route('/sound/toggle')
+def sound_toggle():
+    return send_file(BytesIO(TOGGLE_SOUND), mimetype='audio/mpeg', as_attachment=False, download_name='toggle.mp3')
+
+# Ensure static files are served (Flask does this by default from /static)
+# If you want to customize, uncomment below:
+# from flask import send_from_directory
+# @app.route('/static/<path:filename>')
+# def static_files(filename):
+#     return send_from_directory('static', filename)
 
 if __name__ == '__main__':
     # Get port from environment variable or use default

@@ -3,268 +3,252 @@
 {% block title %}الامتحان التنافسي - بنك طب نساء{% endblock %}
 
 {% block content %}
-<div id="multiplayerLobby" class="mb-4">
-    <div class="card">
-        <div class="card-body">
-            <div id="lobbyStepCreateJoin" class="p-4 bg-light rounded mb-4">
-                <div class="text-center mb-4">
-                    <h4 class="fw-bold mb-1"><i class="fas fa-users me-2 text-primary"></i>بنك طب نساء
-                    </h4>
-                    <br><br>
-                    <p class="text-muted mb-0">يمكنك إنشاء غرفة جديدة أو الانضمام إلى غرفة موجودة باستخدام رمز الغرفة.
-                    </p>
-                </div>
-                <div class="row g-3 align-items-end justify-content-center">
-                    <div class="col-12 col-md-4">
-                        <label class="form-label fw-semibold"><i class="fas fa-user me-1"></i>اسمك</label>
-                        <input type="text" id="playerName" class="form-control form-control-lg rounded-pill"
-                            placeholder="أدخل اسمك" autocomplete="off">
+<main id="mainContent" role="main" tabindex="-1">
+    <!-- Multiplayer Lobby -->
+    <section id="multiplayerLobby" class="mb-4">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body">
+                <div id="lobbyStepCreateJoin" class="p-4 bg-light rounded-4 mb-4">
+                    <div class="text-center mb-4">
+                        <h4 class="fw-bold mb-1"><i class="fas fa-users me-2 text-primary"></i>بنك طب نساء</h4>
+                        <p class="text-muted mb-0">يمكنك إنشاء غرفة جديدة أو الانضمام إلى غرفة موجودة باستخدام رمز
+                            الغرفة.</p>
                     </div>
-                    <div class="col-12 col-md-4">
-                        <label class="form-label fw-semibold"><i class="fas fa-list me-1"></i>اختر قائمة الأسئلة</label>
-                        <select id="questionListSelect" class="form-select form-select-lg rounded-pill"></select>
-                    </div>
-                    <div class="col-12 col-md-4 d-grid">
-                        <button class="btn btn-primary btn-lg rounded-pill mb-2 mb-md-0 w-100" id="createRoomBtn">
-                            <i class="fas fa-plus me-1"></i> إنشاء غرفة جديدة
-                        </button>
-                    </div>
-                </div>
-                <div class="row g-3 align-items-end justify-content-center mt-2">
-                    <div class="col-6 col-md-2">
-                        <label class="form-label fw-semibold"><i class="fas fa-key me-1"></i>رمز الغرفة</label>
-                        <input type="text" id="joinRoomCode"
-                            class="form-control form-control-lg rounded-pill text-center" maxlength="6"
-                            placeholder="رمز الغرفة">
-                    </div>
-                    <div class="col-6 col-md-2 d-grid">
-                        <button class="btn btn-success btn-lg rounded-pill w-100" id="joinRoomBtn">
-                            <i class="fas fa-sign-in-alt me-1"></i> انضمام
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="lobbyStepRoom" style="display:none;">
-                <div class="row g-2 align-items-center mb-2">
-                    <div class="col-12 col-md-auto mb-2 mb-md-0">
-                        <span class="fw-bold">رمز الغرفة:</span>
-                        <span id="roomCodeDisplay" class="badge bg-primary fs-5"></span>
-                        <button class="btn btn-outline-secondary btn-sm ms-2" id="copyRoomCodeBtn"><i
-                                class="fas fa-copy"></i></button>
-                    </div>
-                </div>
-                <div class="row g-2 mb-2">
-                    <div class="col-12">
-                        <span class="fw-bold">اللاعبون في الغرفة:</span>
-                        <ul id="playersList" class="list-group list-group-flush mb-2"></ul>
-                    </div>
-                </div>
-                <div class="row g-2 mb-2">
-                    <div class="col-12 d-grid">
-                        <div id="hostControls" style="display:none;">
-                            <button class="btn btn-warning w-100" id="startGameBtn"><i class="fas fa-play"></i> بدء
-                                الامتحان</button>
+                    <form class="row g-3 align-items-end justify-content-center" autocomplete="off"
+                        onsubmit="return false;">
+                        <div class="col-12 col-md-4">
+                            <label class="form-label fw-semibold" for="playerName"><i
+                                    class="fas fa-user me-1"></i>اسمك</label>
+                            <input type="text" id="playerName" class="form-control form-control-lg rounded-pill"
+                                placeholder="أدخل اسمك" aria-label="اسمك" required>
                         </div>
-                        <div class="alert alert-info mt-2" id="waitingMsg">بانتظار بدء الامتحان من قبل المضيف...</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Leaderboard -->
-<div id="leaderboardSection" class="mb-3" style="display:none;">
-    <div class="card border-0 shadow-sm" style="background: #fff; border-radius: 12px;">
-        <div class="card-header py-2 px-3 text-white"
-            style="background: #3a47d5; border-radius: 12px 12px 0 0; min-height: 36px;">
-            <span class="fw-bold" style="font-size: 1rem;"><i class="fas fa-trophy me-2"></i>المتصدرون</span>
-        </div>
-        <div class="card-body p-2">
-            <div class="table-responsive" style="max-height: 120px; overflow-y: auto;">
-                <table class="table table-borderless table-sm text-center mb-0 align-middle"
-                    style="font-size: 0.95rem;">
-                    <thead style="background: #f4f6fa;">
-                        <tr style="font-weight: 600;">
-                            <th style="color: #3a47d5;">#</th>
-                            <th style="color: #3a47d5;">الاسم</th>
-                            <th style="color: #3a47d5;">النتيجة</th>
-                            <th style="color: #3a47d5;">الزمن</th>
-                            <th style="color: #3a47d5;">الحالة</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboardBody"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="examContainer" style="display:none;">
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <!-- Question Container -->
-            <div class="card">
-                <!-- Progress Bar -->
-                <div class="card-header bg-primary text-white">
-                    <div class="progress" style="height: 8px; background-color: rgba(255,255,255,0.2);">
-                        <div class="progress-bar bg-light" id="progressBar" role="progressbar" style="width: 1%">
+                        <div class="col-12 col-md-4">
+                            <label class="form-label fw-semibold" for="questionListSelect"><i
+                                    class="fas fa-list me-1"></i>اختر قائمة الأسئلة</label>
+                            <select id="questionListSelect" class="form-select form-select-lg rounded-pill"
+                                aria-label="اختر قائمة الأسئلة"></select>
                         </div>
-                    </div>
-                </div>
-
-                <div class="card-header bg-primary text-white">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h5 class="mb-0">
-                                <i class="fas fa-question-circle me-2"></i>
-                                السؤال <span id="questionNumber">1</span>
-                            </h5>
-                        </div>
-                        <div class="col-auto d-flex gap-2">
-                            <button class="toggle-btn" id="randomizeToggle" title="ترتيب عشوائي للأسئلة">
-                                <i class="fas fa-random"></i>
-                            </button>
-                            <button class="toggle-btn" onclick="showQuestionList()" title="قائمة الأسئلة">
-                                <i class="fas fa-list"></i>
+                        <div class="col-12 col-md-4 d-grid">
+                            <button type="button" class="btn btn-primary btn-lg rounded-pill mb-2 mb-md-0 w-100"
+                                id="createRoomBtn">
+                                <i class="fas fa-plus me-1"></i> إنشاء غرفة جديدة
                             </button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="card-body p-4">
-                    <!-- Questions will be loaded here -->
-                    <div id="questionsContainer" dir="ltr" style="text-align: left;">
-                        <!-- Questions will be dynamically inserted here -->
-                    </div>
-
-                    <!-- Navigation Buttons -->
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <button class="btn btn-secondary flex-fill me-2" id="prevBtn" onclick="previousQuestion()">
-                            <i class="fas fa-arrow-right me-2"></i>
-                            السابق
-                        </button>
-
-                        <div class="d-flex gap-2 flex-fill">
-                            <button class="btn btn-primary flex-fill" id="nextBtn" onclick="nextQuestion()"
-                                style="display: none;">
-                                <i class="fas fa-arrow-left me-2"></i>
-                                التالي
-                            </button>
-
-                            <button class="btn btn-success flex-fill" id="finishBtn" onclick="finishExam()"
-                                style="display: none;">
-                                <i class="fas fa-check me-2"></i>
-                                إنهاء الامتحان
+                    </form>
+                    <form class="row g-3 align-items-end justify-content-center mt-2" autocomplete="off"
+                        onsubmit="return false;">
+                        <div class="col-6 col-md-2">
+                            <label class="form-label fw-semibold" for="joinRoomCode"><i class="fas fa-key me-1"></i>رمز
+                                الغرفة</label>
+                            <input type="text" id="joinRoomCode"
+                                class="form-control form-control-lg rounded-pill text-center" maxlength="6"
+                                placeholder="رمز الغرفة" aria-label="رمز الغرفة" required>
+                        </div>
+                        <div class="col-6 col-md-2 d-grid">
+                            <button type="button" class="btn btn-success btn-lg rounded-pill w-100" id="joinRoomBtn">
+                                <i class="fas fa-sign-in-alt me-1"></i> انضمام
                             </button>
                         </div>
+                    </form>
+                </div>
+                <div id="lobbyStepRoom" style="display:none;">
+                    <div class="row g-2 align-items-center mb-2">
+                        <div class="col-12 col-md-auto mb-2 mb-md-0">
+                            <span class="fw-bold">رمز الغرفة:</span>
+                            <span id="roomCodeDisplay" class="badge bg-primary fs-5"></span>
+                            <button class="btn btn-outline-secondary btn-sm ms-2" id="copyRoomCodeBtn"
+                                aria-label="نسخ رمز الغرفة"><i class="fas fa-copy"></i></button>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Question List Modal -->
-    <div class="modal fade" id="questionListModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">قائمة الأسئلة</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row" id="questionList">
-                        <!-- Question list will be generated here -->
+                    <div class="row g-2 mb-2">
+                        <div class="col-12">
+                            <span class="fw-bold">اللاعبون في الغرفة:</span>
+                            <ul id="playersList" class="list-group list-group-flush mb-2"></ul>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Results Modal -->
-    <div class="modal fade" id="resultsModal" tabindex="-1">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title">
-                        <i class="fas fa-trophy me-2"></i>
-                        نتيجة الامتحان
-                    </h5>
-                </div>
-                <div class="modal-body text-center">
-                    <div class="score-display mb-4" id="finalScore">0%</div>
-
-                    <div class="row mb-4">
-                        <div class="col-md-6 mb-3">
-                            <div class="card bg-light">
-                                <div class="card-body">
-                                    <h5 class="text-success">
-                                        <i class="fas fa-check-circle me-2"></i>
-                                        الإجابات الصحيحة
-                                    </h5>
-                                    <h2 class="text-success" id="correctCount">0</h2>
-                                </div>
+                    <div class="row g-2 mb-2">
+                        <div class="col-12 d-grid">
+                            <div id="hostControls" style="display:none;">
+                                <button class="btn btn-warning w-100" id="startGameBtn"><i class="fas fa-play"></i> بدء
+                                    الامتحان</button>
                             </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="card bg-light">
-                                <div class="card-body">
-                                    <h5 class="text-danger">
-                                        <i class="fas fa-times-circle me-2"></i>
-                                        الإجابات الخاطئة
-                                    </h5>
-                                    <h2 class="text-danger" id="incorrectCount">0</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="progress mb-4" style="height: 20px;">
-                        <div class="progress-bar bg-success" id="finalProgressBar" role="progressbar" style="width: 0%">
-                        </div>
-                    </div>
-
-                    <div class="alert alert-info" id="performanceMessage">
-                        <!-- Performance message will be inserted here -->
-                    </div>
-
-                    <!-- Review Section -->
-                    <div id="reviewSection" style="display: none;">
-                        <div class="review-section" onclick="toggleReview()">
-                            <h5 class="mb-2">
-                                <i class="fas fa-eye me-2"></i>
-                                مراجعة الإجابات الخاطئة
-                            </h5>
-                            <p class="mb-0">اضغط هنا لمراجعة الأسئلة التي أجبت عليها خطأ</p>
-                        </div>
-
-                        <div id="reviewContent" style="display: none;">
-                            <div class="text-start">
-                                <h6 class="mb-3 text-danger">
-                                    <i class="fas fa-exclamation-triangle me-2"></i>
-                                    الأسئلة الخاطئة:
-                                </h6>
-                                <div id="reviewQuestions">
-                                    <!-- Review questions will be inserted here -->
-                                </div>
+                            <div class="alert alert-info mt-2" id="waitingMsg">بانتظار بدء الامتحان من قبل المضيف...
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer flex-column flex-sm-row">
-                    <a href="{{ url_for('restart') }}" class="btn btn-primary mb-2 mb-sm-0">
-                        <i class="fas fa-redo me-2"></i>
-                        إعادة الامتحان
-                    </a>
-                    <button type="button" class="btn btn-secondary" onclick="closeResultsModal()">
-                        <i class="fas fa-times me-2"></i>
-                        إغلاق
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section id="leaderboardSection" class="mb-3" style="display:none;">
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-header py-2 px-3 text-white bg-gradient"
+                style="background: var(--primary, #3a47d5); border-radius: 12px 12px 0 0; min-height: 36px;">
+                <span class="fw-bold" style="font-size: 1rem;"><i class="fas fa-trophy me-2"></i>المتصدرون</span>
+            </div>
+            <div class="card-body p-2">
+                <div class="table-responsive" style="max-height: 120px; overflow-y: auto;">
+                    <table class="table table-borderless table-sm text-center mb-0 align-middle"
+                        style="font-size: 0.95rem;">
+                        <thead style="background: #f4f6fa;">
+                            <tr style="font-weight: 600;">
+                                <th style="color: var(--primary, #3a47d5);">#</th>
+                                <th style="color: var(--primary, #3a47d5);">الاسم</th>
+                                <th style="color: var(--primary, #3a47d5);">النتيجة</th>
+                                <th style="color: var(--primary, #3a47d5);">الزمن</th>
+                                <th style="color: var(--primary, #3a47d5);">التقدم</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exam Container -->
+    <section id="examContainer" class="exam-container" style="display:none;">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="card rounded-4 shadow-sm">
+                    <!-- Sticky Progress Bar -->
+                    <div class="card-header bg-primary text-white sticky-top" style="z-index: 1020;">
+                        <div class="progress" style="height: 10px; background-color: rgba(255,255,255,0.2);">
+                            <div class="progress-bar bg-light" id="progressBar" role="progressbar" style="width: 1%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header bg-primary text-white">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-question-circle me-2"></i>
+                                    السؤال <span id="questionNumber">1</span>
+                                </h5>
+                            </div>
+                            <div class="col-auto d-flex gap-2">
+                                <button class="toggle-btn" id="randomizeToggle" title="ترتيب عشوائي للأسئلة"
+                                    aria-label="ترتيب عشوائي للأسئلة">
+                                    <i class="fas fa-random"></i>
+                                </button>
+                                <button class="toggle-btn" onclick="showQuestionList()" title="قائمة الأسئلة"
+                                    aria-label="قائمة الأسئلة">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div id="questionsContainer" dir="ltr" style="text-align: left;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed Bottom Navigation -->
+        <div class="fixed-bottom-nav">
+            <div class="nav-btn-group">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" aria-label="السابق">
+                    <i class="fas fa-arrow-right me-2"></i> السابق
+                </button>
+                <div class="next-finish-wrapper">
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">
+                        <i class="fas fa-arrow-left me-2"></i> التالي
+                    </button>
+                    <button class="btn btn-success" id="finishBtn" onclick="finishExam()" style="display: none;">
+                        <i class="fas fa-check me-2"></i> إنهاء الامتحان
                     </button>
                 </div>
             </div>
+            <div class="exam-footer">
+                Made with ❤️ by Raafat Sami
+            </div>
         </div>
-    </div>
-</div>
+
+        <!-- Question List Modal -->
+        <div class="modal fade" id="questionListModal" tabindex="-1" aria-modal="true"
+            aria-labelledby="questionListModalLabel">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content rounded-4">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="questionListModalLabel">قائمة الأسئلة</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="questionList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Results Modal -->
+        <div class="modal fade" id="resultsModal" tabindex="-1" aria-modal="true" aria-labelledby="resultsModalLabel">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content rounded-4">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="resultsModalLabel"><i class="fas fa-trophy me-2"></i>نتيجة الامتحان
+                        </h5>
+                    </div>
+                    <div class="modal-body text-center">
+                        <div class="score-display mb-4" id="finalScore" aria-live="polite">0%</div>
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light rounded-3">
+                                    <div class="card-body">
+                                        <h5 class="text-success"><i class="fas fa-check-circle me-2"></i>الإجابات
+                                            الصحيحة</h5>
+                                        <h2 class="text-success" id="correctCount">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="card bg-light rounded-3">
+                                    <div class="card-body">
+                                        <h5 class="text-danger"><i class="fas fa-times-circle me-2"></i>الإجابات الخاطئة
+                                        </h5>
+                                        <h2 class="text-danger" id="incorrectCount">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress mb-4" style="height: 20px;">
+                            <div class="progress-bar bg-success" id="finalProgressBar" role="progressbar"
+                                style="width: 0%"></div>
+                        </div>
+                        <div class="alert alert-info" id="performanceMessage" aria-live="polite"></div>
+                        <!-- Review Section -->
+                        <div id="reviewSection" style="display: none;">
+                            <div class="review-section" onclick="toggleReview()" tabindex="0" role="button"
+                                aria-expanded="false">
+                                <h5 class="mb-2"><i class="fas fa-eye me-2"></i>مراجعة الإجابات الخاطئة</h5>
+                                <p class="mb-0">اضغط هنا لمراجعة الأسئلة التي أجبت عليها خطأ</p>
+                            </div>
+                            <div id="reviewContent" style="display: none;">
+                                <div class="text-start">
+                                    <h6 class="mb-3 text-danger"><i class="fas fa-exclamation-triangle me-2"></i>الأسئلة
+                                        الخاطئة:</h6>
+                                    <div id="reviewQuestions"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer flex-column flex-sm-row">
+                        <a href="{{ url_for('restart') }}" class="btn btn-primary mb-2 mb-sm-0"><i
+                                class="fas fa-redo me-2"></i>إعادة الامتحان</a>
+                        <button type="button" class="btn btn-secondary" onclick="closeResultsModal()"><i
+                                class="fas fa-times me-2"></i>إغلاق</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sound effects will be handled by JS Audio objects for efficiency -->
+    <button id="muteBtn" class="btn btn-light btn-sm position-fixed shadow"
+        style="top: 20px; left: 20px; z-index: 1100; border-radius: 50%;" aria-label="تبديل الصوت"
+        title="تبديل الصوت"><i class="fas fa-volume-up"></i></button>
+</main>
 {% endblock %}
 
 {% block scripts %}
@@ -450,17 +434,17 @@
             const rowClass = isMe ? 'table-primary fw-bold' : '';
             const tr = document.createElement('tr');
             tr.className = rowClass;
+            const progressBar = `<div class='progress leaderboard-progress-bar' style='height:16px; min-width:80px;'>
+                <div class='progress-bar ${player.finished ? 'bg-success' : ''}' role='progressbar' style='width:${progressPercent}%; transition: width 0.5s;'>
+                    <span style='color:#fff; font-size:0.9em;'>${progressPercent}%</span>
+                </div>
+            </div>`;
             tr.innerHTML = `
                 <td>${idx + 1}</td>
                 <td>${player.name} ${isMe ? '<i class=\'fas fa-user\'></i>' : ''}</td>
                 <td>${player.score || 0}</td>
                 <td>${player.finished ? (player.time || 0).toFixed(1) : '-'}</td>
-                <td>
-                    ${player.finished ? '<span class=\'badge bg-success\'>انتهى</span>' :
-                    gameStarted ? `<div class=\'progress\' style=\'height:12px; min-width:60px;\'>
-                            <div class=\'progress-bar bg-info\' role=\'progressbar\' style=\'width:${progressPercent}%;\'>${progressPercent}%</div>
-                        </div>` : '<span class=\'badge bg-warning\'>في الانتظار</span>'}
-                </td>
+                <td>${player.finished ? '<span class=\'badge bg-success\'>انتهى</span>' : progressBar}</td>
             `;
             tbody.appendChild(tr);
         });
@@ -719,6 +703,14 @@
 
                 // Show next button instead of auto-advancing
                 showNextButton();
+
+                if (!window.isMuted) {
+                    if (optionIndex === correctAnswer) {
+                        playSound('correct');
+                    } else {
+                        playSound('wrong');
+                    }
+                }
             });
 
             // Add touch event listeners for better mobile experience
@@ -775,9 +767,35 @@
 
     function showQuestion(index) {
         const slides = document.querySelectorAll('.question-slide');
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index ? 'block' : 'none';
-        });
+        const currentSlide = slides[currentQuestionIndex];
+        const newSlide = slides[index];
+
+        if (currentSlide && newSlide && currentQuestionIndex !== index) {
+            // Add fade-out animation to current question
+            currentSlide.classList.add('fade-out');
+
+            // After fade-out animation, show new question with fade-in animation
+            setTimeout(() => {
+                // Hide all slides
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === index ? 'block' : 'none';
+                });
+
+                // Remove fade-out class and add fade-in class
+                currentSlide.classList.remove('fade-out');
+                newSlide.classList.add('fade-in');
+
+                // Remove fade-in class after animation completes
+                setTimeout(() => {
+                    newSlide.classList.remove('fade-in');
+                }, 200);
+            }, 200);
+        } else {
+            // Simple show/hide for initial load or same question
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
 
         document.getElementById('questionNumber').textContent = index + 1;
         currentQuestionIndex = index;
@@ -1011,5 +1029,33 @@
             }
         }
     }
+
+    // Efficient sound effect handling
+    const soundUrls = {
+        correct: 'https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3',
+        wrong: 'https://assets.mixkit.co/active_storage/sfx/950/950-preview.mp3',
+        toggle: 'https://assets.mixkit.co/active_storage/sfx/2579/2579-preview.mp3'
+    };
+    const soundEffects = {
+        correct: new Audio(soundUrls.correct),
+        wrong: new Audio(soundUrls.wrong),
+        toggle: new Audio(soundUrls.toggle)
+    };
+    // Preload sounds
+    Object.values(soundEffects).forEach(audio => { audio.preload = 'auto'; audio.load(); });
+    window.isMuted = false;
+    function playSound(type) {
+        if (window.isMuted) return;
+        const audio = soundEffects[type];
+        if (audio) {
+            audio.currentTime = 0;
+            audio.play();
+        }
+    }
+    document.getElementById('muteBtn').onclick = function () {
+        window.isMuted = !window.isMuted;
+        this.innerHTML = window.isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+        playSound('toggle');
+    };
 </script>
 {% endblock %}
