@@ -38,6 +38,15 @@ def load_questions():
             QUESTIONS = json.load(file)
     return QUESTIONS
 
+def get_available_question_lists():
+    questions = load_questions()
+    return {k: len(v) for k, v in questions.items() if isinstance(v, list)}
+
+@app.route('/get_question_lists')
+def get_question_lists():
+    lists = get_available_question_lists()
+    return jsonify(lists)
+
 def generate_session_id():
     """Generate a unique session ID for each user"""
     return str(uuid.uuid4())
@@ -149,29 +158,32 @@ def exam():
     # Validate session
     if not validate_session():
         return redirect(url_for('index'))
-    
+
     if not session.get('exam_started'):
         # If no exam is started, automatically start one
-        questions = load_questions()
+        all_questions = load_questions()
         exam_seed = random.randint(1, 1000000)
         session['exam_started'] = True
         session['answers'] = {}
-        session['total_questions'] = len(questions)
+        session['total_questions'] = len(all_questions.get('list1', []))
         session['exam_seed'] = exam_seed
         session['randomize_questions'] = True  # Default to true
-    
+        session['question_list'] = 'list1'
+
     # Load and randomize questions using the stored seed and settings
-    questions = load_questions()
+    all_questions = load_questions()
     exam_seed = session.get('exam_seed')
     randomize_questions = session.get('randomize_questions', True)
-    
+    question_list_key = session.get('question_list', 'list1')
+    questions = all_questions.get(question_list_key, [])
+
     randomized_questions = randomize_questions_and_options(
-        questions, 
-        exam_seed, 
+        questions,
+        exam_seed,
         randomize_questions
     )
-    
-    return render_template('exam.html', 
+
+    return render_template('exam.html',
                          questions=randomized_questions,
                          total_questions=len(randomized_questions),
                          randomize_questions=randomize_questions)
@@ -181,13 +193,17 @@ def update_randomization():
     """Update randomization settings"""
     if not validate_session():
         return jsonify({'error': 'Invalid session'}), 400
-    
+
     if not session.get('exam_started'):
         return jsonify({'error': 'No exam started'}), 400
-    
+
     data = request.json
-    session['randomize_questions'] = data.get('randomize_questions', True)
-    
+    room_code = request.args.get('room_code')
+    if room_code and room_code in GAMES:
+        GAMES[room_code]['randomize_questions'] = data.get('randomize_questions', True)
+    else:
+        session['randomize_questions'] = data.get('randomize_questions', True)
+
     return jsonify({'success': True})
 
 @app.route('/submit_exam', methods=['POST'])
@@ -195,35 +211,37 @@ def submit_exam():
     """Handle final exam submission"""
     if not validate_session():
         return jsonify({'error': 'Invalid session'}), 400
-    
+
     if not session.get('exam_started'):
         return jsonify({'error': 'No exam started'}), 400
-    
+
     # Check if exam was already submitted
     if session.get('exam_submitted'):
         return jsonify({'error': 'Exam already submitted'}), 400
-    
+
     # Get answers from request
     answers = request.json.get('answers', {})
-    
+
     # Validate answers format
     if not isinstance(answers, dict):
         return jsonify({'error': 'Invalid answers format'}), 400
-    
+
     # Regenerate questions using the same seed and settings for consistent scoring
-    questions = load_questions()
+    all_questions = load_questions()
     exam_seed = session.get('exam_seed')
     randomize_questions = session.get('randomize_questions', True)
-    
+    question_list_key = session.get('question_list', 'list1')
+    questions = all_questions.get(question_list_key, [])
+
     if not exam_seed:
         return jsonify({'error': 'Invalid exam session'}), 400
-    
+
     randomized_questions = randomize_questions_and_options(
-        questions, 
-        exam_seed, 
+        questions,
+        exam_seed,
         randomize_questions
     )
-    
+
     correct_answers = 0
     total_questions = len(randomized_questions)
 
@@ -238,12 +256,12 @@ def submit_exam():
                     correct_answers += 1
             except Exception:
                 pass
-    
+
     score_percentage = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
-    
+
     # Mark exam as submitted to prevent duplicate submissions
     session['exam_submitted'] = True
-    
+
     # Store results in session for potential review
     session['exam_results'] = {
         'session_id': session.get('session_id'),
@@ -254,7 +272,7 @@ def submit_exam():
         'questions': randomized_questions,
         'submitted_at': datetime.now().isoformat()
     }
-    
+
     return jsonify({
         'correct_answers': correct_answers,
         'total_questions': total_questions,
@@ -292,24 +310,34 @@ def get_questions_data():
     """Get questions data with current randomization settings"""
     if not validate_session():
         return jsonify({'error': 'Invalid session'}), 400
-    
+
     if not session.get('exam_started'):
         return jsonify({'error': 'No exam started'}), 400
-    
-    # Load and randomize questions using the stored seed and settings
-    questions = load_questions()
-    exam_seed = session.get('exam_seed')
-    randomize_questions = session.get('randomize_questions', True)
-    
+
+    # Check if this is a multiplayer request (room_code param)
+    room_code = request.args.get('room_code')
+    if room_code and room_code in GAMES:
+        game = GAMES[room_code]
+        questions = load_questions().get(game['question_list'], [])
+        exam_seed = game['seed']
+        randomize_questions = game.get('randomize_questions', True)
+    else:
+        # Single player mode
+        all_questions = load_questions()
+        exam_seed = session.get('exam_seed')
+        randomize_questions = session.get('randomize_questions', True)
+        question_list_key = session.get('question_list', 'list1')
+        questions = all_questions.get(question_list_key, [])
+
     if not exam_seed:
         return jsonify({'error': 'Invalid exam session'}), 400
-    
+
     randomized_questions = randomize_questions_and_options(
-        questions, 
-        exam_seed, 
+        questions,
+        exam_seed,
         randomize_questions
     )
-    
+
     return jsonify({
         'questions': randomized_questions,
         'total_questions': len(randomized_questions),
@@ -329,7 +357,11 @@ def handle_create_room(data):
     client_id = data.get('client_id')
     session_id = request.sid
     room_code = generate_room_code()
-    questions = load_questions()
+    question_list_key = data.get('question_list', 'list1')
+    all_questions = load_questions()
+    if question_list_key not in all_questions:
+        question_list_key = 'list1'
+    questions = all_questions[question_list_key]
     seed = random.randint(1, 1000000)
     randomized_questions = randomize_questions_and_options(questions, seed, True)
     GAMES[room_code] = {
@@ -341,10 +373,12 @@ def handle_create_room(data):
         'started': False,
         'start_time': None,
         'end_time': None,
-        'seed': seed
+        'seed': seed,
+        'question_list': question_list_key,
+        'total_questions': len(randomized_questions)
     }
     join_room(room_code)
-    emit('room_created', {'room_code': room_code, 'players': GAMES[room_code]['players']}, room=session_id)
+    emit('room_created', {'room_code': room_code, 'players': GAMES[room_code]['players'], 'question_list': question_list_key, 'total_questions': len(randomized_questions)}, room=session_id)
 
 @socketio.on('join_room')
 def handle_join_room(data):
@@ -363,7 +397,7 @@ def handle_join_room(data):
     GAMES[room_code]['players'][client_id] = GAMES[room_code]['players'].get(client_id, {'name': name, 'score': 0, 'time': 0, 'finished': False})
     GAMES[room_code]['players'][client_id]['sid'] = session_id
     join_room(room_code)
-    emit('player_joined', {'players': GAMES[room_code]['players']}, room=room_code)
+    emit('player_joined', {'players': GAMES[room_code]['players'], 'question_list': GAMES[room_code]['question_list'], 'total_questions': GAMES[room_code]['total_questions']}, room=room_code)
 
 @socketio.on('start_game')
 def handle_start_game(data):
@@ -377,7 +411,9 @@ def handle_start_game(data):
     GAMES[room_code]['start_time'] = datetime.now().isoformat()
     emit('game_started', {
         'questions': GAMES[room_code]['questions'],
-        'start_time': GAMES[room_code]['start_time']
+        'start_time': GAMES[room_code]['start_time'],
+        'question_list': GAMES[room_code]['question_list'],
+        'total_questions': GAMES[room_code]['total_questions']
     }, room=room_code)
 
 @socketio.on('progress_update')
@@ -441,7 +477,7 @@ def handle_submit_answers(data):
         for p in GAMES[room_code]['players'].values()
     ]
     leaderboard.sort(key=lambda x: (-x['score'], x['time']))
-    emit('leaderboard_update', {'leaderboard': leaderboard}, room=room_code)
+    emit('leaderboard_update', {'leaderboard': leaderboard, 'total_questions': GAMES[room_code]['total_questions']}, room=room_code)
 
 @socketio.on('disconnect')
 def handle_disconnect():
