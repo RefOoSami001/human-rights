@@ -1267,14 +1267,15 @@
       },
       {
          "number": 66,
-         "text": "A 26 years old lady presented with secondary amenorrhea and FSH and LH are found to be high, your diagnosis will be?",
+         "text": "A 26 years old lady presented with secondary amenorrhea and FSH and LH are found to be high,",
          "options": [
+            "your diagnosis will be?",
             "Sheehan syndrome",
             "Asherman syndrome",
             "Premature ovarian failure",
             "Imperforate hymen"
          ],
-         "correct_answer": 2
+         "correct_answer": 3
       },
       {
          "number": 67,
@@ -1442,8 +1443,9 @@
       },
       {
          "number": 82,
-         "text": "The initial attempt to control uterine bleeding due to blood dyscrasia (Prothrombin deficiency) after ruling out anatomic lesions should be:",
+         "text": "The initial attempt to control uterine bleeding due to blood dyscrasia (Prothrombin deficiency) after ruling out",
          "options": [
+            "anatomic lesions should be:",
             "Cyclic estrogens.",
             "D&C then hysterectomy.",
             "Oral contraceptive pills.",
@@ -1629,14 +1631,15 @@
       },
       {
          "number": 99,
-         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding After adequate history and physical examination, what is your recommendation ?",
+         "text": "An Obese 63-years old women present with a 3 month history of continuous scanty bleeding. After",
          "options": [
+            "adequate history and physical examination, what is your recommendation ?",
             "Dilatation and curettage (D&C)",
             "Cycling with progestin",
             "Laparoscopy",
             "Official visit every 6 month for the evaluation."
          ],
-         "correct_answer": 0
+         "correct_answer": 1
       }
    ]
 }

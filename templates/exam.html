@@ -112,12 +112,12 @@
     <section id="examContainer" class="exam-container" style="display:none;">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div class="card rounded-4 shadow-sm">
+                <div class="card rounded-4 shadow-sm" style="display:none;">
                     <!-- Sticky Progress Bar -->
-                    <div class="card-header bg-primary text-white sticky-top" style="z-index: 1020;">
-                        <div class="progress" style="height: 10px; background-color: rgba(255,255,255,0.2);">
-                            <div class="progress-bar bg-light" id="progressBar" role="progressbar" style="width: 1%">
-                            </div>
+                    <div class="card-header bg-primary text-white sticky-top" style="z-index: 1020;"
+                        style="height:0px;">
+                        <div class="progress-bar bg-light" id="progressBar" role="progressbar"
+                            style="width: 1%; display: none;">
                         </div>
                     </div>
                     <div class="card-header bg-primary text-white">
@@ -129,20 +129,16 @@
                                 </h5>
                             </div>
                             <div class="col-auto d-flex gap-2">
-                                <button class="toggle-btn" id="randomizeToggle" title="ترتيب عشوائي للأسئلة"
-                                    aria-label="ترتيب عشوائي للأسئلة">
-                                    <i class="fas fa-random"></i>
-                                </button>
-                                <button class="toggle-btn" onclick="showQuestionList()" title="قائمة الأسئلة"
+                                <button class="question-list-btn" onclick="showQuestionList()" title="قائمة الأسئلة"
                                     aria-label="قائمة الأسئلة">
                                     <i class="fas fa-list"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-4">
-                        <div id="questionsContainer" dir="ltr" style="text-align: left;"></div>
-                    </div>
+                </div>
+                <div class="card-body p-4" style="background-color: #f4f6fa; border-radius: 15px;">
+                    <div id="questionsContainer" dir="ltr" style="text-align: left;"></div>
                 </div>
             </div>
         </div>
@@ -151,8 +147,12 @@
         <div class="fixed-bottom-nav">
             <div class="nav-btn-group">
                 <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" aria-label="السابق">
-                    <i class="fas fa-arrow-right me-2"></i> السابق
+                    <i class="fas fa-arrow-right me-2"></i>
                 </button>
+                <div class="question-counter" onclick="showQuestionList()" style="cursor: pointer;"
+                    title="عرض قائمة الأسئلة">
+                    <span id="questionCounterNumber">1</span> / <span id="questionCounterTotal">1</span>
+                </div>
                 <div class="next-finish-wrapper">
                     <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">
                         <i class="fas fa-arrow-left me-2"></i> التالي
@@ -244,10 +244,21 @@
         </div>
     </section>
 
-    <!-- Sound effects will be handled by JS Audio objects for efficiency -->
-    <button id="muteBtn" class="btn btn-light btn-sm position-fixed shadow"
-        style="top: 20px; left: 20px; z-index: 1100; border-radius: 50%;" aria-label="تبديل الصوت"
-        title="تبديل الصوت"><i class="fas fa-volume-up"></i></button>
+    <!-- Sound effect audio elements using Mixkit URLs -->
+    <audio id="sound-correct" src="https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3"
+        preload="auto"></audio>
+    <audio id="sound-wrong" src="https://assets.mixkit.co/active_storage/sfx/950/950-preview.mp3"
+        preload="auto"></audio>
+    <audio id="sound-toggle" src="https://assets.mixkit.co/active_storage/sfx/2579/2579-preview.mp3"
+        preload="auto"></audio>
+
+    <!-- Floating buttons -->
+    <button id="muteBtn" class="floating-btn" aria-label="تبديل الصوت" title="تبديل الصوت">
+        <i class="fas fa-volume-up"></i>
+    </button>
+    <button id="randomizeToggle" class="floating-btn" title="ترتيب عشوائي للأسئلة" aria-label="ترتيب عشوائي للأسئلة">
+        <i class="fas fa-random"></i>
+    </button>
 </main>
 {% endblock %}
 
@@ -361,6 +372,9 @@
         generateQuestionList();
         updateNavigationButtons();
         updateLeaderboard([]);
+
+        // Set total questions display
+        document.getElementById('questionCounterTotal').textContent = totalQuestions;
     });
     socket.on('leaderboard_update', function (data) {
         updateLeaderboard(data.leaderboard);
@@ -502,6 +516,9 @@
         updateNavigationButtons();
         setupRandomizationControls();
         updateRandomizationStatus();
+
+        // Set total questions display
+        document.getElementById('questionCounterTotal').textContent = totalQuestions;
 
         // Prevent zoom on double tap for mobile
         let lastTouchEnd = 0;
@@ -798,6 +815,8 @@
         }
 
         document.getElementById('questionNumber').textContent = index + 1;
+        document.getElementById('questionCounterNumber').textContent = index + 1;
+        document.getElementById('questionCounterTotal').textContent = totalQuestions;
         currentQuestionIndex = index;
 
         updateNavigationButtons();
