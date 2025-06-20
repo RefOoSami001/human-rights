@@ -1,32 +1,42 @@
 {% extends "base.html" %}
 
-{% block title %}الامتحان التنافسي - امتحان حقوق الإنسان{% endblock %}
+{% block title %}الامتحان التنافسي - بنك طب نساء{% endblock %}
 
 {% block content %}
 <div id="multiplayerLobby" class="mb-4">
     <div class="card">
-        <div class="card-header bg-info text-white">
-            <h5 class="mb-0"><i class="fas fa-users me-2"></i> الامتحان التنافسي الجماعي</h5>
-        </div>
         <div class="card-body">
-            <div id="lobbyStepCreateJoin">
-                <div class="row g-2">
+            <div id="lobbyStepCreateJoin" class="p-4 bg-light rounded mb-4">
+                <div class="text-center mb-4">
+                    <h4 class="fw-bold mb-1"><i class="fas fa-users me-2 text-primary"></i>بنك طب نساء
+                    </h4>
+                    <br><br>
+                    <p class="text-muted mb-0">يمكنك إنشاء غرفة جديدة أو الانضمام إلى غرفة موجودة باستخدام رمز الغرفة.
+                    </p>
+                </div>
+                <div class="row g-3 align-items-end justify-content-center">
                     <div class="col-12 col-md-4">
-                        <label class="form-label">اسمك</label>
-                        <input type="text" id="playerName" class="form-control" placeholder="أدخل اسمك"
-                            autocomplete="off">
+                        <label class="form-label fw-semibold"><i class="fas fa-user me-1"></i>اسمك</label>
+                        <input type="text" id="playerName" class="form-control form-control-lg rounded-pill"
+                            placeholder="أدخل اسمك" autocomplete="off">
                     </div>
                     <div class="col-12 col-md-4 d-grid">
-                        <button class="btn btn-primary mb-2 mb-md-0 w-100" id="createRoomBtn"><i
-                                class="fas fa-plus"></i> إنشاء غرفة</button>
+                        <button class="btn btn-primary btn-lg rounded-pill mb-2 mb-md-0 w-100" id="createRoomBtn">
+                            <i class="fas fa-plus me-1"></i> إنشاء غرفة جديدة
+                        </button>
                     </div>
+                </div>
+                <div class="row g-3 align-items-end justify-content-center mt-2">
                     <div class="col-6 col-md-2">
-                        <input type="text" id="joinRoomCode" class="form-control" maxlength="6"
+                        <label class="form-label fw-semibold"><i class="fas fa-key me-1"></i>رمز الغرفة</label>
+                        <input type="text" id="joinRoomCode"
+                            class="form-control form-control-lg rounded-pill text-center" maxlength="6"
                             placeholder="رمز الغرفة">
                     </div>
                     <div class="col-6 col-md-2 d-grid">
-                        <button class="btn btn-success w-100" id="joinRoomBtn"><i class="fas fa-sign-in-alt"></i>
-                            انضمام</button>
+                        <button class="btn btn-success btn-lg rounded-pill w-100" id="joinRoomBtn">
+                            <i class="fas fa-sign-in-alt me-1"></i> انضمام
+                        </button>
                     </div>
                 </div>
             </div>
@@ -60,21 +70,23 @@
 </div>
 
 <!-- Leaderboard -->
-<div id="leaderboardSection" class="mb-4" style="display:none;">
-    <div class="card">
-        <div class="card-header bg-success text-white">
-            <h5 class="mb-0"><i class="fas fa-trophy me-2"></i> لوحة المتصدرين</h5>
+<div id="leaderboardSection" class="mb-3" style="display:none;">
+    <div class="card border-0 shadow-sm" style="background: #fff; border-radius: 12px;">
+        <div class="card-header py-2 px-3 text-white"
+            style="background: #3a47d5; border-radius: 12px 12px 0 0; min-height: 36px;">
+            <span class="fw-bold" style="font-size: 1rem;"><i class="fas fa-trophy me-2"></i>المتصدرون</span>
         </div>
         <div class="card-body p-2">
-            <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
-                <table class="table table-bordered table-sm text-center mb-0">
-                    <thead class="sticky-top bg-white">
-                        <tr>
-                            <th>الترتيب</th>
-                            <th>الاسم</th>
-                            <th>النتيجة</th>
-                            <th>الزمن (ثانية)</th>
-                            <th>الحالة</th>
+            <div class="table-responsive" style="max-height: 120px; overflow-y: auto;">
+                <table class="table table-borderless table-sm text-center mb-0 align-middle"
+                    style="font-size: 0.95rem;">
+                    <thead style="background: #f4f6fa;">
+                        <tr style="font-weight: 600;">
+                            <th style="color: #3a47d5;">#</th>
+                            <th style="color: #3a47d5;">الاسم</th>
+                            <th style="color: #3a47d5;">النتيجة</th>
+                            <th style="color: #3a47d5;">الزمن</th>
+                            <th style="color: #3a47d5;">الحالة</th>
                         </tr>
                     </thead>
                     <tbody id="leaderboardBody"></tbody>
@@ -118,7 +130,7 @@
 
                 <div class="card-body p-4">
                     <!-- Questions will be loaded here -->
-                    <div id="questionsContainer">
+                    <div id="questionsContainer" dir="ltr" style="text-align: left;">
                         <!-- Questions will be dynamically inserted here -->
                     </div>
 

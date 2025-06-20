@@ -72,7 +72,7 @@ def create_new_session():
     session['randomize_questions'] = True
 
 def randomize_questions_and_options(questions, seed=None, randomize_questions=True):
-    """Randomize questions while maintaining correct answer tracking"""
+    """Randomize questions and options while maintaining correct answer tracking"""
     if seed is not None:
         random.seed(seed)
     
@@ -81,11 +81,16 @@ def randomize_questions_and_options(questions, seed=None, randomize_questions=Tr
     for question in questions:
         # Create a copy of the question
         new_question = question.copy()
-        
-        # Keep original options and correct answer (no option randomization)
-        new_question['options'] = question['options']
-        new_question['correct_answer'] = question['correct_answer']
-        
+        options = list(question['options'])
+        correct_index = int(question['correct_answer'])
+        correct_option = options[correct_index]
+        # Shuffle options and track new correct index
+        option_indices = list(range(len(options)))
+        random.shuffle(option_indices)
+        shuffled_options = [options[i] for i in option_indices]
+        new_correct_index = option_indices.index(correct_index)
+        new_question['options'] = shuffled_options
+        new_question['correct_answer'] = new_correct_index
         randomized_questions.append(new_question)
     
     # Randomize question order if requested

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>{% block title %}امتحان حقوق الإنسان{% endblock %}</title>
+    <title>{% block title %}بنك طب نساء{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -30,7 +30,7 @@
         body {
             font-family: var(--font-family-primary);
             font-weight: var(--font-weight-regular);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
             min-height: 100vh;
             direction: rtl;
             overflow-x: hidden;
@@ -962,14 +962,7 @@
         <div class="glow"></div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">
-                <i class="fas fa-graduation-cap me-2"></i>
-                امتحان حقوق الإنسان
-            </a>
-        </div>
-    </nav>
+
 
     <div class="container mt-4">
         {% block content %}{% endblock %}
