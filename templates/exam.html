@@ -282,7 +282,7 @@
     let playerName = '';
     let gameStarted = false;
     let multiplayerMode = true; // Always multiplayer for this version
-    let resultsShown = false; // Flag to track if results have been shown
+    let resultsShown = false; // Flag to track if results modal has been shown
 
     // Hide exam UI until game starts
     const examContainer = document.getElementById('examContainer');
@@ -361,7 +361,6 @@
         gameStarted = true;
         questions = data.questions;
         totalQuestions = data.total_questions;
-        resultsShown = false; // Reset results shown flag for new game
         document.getElementById('multiplayerLobby').style.display = 'none';
         examContainer.style.display = 'block';
         leaderboardSection.style.display = 'block';
@@ -381,10 +380,10 @@
     socket.on('leaderboard_update', function (data) {
         updateLeaderboard(data.leaderboard);
         if (data.total_questions) totalQuestions = data.total_questions;
-        // If this player finished and results haven't been shown yet, show results modal
+        // If this player finished, show results modal (only if not already shown)
         const me = data.leaderboard.find(p => p.name === playerName);
         if (me && me.finished && !resultsShown) {
-            resultsShown = true; // Mark results as shown
+            resultsShown = true; // Mark as shown
             showResults({
                 correct_answers: me.score,
                 total_questions: totalQuestions,
@@ -473,6 +472,21 @@
         const codeToSend = roomCode || localStorage.getItem('room_code');
         socket.emit('submit_answers', { room_code: codeToSend, answers: userAnswers, client_id: clientId });
     }
+
+    // Show leaderboard after submit
+    socket.on('leaderboard_update', function (data) {
+        updateLeaderboard(data.leaderboard);
+        // If this player finished, show results modal (only if not already shown)
+        const me = data.leaderboard.find(p => p.name === playerName);
+        if (me && me.finished && !resultsShown) {
+            resultsShown = true; // Mark as shown
+            showResults({
+                correct_answers: me.score,
+                total_questions: totalQuestions,
+                score_percentage: (me.score / totalQuestions) * 100
+            });
+        }
+    });
 
     // Hide exam UI until multiplayer game starts
     examContainer.style.display = 'none';
@@ -679,4 +693,391 @@
                 </div>
             `).join('')}
         </div>
-    `
+    `;
+            container.appendChild(questionDiv);
+        });
+
+        // Add event listeners to options
+        addOptionEventListeners();
+    }
+
+    function addOptionEventListeners() {
+        const options = document.querySelectorAll('.option-item');
+        options.forEach(option => {
+            option.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const questionIndex = parseInt(this.dataset.question);
+                const optionIndex = parseInt(this.dataset.option);
+                const correctAnswer = parseInt(this.dataset.correct);
+
+                // Store the answer
+                userAnswers[questionIndex] = optionIndex;
+
+                // Show feedback
+                showAnswerFeedback(questionIndex, optionIndex, correctAnswer);
+
+                // Update navigation buttons
+                updateNavigationButtons();
+
+                // Show next button instead of auto-advancing
+                showNextButton();
+
+                if (!window.isMuted) {
+                    if (optionIndex === correctAnswer) {
+                        playSound('correct');
+                    } else {
+                        playSound('wrong');
+                    }
+                }
+            });
+
+            // Add touch event listeners for better mobile experience
+            option.addEventListener('touchstart', function () {
+                this.style.transform = 'scale(0.98)';
+            });
+
+            option.addEventListener('touchend', function () {
+                this.style.transform = '';
+            });
+        });
+    }
+
+    function showAnswerFeedback(questionIndex, selectedAnswer, correctAnswer) {
+        const questionDiv = document.querySelector(`[data-question="${questionIndex}"]`).parentElement;
+        const options = questionDiv.querySelectorAll('.option-item');
+
+        // Remove previous feedback
+        options.forEach(opt => {
+            opt.classList.remove('correct', 'incorrect');
+        });
+
+        // Show feedback
+        if (selectedAnswer === correctAnswer) {
+            options[selectedAnswer].classList.add('correct');
+
+            // Add celebration animation
+            setTimeout(() => {
+                options[selectedAnswer].style.animation = 'correctPulse 0.6s ease-in-out';
+            }, 100);
+        } else {
+            options[selectedAnswer].classList.add('incorrect');
+            options[correctAnswer].classList.add('correct');
+
+            // Store incorrect answer for review
+            incorrectAnswers.push({
+                questionIndex: questionIndex,
+                question: questions[questionIndex],
+                userAnswer: selectedAnswer,
+                correctAnswer: correctAnswer
+            });
+
+            // Add shake animation
+            setTimeout(() => {
+                options[selectedAnswer].style.animation = 'incorrectShake 0.6s ease-in-out';
+            }, 100);
+        }
+
+        // Disable further interaction
+        options.forEach(opt => {
+            opt.style.pointerEvents = 'none';
+        });
+    }
+
+    function showQuestion(index) {
+        const slides = document.querySelectorAll('.question-slide');
+        const currentSlide = slides[currentQuestionIndex];
+        const newSlide = slides[index];
+
+        if (currentSlide && newSlide && currentQuestionIndex !== index) {
+            // Add fade-out animation to current question
+            currentSlide.classList.add('fade-out');
+
+            // After fade-out animation, show new question with fade-in animation
+            setTimeout(() => {
+                // Hide all slides
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === index ? 'block' : 'none';
+                });
+
+                // Remove fade-out class and add fade-in class
+                currentSlide.classList.remove('fade-out');
+                newSlide.classList.add('fade-in');
+
+                // Remove fade-in class after animation completes
+                setTimeout(() => {
+                    newSlide.classList.remove('fade-in');
+                }, 200);
+            }, 200);
+        } else {
+            // Simple show/hide for initial load or same question
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        document.getElementById('questionNumber').textContent = index + 1;
+        document.getElementById('questionCounterNumber').textContent = index + 1;
+        document.getElementById('questionCounterTotal').textContent = totalQuestions;
+        currentQuestionIndex = index;
+
+        updateNavigationButtons();
+        updateProgress();
+
+        // Show previous answers if they exist
+        if (userAnswers[index] !== undefined) {
+            const question = questions[index];
+            showAnswerFeedback(index, userAnswers[index], question.correct_answer);
+            showNextButton(); // Show next button if question was already answered
+        } else {
+            hideNextButton(); // Hide next button for unanswered questions
+        }
+
+        // Emit progress update for multiplayer
+        if (multiplayerMode && roomCode) {
+            socket.emit('progress_update', { room_code: roomCode, current_index: index, client_id: clientId });
+        }
+    }
+
+    function nextQuestion() {
+        if (currentQuestionIndex < totalQuestions - 1) {
+            showQuestion(currentQuestionIndex + 1);
+        }
+    }
+
+    function previousQuestion() {
+        if (currentQuestionIndex > 0) {
+            showQuestion(currentQuestionIndex - 1);
+        }
+    }
+
+    function showNextButton() {
+        const nextBtn = document.getElementById('nextBtn');
+        const finishBtn = document.getElementById('finishBtn');
+
+        if (currentQuestionIndex === totalQuestions - 1) {
+            // Last question - show finish button
+            nextBtn.style.display = 'none';
+            finishBtn.style.display = 'inline-block';
+        } else {
+            // Not last question - show next button
+            nextBtn.style.display = 'inline-block';
+            finishBtn.style.display = 'none';
+        }
+    }
+
+    function hideNextButton() {
+        const nextBtn = document.getElementById('nextBtn');
+        const finishBtn = document.getElementById('finishBtn');
+
+        nextBtn.style.display = 'none';
+        finishBtn.style.display = 'none';
+    }
+
+    function updateNavigationButtons() {
+        const prevBtn = document.getElementById('prevBtn');
+
+        // Enable/disable previous button
+        prevBtn.disabled = currentQuestionIndex === 0;
+    }
+
+    function updateProgress() {
+        const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+        document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function generateQuestionList() {
+        const container = document.getElementById('questionList');
+        container.innerHTML = '';
+
+        questions.forEach((question, index) => {
+            const questionBtn = document.createElement('div');
+            questionBtn.className = 'col-6 col-md-3 mb-2';
+            questionBtn.innerHTML = `
+        <button class="btn btn-outline-primary w-100 question-nav-btn" 
+                onclick="goToQuestion(${index})" 
+                data-question="${index}">
+            ${index + 1}
+        </button>
+    `;
+            container.appendChild(questionBtn);
+        });
+    }
+
+    function goToQuestion(index) {
+        showQuestion(index);
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('questionListModal'));
+        modal.hide();
+    }
+
+    function showQuestionList() {
+        const modal = new bootstrap.Modal(document.getElementById('questionListModal'));
+        modal.show();
+    }
+
+    function showResults(data) {
+        document.getElementById('finalScore').textContent = data.score_percentage.toFixed(1) + '%';
+        document.getElementById('correctCount').textContent = data.correct_answers;
+        document.getElementById('incorrectCount').textContent = data.total_questions - data.correct_answers;
+        document.getElementById('finalProgressBar').style.width = data.score_percentage + '%';
+
+        // Performance message
+        let message = '';
+        if (data.score_percentage >= 90) {
+            message = '<strong>ممتاز!</strong> أداء رائع، احتفظ بهذا المستوى.';
+        } else if (data.score_percentage >= 80) {
+            message = '<strong>جيد جداً!</strong> أداء ممتاز، واصل التقدم.';
+        } else if (data.score_percentage >= 70) {
+            message = '<strong>جيد!</strong> أداء مقبول، يمكنك التحسن أكثر.';
+        } else if (data.score_percentage >= 60) {
+            message = '<strong>مقبول!</strong> تحتاج إلى مراجعة أكثر.';
+        } else {
+            message = '<strong>تحتاج إلى تحسين!</strong> راجع المادة جيداً وحاول مرة أخرى.';
+        }
+        document.getElementById('performanceMessage').innerHTML = message;
+
+        // Show review section if there are incorrect answers
+        if (incorrectAnswers.length > 0) {
+            document.getElementById('reviewSection').style.display = 'block';
+            generateReviewContent();
+        }
+
+        const modal = new bootstrap.Modal(document.getElementById('resultsModal'));
+        modal.show();
+    }
+
+    function generateReviewContent() {
+        const container = document.getElementById('reviewQuestions');
+        container.innerHTML = '';
+
+        incorrectAnswers.forEach((item, index) => {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review-question';
+            reviewDiv.innerHTML = `
+            <h6 class="mb-2">
+                <i class="fas fa-question-circle me-2"></i>
+                السؤال ${item.questionIndex + 1}:
+            </h6>
+            <p class="mb-3">${item.question.text}</p>
+            
+            <div class="options-review">
+                ${item.question.options.map((option, optionIndex) => {
+                let className = 'review-option';
+                if (optionIndex === item.userAnswer) {
+                    className += ' user-answer';
+                }
+                if (optionIndex === item.correctAnswer) {
+                    className += ' correct-answer';
+                }
+
+                return `
+                    <div class="${className}">
+                        <i class="fas ${optionIndex === item.correctAnswer ? 'fa-check text-success' :
+                        optionIndex === item.userAnswer ? 'fa-times text-danger' : 'fa-circle text-muted'} me-2"></i>
+                        ${option}
+                    </div>
+                `;
+            }).join('')}
+            </div>
+        `;
+            container.appendChild(reviewDiv);
+        });
+    }
+
+    function toggleReview() {
+        const content = document.getElementById('reviewContent');
+        const isVisible = content.style.display !== 'none';
+
+        if (isVisible) {
+            content.style.display = 'none';
+            content.style.animation = 'slideInUp 0.3s ease-in-out reverse';
+        } else {
+            content.style.display = 'block';
+            content.style.animation = 'slideInUp 0.3s ease-in-out';
+        }
+    }
+
+    function closeResultsModal() {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('resultsModal'));
+        modal.hide();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function (e) {
+        if (e.key >= '1' && e.key <= '3') {
+            const currentQuestion = questions[currentQuestionIndex];
+            const optionIndex = parseInt(e.key) - 1;
+            if (optionIndex < currentQuestion.options.length) {
+                const optionElement = document.querySelector(`[data-question="${currentQuestionIndex}"][data-option="${optionIndex}"]`);
+                if (optionElement) {
+                    optionElement.click();
+                }
+            }
+        } else if (e.key === 'ArrowRight') {
+            previousQuestion();
+        }
+    });
+
+    // Swipe navigation for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - go to next question
+                if (currentQuestionIndex < totalQuestions - 1) {
+                    nextQuestion();
+                }
+            } else {
+                // Swipe right - go to previous question
+                if (currentQuestionIndex > 0) {
+                    previousQuestion();
+                }
+            }
+        }
+    }
+
+    // Efficient sound effect handling
+    const soundUrls = {
+        correct: 'https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3',
+        wrong: 'https://assets.mixkit.co/active_storage/sfx/950/950-preview.mp3',
+        toggle: 'https://assets.mixkit.co/active_storage/sfx/2579/2579-preview.mp3'
+    };
+    const soundEffects = {
+        correct: new Audio(soundUrls.correct),
+        wrong: new Audio(soundUrls.wrong),
+        toggle: new Audio(soundUrls.toggle)
+    };
+    // Preload sounds
+    Object.values(soundEffects).forEach(audio => { audio.preload = 'auto'; audio.load(); });
+    window.isMuted = false;
+    function playSound(type) {
+        if (window.isMuted) return;
+        const audio = soundEffects[type];
+        if (audio) {
+            audio.currentTime = 0;
+            audio.play();
+        }
+    }
+    document.getElementById('muteBtn').onclick = function () {
+        window.isMuted = !window.isMuted;
+        this.innerHTML = window.isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+        playSound('toggle');
+    };
+</script>
+{% endblock %}
