@@ -3757,5 +3757,2230 @@
          "correct_answer": 2
       }
 
+   ],
+   "list5":[
+
+      {
+         "number": 1,
+         "text": "Gestational diabetes is associated with an increased risk of all the following, EXCEPT:",
+         "options": [
+            "Cesarean section",
+            "Shoulder dystocia",
+            "Fetal macrosomia",
+            "Intrauterine growth restriction (IUGR)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 2,
+         "text": "Control of gestational diabetes is accomplished with the following, EXCEPT:",
+         "options": [
+            "Exercise",
+            "Insulin",
+            "Diet",
+            "Oral hypoglycemic drugs"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 3,
+         "text": "Infants of mother with gestational diabetes have an increased risk of the following, EXCEPT:",
+         "options": [
+            "Hypoglycemia",
+            "Hypoinsulinemia",
+            "Hypocalcemia",
+            "Hypomagnesemia"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 4,
+         "text": "The best screening test for gestational diabetes is:",
+         "options": [
+            "Fasting blood sugar",
+            "Random blood sugar",
+            "50 g Glucose challenge test",
+            "Glucose tolerance test (GTT)"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 5,
+         "text": "Glucose tolerance test (GTT):",
+         "options": [
+            "Is used as a screening test for diabetes.",
+            "Is considered to be a diagnostic test for diabetes.",
+            "Is performed in a non-fasting state.",
+            "Should be avoided during pregnancy as it needs a loading dose of glucose"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 6,
+         "text": "Indications of glucose tolerance test (GTT) in pregnancy includes all the followings, EXCEPT :",
+         "options": [
+            "Previous History of gestational diabetes mellitus.",
+            "History of macrosomic baby.",
+            "Glycosuria in one occasion.",
+            "History of unexplained fatal death."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 7,
+         "text": "Regarding Good control of diabetes in pregnancy:",
+         "options": [
+            "Is achieved by twice daily injection of insulin",
+            "Maintains blood sugar level between 140 to 230 mg /dl",
+            "Increases the incidence of polyhydramnios.",
+            "Has no effect on the incidence of congenital abnormalities."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 8,
+         "text": "In the Saudi Arabia population, the most common problem during pregnancy is :",
+         "options": [
+            "Iron deficiency anemia.",
+            "Heart diseases.",
+            "Pre-eclampsia and eclampsia.",
+            "Diabetes mellitus"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 9,
+         "text": "Maternal complications associated with polyhydramnios include :",
+         "options": [
+            "Post-term pregnancy.",
+            "High blood pressure",
+            "Urinary tract anomalies.",
+            "Diabetes mellitus."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 10,
+         "text": "Which of the following items in a pregnant patient's History suggests the possibility of her having diabetes :",
+         "options": [
+            "Unexplained stillbirths.",
+            "Intrauterine growth restriction (IUGR).",
+            "Past History of twins.",
+            "1st trimester bleeding."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 11,
+         "text": "During pregnancy, blood tests for diabetes are more abnormal than in non-pregnant state. This is due to :",
+         "options": [
+            "Decreased insulin.",
+            "Increased absorption from the gastrointestinal tract.",
+            "Increased placental lactogen.",
+            "Estrogen decreases and progesterone increases."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 12,
+         "text": "The test that is used to diagnose diabetes is :",
+         "options": [
+            "Glucose challenge test.",
+            "FBS & random blood sugar.",
+            "Glucose tolerance test.",
+            "Hb A1C."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 13,
+         "text": "Which of the following is a known complication of diabetes in pregnancy :",
+         "options": [
+            "It increases the incidence of congenital abnormalities.",
+            "Development of pregnancy induced hypertension.",
+            "Development of oligohydraminos.",
+            "Development of retinopathy"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 14,
+         "text": "Gestational diabetes should be suspected in all the following conditions, EXCEPT:",
+         "options": [
+            "A strong family history of diabetes.",
+            "Previous history of big baby.",
+            "Polydipsia and polyuria.",
+            "History of unexplained fatal loss."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 15,
+         "text": "Infants of diabetic mothers are at risk of one of the following :",
+         "options": [
+            "Hyperglycemia.",
+            "Microsomia.",
+            "Respiratory distress syndrome.",
+            "Low hemoglobin level."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 16,
+         "text": "Insulin requirements of pregnant diabetic women are greatest during :",
+         "options": [
+            "The 1st half of pregnancy.",
+            "The 2nd half of pregnancy.",
+            "During lactation.",
+            "The immediate postpartum period."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 17,
+         "text": "Gestational Diabetes Mellitus (GDM) is associated with following, EXCEPT:",
+         "options": [
+            "Increased risk of spontaneous abortions.",
+            "Increased risk of fetal cardiac malformations.",
+            "Increased risk of fetal CNS malformations.",
+            "Intrauterine growth retardation (IUGR)."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 18,
+         "text": "Infants of mothers with GDM have an increased risk of all of the following, EXCEPT:",
+         "options": [
+            "Hypoglycemia.",
+            "Hyperglycemia.",
+            "Hypocalcaemia.",
+            "Hyperbilirubinemia."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 19,
+         "text": "Gestational diabetes mellitus (GDM) is associated with an increased risk of all the following, EXCEPT:",
+         "options": [
+            "Cesarean section (CS)",
+            "Shoulder dystocia.",
+            "Fetal Macrosomia.",
+            "Intrauterine growth retardation (IUGR)."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 20,
+         "text": "Infants of mothers with gestational diabetes mellitus (GDM) are at an increased risk of becoming:",
+         "options": [
+            "Obese in adult's life.",
+            "Type II diabetes.",
+            "Neither of them",
+            "Both of them."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 21,
+         "text": "Compared to Type II diabetes, type I diabetes is associated with all of the following, EXCEPT:",
+         "options": [
+            "Greater incidence of pre-eclampsia",
+            "Greater incidence of preterm delivery.",
+            "Greater risk of maternal hypoglycemia.",
+            "Reduced risk of intrauterine growth restriction ( IUGR)."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 22,
+         "text": "Gestational diabetes mellitus (GDM) substantially increase the mother's risk for the ultimate development of:",
+         "options": [
+            "Type I diabetes mellitus (DM).",
+            "Type II diabetes mellitus (DM).",
+            "Neither of them.",
+            "Both of them"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 23,
+         "text": "Which of the followings is a known complication of diabetes in pregnancy?",
+         "options": [
+            "Fetal microsomia (small baby).",
+            "Oligohydraminos.",
+            "Fungal infection.",
+            "Placenta previa."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 24,
+         "text": "Regarding gestational diabetes mellitus (GDM):",
+         "options": [
+            "It is the most common cause of intrauterine growth restriction (IUGR)",
+            "The best screening test is random blood sugar",
+            "The diagnostic test is glucose tolerance test (GTT).",
+            "All patients should be treated by insulin, as diet alone is not enough"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 25,
+         "text": "Diabetes in pregnancy can cause all the following congenital anomalies, EXCEPT:",
+         "options": [
+            "Sacral agenesis.",
+            "Central nervous system abnormalities.",
+            "Congenital heart disease.",
+            "Yellow teeth discoloration."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 26,
+         "text": "All of these drugs can be used as tocolytic to stop preterm labor, EXCEPT:",
+         "options": [
+            "Salbutamol ventolin",
+            "Diazepam (valium)",
+            "Calcium channel blocker",
+            "Ritodrine (β agonist)."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 27,
+         "text": "In cases with premature rupture of membranes, all the following are acceptable in the conservative management, EXCEPT:",
+         "options": [
+            "Frequent vaginal examination to assess cervical dilatation",
+            "Serial complete blood count to diagnose rising of WBC",
+            "Close monitoring of maternal vital signs",
+            "Ultrasound to assess fetal weight and amount of liquor"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 28,
+         "text": "Regarding Surfactant:",
+         "options": [
+            "Is secreted by type I pneumocytes",
+            "Are glycoprotein.",
+            "After 38 weeks the ratio to sphingomyelins is 2:1",
+            "Its secretion is suppressed by betamethzone."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 29,
+         "text": "The following has a recognized relation with spontaneous preterm labor:",
+         "options": [
+            "Fetus with anencephaly",
+            "Oligohydromnios",
+            "Maternal hypothyroidism",
+            "Bacterial Vaginosis"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 30,
+         "text": "All the following are possible causes of premature labor, EXCEPT:",
+         "options": [
+            "Multiple pregnancy",
+            "Polyhydramnios",
+            "Bicorrnuate uterus",
+            "Anencephaly"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 31,
+         "text": "A positive nitrazine test is:",
+         "options": [
+            "Strong evidence of rupture of the membranes.",
+            "Presumptive evidence of intact membranes.",
+            "Strong evidence of intact membranes.",
+            "None of the above"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 32,
+         "text": "The most serious complication of preterm premature rupture of membrane (PPROM) at 28 weeks is:",
+         "options": [
+            "Fetal compression anomaly.",
+            "Intrauterine infection (Chorioamnionitis).",
+            "Abruptio placenta.",
+            "Pulmonary hypoplasia."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 33,
+         "text": "The following are obstetrics causes for premature labor, EXCEPT :",
+         "options": [
+            "Multiple pregnancy",
+            "Multiparity",
+            "Premature preterm rupture of the membrane",
+            "Cervical incompetence"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 34,
+         "text": "In the diagnosis of premature rupture of the membrane, all of the following are true, EXCEPT:",
+         "options": [
+            "History of fluid loss per vagina",
+            "Visualization of amniotic fluid in the vagina by sterile speculum",
+            "Positive fern test",
+            "Positive methylene blue test"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 35,
+         "text": "Rupture of membranes is suspected with all of the followings, EXCEPT:",
+         "options": [
+            "Positive Nitrazine test.",
+            "Pooling of amniotic fluid on speculum examination.",
+            "Contractions seen on the CTG.",
+            "Positive Fern test."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 36,
+         "text": "Early signs of premature labor include all of following, EXCEPT:",
+         "options": [
+            "Increased vaginal discharge",
+            "Increased uterine contraction",
+            "Cervical dilatation to 4 cm",
+            "Low back pain"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 37,
+         "text": "Preterm birth has been defined as:",
+         "options": [
+            "Before 37 completed weeks' gestation.",
+            "Prior to the period of viability.",
+            "Birth Weight is less than 1000 g.",
+            "Birth Weight more than 1000g but less than 2500g."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 38,
+         "text": "Premature rupture of membrane is most strictly defined as rupture at any time prior to:",
+         "options": [
+            "Rupture of membranes before the onset of labor.",
+            "Rupture of membranes before fetal lung maturity.",
+            "Rupture of membranes before 28 weeks gestation.",
+            "Rupture of membranes before term."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 39,
+         "text": "Dexamethasone is indicated in which of the following condition :",
+         "options": [
+            "Premature labor to prevent neonatal respiratory distress syndrome",
+            "Ectopic pregnancy to enhance fetal lung maturity",
+            "At 38 weeks with severe abruption placenta",
+            "Threatened abortion"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 40,
+         "text": "Prostaglandin synthesis inhibited drugs are not generally used for tocolysis because they:",
+         "options": [
+            "Produce marked hypertension",
+            "May cause premature closure of the fetal ductus arteriosus",
+            "Are too expensive",
+            "Are associated with lactic acidosis"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 41,
+         "text": "Retordine is a beta adrenergic receptor stimulator that is used to arrest preterm labor. Which of the following is a major maternal risk of its use?",
+         "options": [
+            "Hypertension.",
+            "Decreased plasma glucose.",
+            "Cardiac arrhythmias.",
+            "Bronchial asthma"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 42,
+         "text": "Prostaglandin synthesis is inhibited by:",
+         "options": [
+            "progesterone.",
+            "Indomethacin.",
+            "Prolactin-inhibiting factor.",
+            "Thyroid hormone."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 43,
+         "text": "All these tests can be useful in management of intrauterine fetal growth restriction (IUGR), EXCEPT:",
+         "options": [
+            "Fetal kick chart",
+            "Cardiotocography (CTG), non- stress test",
+            "Chorionic villous sampling (CVS)",
+            "Biophysical profile"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 44,
+         "text": "The following are possible complications of intrauterine fetal growth restriction (IUGR), EXCEPT :",
+         "options": [
+            "Intrauterine fetal death (IUFD)",
+            "Meconium aspiration",
+            "Hypoglycemia",
+            "Post maturity"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 45,
+         "text": "The definition of intrauterine growth restriction (IUGR) is:",
+         "options": [
+            "Infant with birth weight below 10th percentile for a give gestation age",
+            "Infant with birth weight below 25th percentile for a given gestation age",
+            "Infant with birth weight of 2.8 kg",
+            "Infant with birth weight below 50th percentile for a given gestation age"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 46,
+         "text": "Sperm attains motility and maturity in :",
+         "options": [
+            "Vas deferens",
+            "Ejaculatory duct",
+            "Epididymis",
+            "Seminal vesicle"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 47,
+         "text": "Liquefaction time of semen :",
+         "options": [
+            "30 minutes",
+            "60 minutes",
+            "50 minutes",
+            "90 minutes"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 48,
+         "text": "Time taken by the sperm to reach fallopian tube :",
+         "options": [
+            "5 minutes",
+            "2 minutes",
+            "10 minutes",
+            "30 minutes"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 49,
+         "text": "Times taken for sperm capacitation is :",
+         "options": [
+            "2 hours",
+            "5 hours",
+            "180 seconds",
+            "7 hours"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 50,
+         "text": "The major contribution to the human seminal is from :",
+         "options": [
+            "Testis",
+            "Seminal vesicle",
+            "Prostate",
+            "Bulbo-urethral and urethral glands"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 51,
+         "text": "True about normal semen :",
+         "options": [
+            "15 – 20 millions / mm3",
+            "5 – 10 millions / ml",
+            "15 – 120 millions / ml",
+            "8 – 12 millions / ml"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 52,
+         "text": "Absent fructose content in seminal fluid suggests :",
+         "options": [
+            "Unilateral congenital absence of seminal vesicle",
+            "Unilateral congenital absence of ejaculatory duct",
+            "Epididymal obstruction",
+            "Bilateral congenital absence of seminal vesicle"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 53,
+         "text": "Azoospermia with presence of fructose in semen analysis indicates :",
+         "options": [
+            "Prostatic infection",
+            "Mumps orchitis",
+            "Blockage in efferent duct system",
+            "All of the above"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 54,
+         "text": "The maximum amount of seminal fluid preparation used in intrauterine insemination (IUI) is:",
+         "options": [
+            "0.5 ml",
+            "1 ml.",
+            "2 ml."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 56,
+         "text": "Which of the following is not indicated for intrauterine insemination (IUI) ?",
+         "options": [
+            "Oligospermia",
+            "Azoospermia",
+            "Impotence.",
+            "Antisperm antibodies in cervical mucus."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 57,
+         "text": "Most important parameter for intracytoplasmic sperm injection (ICSI) is :",
+         "options": [
+            "Sperm count",
+            "Sperm motility",
+            "Volume of seminal fluid",
+            "Sperm morphology"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 58,
+         "text": "Indication of intracytoplasmic sperm injection (ICSI) is:",
+         "options": [
+            "Motility of sperm < 5%",
+            "Sperm count < 5 millions",
+            "Obstructive azoospermia",
+            "Morphologically normal sperm < 2%"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 59,
+         "text": "Which of the following is suggestive of ovulation ?",
+         "options": [
+            "Oligomenorrhea",
+            "Day 21 estrogen level increased",
+            "Regular cycle with dysmenorrhea",
+            "Day 8 progesterone level increased"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 60,
+         "text": "Ovulation occurred after :",
+         "options": [
+            "12 hours of LH peak",
+            "48 hours of LH surge",
+            "28 hours of LH peak",
+            "15 hours of LH surge"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 61,
+         "text": "Best test for diagnosis of tubal patency is :",
+         "options": [
+            "Hysterosalpingography (HSG)",
+            "Laparoscopic chromopertubation",
+            "Saline infusion ultrasonography",
+            "Hysterosalpingo - contrast sonography (HayCosy)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 62,
+         "text": "Best management of bilateral corneal obstruction in young infertile lady is :",
+         "options": [
+            "Combined laparoscopy and hysteroscopy",
+            "In vitro fertilization & embryo transfer (IVF –ET) C Intracytoplasmic sperm injection (ICSI)",
+            "Intrauterine insemination (IUI)."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 63,
+         "text": "Post coital test detects all of the following , Except:",
+         "options": [
+            "Fallopian tubal block",
+            "Cervical factors of infertility",
+            "Sperm count",
+            "Sperm abnormalities"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 64,
+         "text": "What are of the signs of ovulation on ultrasonography ?",
+         "options": [
+            "Irregular follicle wall",
+            "Collapse of the follicles",
+            "Fluids in Cul-de sac",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 65,
+         "text": "Which of the following is not contraindicated in hysterosalpingogram (HSG) :",
+         "options": [
+            "Suspicious of pregnancy",
+            "Congenital malformation of the uterus",
+            "Presence of abnormal uterine bleeding",
+            "Uterine malignancy"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 66,
+         "text": "Which of the following didn't cause galactorrhea ?",
+         "options": [
+            "Pituitary adenoma",
+            "Hypothyroidism & renal failure",
+            "Bronchogenic carcinoma",
+            "Intrapartum hemorrhage."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 67,
+         "text": "Which of the following hormone is not secreted from anterior pituitary ?",
+         "options": [
+            "FSH & LH",
+            "hCG",
+            "TSH",
+            "Prolactin"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 68,
+         "text": "Which of the following is not true about hyperstimulation syndrome ?",
+         "options": [
+            "It can follow any ovulation induction drug",
+            "The ovaries will be small in size",
+            "In severe type admission to intensive care unit (ICU) be required",
+            "It can be diagnosed clinically & ultrasonographically"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 69,
+         "text": "The commonest cause of infertility is :",
+         "options": [
+            "Bilateral tubal blockage",
+            "Chronic anovulation",
+            "Male factor",
+            "Hypothyroidism"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 70,
+         "text": "In polycystic ovary syndrome, which of the following is incorrect :",
+         "options": [
+            "Streak gonads",
+            "Acne",
+            "Insulin resistance",
+            "Hirsuitism."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 71,
+         "text": "Most common cause of luteal phase defect is :",
+         "options": [
+            "Testosterone deficiency",
+            "Estrogen excess",
+            "Progesterone deficiency",
+            "Progesterone excess"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 72,
+         "text": "TB endometritis cause infertility by :",
+         "options": [
+            "Causing anovulation",
+            "Destroying endometrium",
+            "Hostile cervical discharge",
+            "Causing ciliary dysmotility"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 73,
+         "text": "Which of the following is not an assisted reproduction technique ?",
+         "options": [
+            "Gamete intrafallopian transfer (GIFT)",
+            "Zygote intrafallopian transfer (ZIFT)",
+            "Intracytoplasmic sperm injection (ICSI)",
+            "Intrauterine insemination (IUI)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 74,
+         "text": "The commonest cause of primary amenorrhea is:",
+         "options": [
+            "Genital tuberculosis",
+            "Ovarian dysgenesis",
+            "Mullerian duct anomalies",
+            "Hypothyroidism"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 75,
+         "text": "Primary amenorrhea with anosmia is seen in :",
+         "options": [
+            "Kallman syndrome",
+            "Kennedy syndrome",
+            "Laurence-Moon- Beidle syndrome",
+            "Sheehan syndrome"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 76,
+         "text": "The most irreversible & worse prognosis form of infertility is :",
+         "options": [
+            "Bilateral tubal blockage",
+            "Anovulation",
+            "Endometritis",
+            "Oligospermia"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 77,
+         "text": "Fern test is due to :",
+         "options": [
+            "Presence of NaCl under progesterone effect",
+            "Presence of NaCl under estrogen effect",
+            "FSH / LH",
+            "Mucus secretion by glands"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 78,
+         "text": "Fallopian tube dysmotility is seen in the following syndrome :",
+         "options": [
+            "Noonan syndrome",
+            "Turner syndrome",
+            "Kartagner syndrome",
+            "Marfan syndrome"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 79,
+         "text": "Best investigation to assess tubal patency is :",
+         "options": [
+            "Rubin's test",
+            "Hysterosalpingogram (HSG)",
+            "Laparotomy",
+            "Laparoscopic chromotubation"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 80,
+         "text": "Which of the following is true about obstructive azoospermia ?",
+         "options": [
+            "High FSH & LH",
+            "Normal FSH & LH",
+            "Normal FSH & high LH",
+            "High FSH & normal LH"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 81,
+         "text": "Cervical hostility is tested by the following, EXCEPT :",
+         "options": [
+            "Keller test",
+            "Post-coital test",
+            "Spinnbarkeit test",
+            "Miller Kuzrule test"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 82,
+         "text": "Aspermia is the term used to describe :",
+         "options": [
+            "Absence of semen",
+            "Absence of sperm in ejaculate",
+            "Absence of sperm motility",
+            "Abnormal sperm morphology"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 83,
+         "text": "Fecundability means:",
+         "options": [
+            "Probability of achieving a live birth within one menstrual cycle",
+            "Probability of achieving pregnancy in one year",
+            "Probability of achieving pregnancy in one menstrual cycle",
+            "Probability of achieving a live birth in one year"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 84,
+         "text": "Fecundity means:",
+         "options": [
+            "Probability of achieving a live birth within one menstrual cycle",
+            "Probability of achieving pregnancy in one year",
+            "Probability of achieving pregnancy in one menstrual cycle",
+            "Probability of achieving a live birth in one year"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 85,
+         "text": "In androgen insensitivity syndrome, which is true ?",
+         "options": [
+            "Genotype 46 XX",
+            "Phenotype, they are female with ill developed breast",
+            "They have no uterus",
+            "Usually they have secondary amenorrhea"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 86,
+         "text": "Ovarian dysgenesis is associated with the elevation of the following hormone :",
+         "options": [
+            "Estradiol (E2)",
+            "Progesterone",
+            "Pituitary gonadotropins",
+            "Pregnandiol"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 87,
+         "text": "Pulsatile gonadotropin releasing hormone agonist (GnRH) is used for treatment of :",
+         "options": [
+            "Chronic anovulation",
+            "Uterine fibroid",
+            "Pain in endometriosis",
+            "Precocious puberty"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 88,
+         "text": "Which of the following is the primary source of estrogen ?",
+         "options": [
+            "Theca interna",
+            "Theca externa",
+            "Interstitial cells",
+            "Granulosa cells"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 89,
+         "text": "A patient with hypogonadotropic hypogonadism desires to get ovulation. What is the initial treatment of choice :",
+         "options": [
+            "Low dose estrogen therapy",
+            "Human menopausal gonadotropin (HMG) therapy",
+            "Cyclic progesterone therapy",
+            "Clomiphene citrate therapy"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 90,
+         "text": "Most accurate method for timing intercourse in young married female to get pregnancy:",
+         "options": [
+            "Thermogenic shift in basal body temperature",
+            "Serum progesterone level",
+            "Urinary luteinizing hormone (LH) kit testing",
+            "Mittelshmerz pain"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 91,
+         "text": "Most sure sign of ovulation is :",
+         "options": [
+            "Midcyclic lower abdominal pain",
+            "Vaginal ultrasound",
+            "Laparoscopy",
+            "Pregnancy"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 92,
+         "text": "Which of the following semen parameters would not be evaluated in a semen analysis ?",
+         "options": [
+            "Sperm motility",
+            "Sperm count",
+            "Sperm morphology",
+            "Sperm penetration assay"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 93,
+         "text": "Aspiration of sperm from testes is done by :",
+         "options": [
+            "TESA",
+            "MESA",
+            "TESE",
+            "PESA"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 94,
+         "text": "Most important parameter for in vitro fertilization and embryo transfer (IVF & ET) is :",
+         "options": [
+            "Sperm motility",
+            "Sperm morphology",
+            "Sperm viscosity",
+            "Sperm count"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 95,
+         "text": "Most common cause of secondary infertility is :",
+         "options": [
+            "Anovulation",
+            "Uterine factor",
+            "Cervical factor",
+            "Tubal factor"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 96,
+         "text": "Most common cause of primary infertility is :",
+         "options": [
+            "Tubal factor",
+            "Cervical factor",
+            "Ovarian dysgenesis",
+            "Uterine factor"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 97,
+         "text": "Best prognosis and most reversible form of infertility is :",
+         "options": [
+            "Tubal block",
+            "Anovulation",
+            "Oligospermia",
+            "Endometriosis"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 98,
+         "text": "Drug not used in ovulation induction is :",
+         "options": [
+            "Aromatase inhibitor (Letrozole)",
+            "Clomiphene citrate (Clomid)",
+            "Gonadotropins",
+            "Danazol"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 99,
+         "text": "Definition of primary infertility is :",
+         "options": [
+            "Inability to conceive after one year of continuous unprotected intercourse",
+            "Inability to conceive after two year of continuous unprotected intercourse .",
+            "Inability to conceive after 6 months of continuous unprotected intercourse",
+            "Inability to conceive after 18 months of continuous unprotected intercourse"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 100,
+         "text": "Ovarian causes of female infertility represents:",
+         "options": [
+            "35% - 40%",
+            "25% – 30%",
+            "50% – 55%",
+            "45% - 50%"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 101,
+         "text": "Cervical factor of infertility represents:",
+         "options": [
+            "10%",
+            "15%",
+            "5%",
+            "12%"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 102,
+         "text": "Most common cause of male infertility is :",
+         "options": [
+            "Low sperm quality",
+            "Azoospermia",
+            "Aspermia",
+            "Ejaculatory dysfunction"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 103,
+         "text": "Unexplained infertility represents :",
+         "options": [
+            "5% - 10%",
+            "2% - 4%",
+            "15% - 20%",
+            "> 25%"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 104,
+         "text": "The success rate of intracytoplasmic injection (ICSI) in young infertile patients is :",
+         "options": [
+            "30 - 40%",
+            "40% - 50%",
+            "50% - 60%",
+            "60% - 75%"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 105,
+         "text": "Most important parameter for success of assisted reproduction techniques is :",
+         "options": [
+            "Type of induction drugs",
+            "Age of the patient",
+            "Sperm count > 60 million /ml",
+            "Type of infertility"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 106,
+         "text": "Which of the following is not an indication of sex selection ?",
+         "options": [
+            "Genetic diseases",
+            "Sex linked disorders",
+            "Social reasons",
+            "Parents request"
+         ],
+         "correct_answer": 3
+      }
+
+         ],
+      "list6":[
+      {
+         "number": 1,
+         "text": "Which of the following is not a complication of abruption placenta ?",
+         "options": [
+            "Subsequent ectopic pregnancy",
+            "Postpartum hemorrhage",
+            "IUFD",
+            "Acute renal failure"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 2,
+         "text": "The increase in blood volume in normal pregnancy is made up of:",
+         "options": [
+            "Plasma only",
+            "Erythrocytes only.",
+            "More plasma than erythroblasts",
+            "More Erythrocytes than plasma"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 3,
+         "text": "Antepartum hemorrhage may be caused by the following, EXCEPT:",
+         "options": [
+            "Placenta previa",
+            "Cervical cancer",
+            "Abruptio placenta",
+            "Ectopic pregnancy"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 4,
+         "text": "Each of the following typical feature of placenta previa, EXCEPT:",
+         "options": [
+            "Painless bleeding",
+            "Commonly associated with coagulopathy",
+            "first episode of bleeding is usually self limited",
+            "May be associated with post coital bleeding"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 5,
+         "text": "Regarding Abruptio placenta:",
+         "options": [
+            "Postpartum hemorrhage occurs only when there in hypofibrinogenemia",
+            "Maternal anemia is a major cause for abruptio placenta",
+            "Associated with antecedent hypertension",
+            "Fetus is not usually affected"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 6,
+         "text": "Management of Placental Abruption includes all of the following, EXCEPT:",
+         "options": [
+            "Expectant management in cases of IUFD",
+            "Coagulation studies",
+            "Augmentation of labor",
+            "Artificial rupture of Amniotic membrane"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 7,
+         "text": "The followings are causes of Antepartum hemorrhage, EXCEPT:",
+         "options": [
+            "Rh isoimmunization.",
+            "Abruptio placenta",
+            "Placenta brevia",
+            "Cervical polyp"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 8,
+         "text": "Extensive bleeding into the myometrium & beneath the uterine serosa in severe cases of abruption placenta may result in :",
+         "options": [
+            "Couvelaire uterus",
+            "Active uterus",
+            "Placental perfusion",
+            "Normal fetal heart rate"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 9,
+         "text": "In the management of placenta previa centralis:",
+         "options": [
+            "Once diagnosis is made, the treatment should urgent cesarean sectio",
+            "Patient may stay at home if she is living near the hospital",
+            "Vaginal examination should be done carefully to confirm diagnosis",
+            "If the pregnancy has advanced to 37 weeks, it is usually best to perform C/S"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 10,
+         "text": "Routine pelvic examination is contraindicated in which of the following situations during pregnancy:",
+         "options": [
+            "Carcinoma of the cervix",
+            "Gonorrhea",
+            "Prolapsed cord",
+            "Placenta previa"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 11,
+         "text": "Which of the following is NOT a complication of abruptio placenta ?",
+         "options": [
+            "Postpartum hemorrhage",
+            "Subsequent ectopic pregnancy",
+            "DIC",
+            "Antepartum hemorrhage"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 12,
+         "text": "Placenta previa is more likely to be found in a pregnancy associated with:",
+         "options": [
+            "Multiple pregnancy",
+            "Previous C-section",
+            "Previous manual removal of placenta.",
+            "IVF pregnancy."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 13,
+         "text": "In placenta previa:",
+         "options": [
+            "Common in primigravida",
+            "Presents with vaginal bleeding with abdominal pain",
+            "History of repeated C-section is a risk factor",
+            "Characterized by bleeding at 10 weeks gestation"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 14,
+         "text": "All are complication of abruptio placenta, EXCEPT:",
+         "options": [
+            "Macrosomia",
+            "IUFD",
+            "DIC",
+            "PPH"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 15,
+         "text": "A pregnant woman presents with a Major placenta previa of a major and fetus is malformed. Which of the following will be the best management?",
+         "options": [
+            "Cesarean section",
+            "Rupture of membranes",
+            "Give Oxytocin drip",
+            "Forceps delivery in the second stage to accelerate delivery."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 16,
+         "text": "The most common risk factors for placental abruption:",
+         "options": [
+            "Diabetes.",
+            "Increased maternal age, multiparity, hypertension & cigarette smoking.",
+            "Intrauterine growth retardation (IUGR)",
+            "Multiple pregnancy."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 17,
+         "text": "The following is a contraindication for the use of amnio-hook:",
+         "options": [
+            "Placenta previa",
+            "Abruptio placenta",
+            "Intra uterine growth restriction (IUGR)",
+            "Face presentation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 18,
+         "text": "Which of the following signs is most useful in predicting the absence of placental abruption following trauma ?",
+         "options": [
+            "Absence of uterine contraction",
+            "Absence of vaginal bleeding",
+            "Absence of nausea and vomiting",
+            "Absence of tense , painful uterus, absence of nausea and vomiting"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 19,
+         "text": "The following may be signs of abruptio placenta, EXCEPT :",
+         "options": [
+            "Vaginal bleeding.",
+            "Absence of uterine contractions.",
+            "Blood stained amniotic fluid.",
+            "Tense painful uterus."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 20,
+         "text": "Vasa previa diagnosis in early labor is best treated with:",
+         "options": [
+            "Spontaneous delivery.",
+            "Tocolytic agents to prevent uterine contraction.",
+            "Ventouse delivery at 8 cm dilation.",
+            "Cesarean section (CS)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 21,
+         "text": "Velamentous insertion of the cord is associated with an increased risk for:",
+         "options": [
+            "Premature rupture of the membranes.",
+            "Fetal bleeding before labor.",
+            "Fetal malformation.",
+            "Torsion of the umbilical cord."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 22,
+         "text": "34 year female at 37 weeks gestation confirmed by early sonography presents with severe vaginal bleeding, she is noted to have placenta previa, which of the following is the best management:",
+         "options": [
+            "cesarean section (CS)",
+            "Induction of labor",
+            "Expectant management",
+            "Artificial rupture of membrane"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 23,
+         "text": "In Placenta previa, all help in the diagnosis, EXCEPT:",
+         "options": [
+            "Constant lower abdominal pain",
+            "Mal presentation",
+            "Painless vaginal bleeding",
+            "Ultrasound (US)"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 24,
+         "text": "The most likely cause of ante–partum hemorrhage in 32 weeks pregnant woman has recurrent attack of vaginal bleeding with proven fundal placenta is :",
+         "options": [
+            "Subserous uterine fibroid",
+            "Multiple pregnancy",
+            "Circumvallate placenta",
+            "Diabetes"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 25,
+         "text": "A 25 -year- old patient ( G2 P1 + 0 ). At 34 weeks of gestation presented to emergency with vaginal bleeding. Which one of the following is not true?",
+         "options": [
+            "Admit the patient into the hospital",
+            "Resuscitate the patient",
+            "Prepare 4 units of Cross-matched blood",
+            "Do pelvic examination immediately"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 26,
+         "text": "A positive strawberry sign is suggestive of the following condition:",
+         "options": [
+            "Low lying placenta",
+            "Twins pregnancy",
+            "Vesicular mole",
+            "Breech presentation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 27,
+         "text": "Which of the following is not used in DIC?",
+         "options": [
+            "Heparin",
+            "Epsilon amino caproic acid",
+            "Blood transfusion",
+            "Intravenous fluids"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 28,
+         "text": "Which one is true regarding abruption placenta with DIC:",
+         "options": [
+            "Decreased factor V",
+            "Decreased Factor VII",
+            "All clotting factors and bleeding time are decreased",
+            "Decreased blood flow to nephrons"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 29,
+         "text": "Amniotic fluid embolism cause:",
+         "options": [
+            "Shock",
+            "DIC",
+            "Bleeding tendency",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 30,
+         "text": "The most common cause of secondary postpartum hemorrhage ( PPH):",
+         "options": [
+            "Choriocarcinoma",
+            "Retained product & infection",
+            "Disseminated intravascular coagulopathy (DIC)",
+            "Uterine atony"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 31,
+         "text": "Treatment of postpartum hemorrhage (PPH), are all correct, EXCEPT:",
+         "options": [
+            "Oxytocin IV drip",
+            "Misoprostol",
+            "Estrogen",
+            "Methergin"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 32,
+         "text": "The following complications during pregnancy increase the risk of postpartum hemorrhage (PPH), EXCET:",
+         "options": [
+            "Macrosmia",
+            "Hypertension",
+            "Twin pregnancy",
+            "Polyhydramnios"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 33,
+         "text": "Most important cause of immediate postpartum hemorrhage (PPH):",
+         "options": [
+            "Laceration of the vagina",
+            "Laceration of the cervix",
+            "Retained placental fragments",
+            "Uterine atony"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 34,
+         "text": "Uterine inertia is due to all of the following, EXCEPT:",
+         "options": [
+            "Abruptio placenta",
+            "Over distended uterus",
+            "Fibroid uterus",
+            "Malpresentation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 35,
+         "text": "What types of traumas during labor and birth would leads to postpartum hemorrhage ( PPH)?",
+         "options": [
+            "Instrumental deliveries (forceps and ventose)",
+            "Cesarean section (CS)",
+            "Lacerations of the vagina & cervix",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 36,
+         "text": "Continued bleeding during 3rd stage with contracted uterus, the cause most likely to be:",
+         "options": [
+            "Cervical and perineal laceration",
+            "Placental abruption",
+            "Uterine atony",
+            "Cervical polyp"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 37,
+         "text": "The risk of postpartum uterine atony is usually associated with:",
+         "options": [
+            "Epidural anesthesia",
+            "Twins pregnancy",
+            "Median episiotomy",
+            "Hypotension"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 38,
+         "text": "Atonic postpartum hemorrhage (PPH) is best managed by:",
+         "options": [
+            "Uterine massage with 40 units syntocinon",
+            "Intravenous (IV) progesterone",
+            "0.5 mg oral ergometrine and uterine massage",
+            "5 units oral syntocinon and uterine massage"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 39,
+         "text": "Female patients came to emergency room (ER), with blood pressure (BP) 80/60 and pulse 125 beat / minute with hist what is the next step?",
+         "options": [
+            "Laparotomy",
+            "Intravenous (IV) fluids",
+            "Complete blood count (CBC)",
+            "Pelvic examination (PV)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 40,
+         "text": "Patient went into shock immediately after normal delivery, What is the most likely cause?",
+         "options": [
+            "Postpartum hemorrhage (PPH)",
+            "Uterine inversion",
+            "Amniotic fluid embolism",
+            "Eclampsia"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 41,
+         "text": "All of the followings are obstetric causes of neurogenic shock, EXCEPT:",
+         "options": [
+            "Disturbed ectopic pregnancy",
+            "Concealed accidental hemorrhage",
+            "Manual removal of the placenta",
+            "Postpartum hemorrhage (PPH)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 42,
+         "text": "The commonest cause of hypovolemic shock in obstetric is:",
+         "options": [
+            "Atonic postpartum hemorrhage (APPH)",
+            "Deep venous thrombosis (DVT)",
+            "Wound infection",
+            "Hyperemesis gravidarum"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 43,
+         "text": "Complications of the Third stage of labor includes all of the followings, EXCEPT:",
+         "options": [
+            "Ruptured uterus",
+            "Postpartum hemorrhage (PPH)",
+            "Puerperal sepsis",
+            "Retained placenta"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 44,
+         "text": "Complications of the hypovolemic shock includes all of the followings, EXCEPT:",
+         "options": [
+            "Acute fatty liver",
+            "Acute renal failure",
+            "Acute heart failure",
+            "Sheehan syndrome"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 45,
+         "text": "What would the estimated blood loss have to be for cesarean section (CS)?",
+         "options": [
+            "Less than 600 ml",
+            "800 ml",
+            "900 ml",
+            "More than 1000 ml"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 46,
+         "text": "If continued bleeding occurs during the third stage with a contracted uterus, the most likely cause to be:",
+         "options": [
+            "Cervical and perineal laceration",
+            "Placental abruption",
+            "Uterine atony",
+            "Cervical polyp"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 47,
+         "text": "The atonic uterus is more common in:",
+         "options": [
+            "After cesarean section (CS)",
+            "Multigravida",
+            "Primigravia",
+            "Breech delivery"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 48,
+         "text": "All of the following drugs are used for the management of postpartum hemorrhage (PPH), EXCEPT:",
+         "options": [
+            "Misoprostol",
+            "Oxytocin",
+            "Prostaglandin",
+            "Mifepristone (RU 486)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 49,
+         "text": "All of the following are used in the management of Postpartum hemorrhage (PPH), EXCEPT:",
+         "options": [
+            "Blood transfusion",
+            "Fresh frozen plasma (FFP)",
+            "Cryoprecipitate",
+            "Nova-T intrauterine loop"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 50,
+         "text": "All of the following procedures are done in massive postpartum hemorrhage (PPH), EXCEPT:",
+         "options": [
+            "Subtotal hysterectomy",
+            "Bilateral uterine and internal iliac artery ligation",
+            "Thermal endometrial ablation",
+            "Balloon tamponade"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 51,
+         "text": "Anemia in pregnancy is diagnosed when HB is less than:",
+         "options": [
+            "11 gm / dl",
+            "8 gm / dl",
+            "9 gm / dl",
+            "13 gm / dl"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 52,
+         "text": "Most common type of anemia in pregnancy:",
+         "options": [
+            "Iron deficiency anemia",
+            "Hemolytic anemia",
+            "Folic acid deficiency anemia",
+            "Vitamin B12 deficiency"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 53,
+         "text": "Which vitamin deficiency is most commonly seen in a pregnant mother who is on phenytoin therapy for epilepsy?",
+         "options": [
+            "Vitamin B6",
+            "Vitamin B12",
+            "Vitamin A",
+            "Folic acid"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 54,
+         "text": "Which of the following feature indicates the presence of heart disease in pregnancy and which is not seen in a normal pregnancy?",
+         "options": [
+            "Exertional dyspnea",
+            "Distended neck veins",
+            "Systemic hypotension",
+            "Pedal edema"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 55,
+         "text": "A patient with heart disease, which of the following should not be Used to control PPH.",
+         "options": [
+            "Ergometrine",
+            "Oxytocin",
+            "Misoprostol",
+            "Alpha methyl dopa (Aldomet)"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 56,
+         "text": "pregnant women with heart disease, all of the following is to be done, EXCEPT:",
+         "options": [
+            "Prophylactic antibiotic",
+            "IV methergine after delivery",
+            "IV frusemide postpartum",
+            "Short 2nd stage of labor"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 57,
+         "text": "Which of the following heart diseases is maternal mortality during pregnancy found to be the highest:",
+         "options": [
+            "Coarctation of aorta",
+            "Eisenmenger syndrome",
+            "Aortic stenosis (AS)",
+            "Mitral stenosis (MS)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 58,
+         "text": "The least hemoglobin levels at the time of delivery should be:",
+         "options": [
+            "10 gm / dl",
+            "9 gm / dl",
+            "8 gm / dl",
+            "7 gm l dl"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 59,
+         "text": "Vascular resistance during pregnancy:",
+         "options": [
+            "Increased",
+            "No changes",
+            "Decreased",
+            "none of the above"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 60,
+         "text": "Which of the following test is most sensitive for the detection for iron depletion in pregnancy:",
+         "options": [
+            "Serum iron",
+            "iron binding capacity",
+            "Serum transferrin",
+            "Serum ferritin"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 61,
+         "text": "The most common type of anemia in pregnancy is due to:",
+         "options": [
+            "Hemolytic disease",
+            "Folate deficiency",
+            "Sickle cell disease",
+            "Iron deficiency."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 62,
+         "text": "Disseminated intravascular coagulation has a recognized association with:",
+         "options": [
+            "Intrauterine fetal death (IUFD)",
+            "Multiple pregnancy",
+            "Iron deficiency",
+            "Prolonged bed rest"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 63,
+         "text": "Risk Factors for DVT include all, EXCEPT:",
+         "options": [
+            "Smoking",
+            "Lupus anticoagulation",
+            "Maternal weight over 80 kg",
+            "Hyperthyroidism"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 64,
+         "text": "Which of the following isn't considered a high risk pregnancy?",
+         "options": [
+            "Gestational diabetes",
+            "Cardiac disease in pregnancy",
+            "Candida infection in pregnancy",
+            "Bleeding in pregnancy"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 65,
+         "text": "Regarding cardiac disease in pregnancy, according to the New York Heart Association classification, a patient with cardiac disease & slight limitation of physical activity would be:",
+         "options": [
+            "Class I",
+            "Class II",
+            "Class III",
+            "Class IV"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 66,
+         "text": "Which of the following accounts for most heart disease in pregnancy?",
+         "options": [
+            "Hypertension",
+            "Cardiomyopathy",
+            "Previous myocardial infarction",
+            "Congenital heart disease (CHD)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 67,
+         "text": "According to WHO anemia in pregnancy is diagnosed when hemoglobin level is less than:",
+         "options": [
+            "10 gm/dl",
+            "13 gm/dl",
+            "12 gm/dl",
+            "9 gm/dl"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 68,
+         "text": "Total amount of iron requirement during pregnancy is:",
+         "options": [
+            "500 mg",
+            "800 mg",
+            "1000 mg",
+            "1500 mg"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 69,
+         "text": "According to Indian Council of Medical Research (ICMR) in very severe degree of anemia hemoglobin level will be:",
+         "options": [
+            "Less than 4 gm/dl",
+            "Less than 6 gm / dl",
+            "Less than7 gm / dl",
+            "Less than 8 gm / dl"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 70,
+         "text": "According to CDC (Center for Drug Control) anemia in pregnancy is diagnosed when hemoglobin is less than:",
+         "options": [
+            "11 gm / dl in 2nd trimester",
+            "12 gm dl in 3rd Trimester",
+            "10.5 gm dl in 2nd trimester"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 71,
+         "text": "Which of the following is not an indication of blood transfusion for anemia during pregnancy?",
+         "options": [
+            "Severe anemia seen beyond 36th weeks gestation",
+            "Anemia due to active blood loss",
+            "Moderate anemia seen between 24 – 30 weeks gestation",
+            "Refractory anemia"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 72,
+         "text": "Which of the following tests is most sensitive for the detection of iron depletion in pregnancy ?",
+         "options": [
+            "Serum iron",
+            "Serum transferrin",
+            "Sex hormone binding capacity",
+            "Serum ferritin"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 73,
+         "text": "Which type of anemia is not common in pregnancy ?",
+         "options": [
+            "Vitamin B12 deficiency",
+            "Folic acid deficiency",
+            "Iron deficiency anemia",
+            "Combined iron & folic"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 74,
+         "text": "Most common cause of maternal anemia in pregnancy is :",
+         "options": [
+            "Acute blood loss",
+            "Gastro-intestinal bleeding",
+            "Hemolytic anemia",
+            "Iron deficiency anemia"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 75,
+         "text": "Total amount of iron needed by the fetus during entire pregnancy s:",
+         "options": [
+            "300 mg",
+            "500 mg",
+            "800 mg",
+            "1000 mg"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 76,
+         "text": "How much iron that patients can tolerated at a time given intravenously ?",
+         "options": [
+            "1000 mg",
+            "2500 mg",
+            "3000 mg",
+            "4000 mg"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 77,
+         "text": "Which of the following parameters will fall the earliest in iron deficiency anemia ?",
+         "options": [
+            "Mean corpuscular volume (MCV)",
+            "Mean corpuscular hemoglobin (MCH)",
+            "Mean corpuscular hemoglobin concentration (MCHC)",
+            "Red cell distribution width"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 78,
+         "text": "Which of the following hematological criteria remains unchanged in pregnancy ?",
+         "options": [
+            "Blood volume",
+            "Total iron binding capacity (TIBC)",
+            "Mean corpuscular hemoglobin concentration (MCHC)",
+            "Serum iron"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 79,
+         "text": "Which one of the following not raised mean corpuscular volume (MCV) in pregnancy ?",
+         "options": [
+            "Megaloplastic anemia",
+            "Alcohol use",
+            "Hypothyroidism",
+            "Anemia due to chronic infection"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 80,
+         "text": "With oral iron therapy, rise in hemoglobin level can be seen after :",
+         "options": [
+            "0ne week",
+            "two weeks",
+            "Three weeks",
+            "six weeks"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 81,
+         "text": "Disseminated intravascular coagulation (DIC) has a recognized association with:",
+         "options": [
+            "Intrauterine fetal death (IUFD)",
+            "Multiple pregnancy",
+            "Prolonged bed rest",
+            "Iron deficiency"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 82,
+         "text": "Risk Factors for deep venous thrombosis (DVT) include all of the followings, EXCEPT:",
+         "options": [
+            "Smoking",
+            "Operative delivery",
+            "Lupus anticoagulant",
+            "Hypothyroidism"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 83,
+         "text": "In pregnant patients with rheumatic heart disease, all of the followings are true, EXCEPT:",
+         "options": [
+            "Iron should be always given to avoid iron deficiency anemia.",
+            "Commonly develop atrial fibrillation.",
+            "Should be given prophylactic antibiotic in labor.",
+            "Usually remain asymptomatic."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 84,
+         "text": "Which of the following isn't considered a high risk pregnancy ?",
+         "options": [
+            "Gestational diabetes.",
+            "Cardiac disease in pregnancy.",
+            "Candida infection in pregnancy.",
+            "Bleeding in pregnancy."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 85,
+         "text": "Which of the following accounts for most heart disease in pregnancy ?",
+         "options": [
+            "Cardiomyopathy",
+            "Previous myocardial infarction",
+            "Congenital heart disease (CHD)",
+            "Hypertension"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 86,
+         "text": "What is the most serious disadvantage of switching from Warfarin to heparin during pregnancy in women with mechanical heart prosthesis ?",
+         "options": [
+            "The risk of embryopathy is increased.",
+            "The risk of thrombo-embolism is increased.",
+            "The need for self-injection.",
+            "Hemorrhage is more likely"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 87,
+         "text": "If delivery occurs unexpectedly while the patient is on Heparin and excessive bleeding occurs, what is the appropriate initial intervention?",
+         "options": [
+            "Administration of protamine acetate.",
+            "Administration of vitamin K.",
+            "Infusion of fresh frozen plasma.",
+            "Administration of tranexemic acid."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 88,
+         "text": "Which of the following symptoms in pregnancy is most suggestive of heart disease ?",
+         "options": [
+            "Tachypnea.",
+            "Syncope with exertion.",
+            "Tachycardia.",
+            "Peripheral edema."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 89,
+         "text": "Regarding anticoagulants in pregnancy, which of the following laboratory parameters should be maintained at a level of 1.5 to 2.5 times baseline value?",
+         "options": [
+            "Bleeding time.",
+            "Partial thromboplastin time.",
+            "Prothrombin time.",
+            "Thrombin time."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 90,
+         "text": "Which Of the following feature indicates the presence of heart disease in\tpregnancy and not seen in a normal pregnancy?",
+         "options": [
+            "Exertional dyspnea",
+            "Distended neck veins",
+            "systemic hypotension",
+            "Pedal edema"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 91,
+         "text": "Maximum strain on the heart during pregnancy occurs during:",
+         "options": [
+            "At term pregnancy",
+            "Immediate postpartum",
+            "1st trimester of pregnancy",
+            "2nd trimester of pregnancy"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 92,
+         "text": "Which of the following heart diseases is maternal mortality during pregnancy found to be the highest ?",
+         "options": [
+            "Coarctation of aorta",
+            "Eisenmenger syndrome",
+            "Aortic stenosis (AS)",
+            "Mitral stenosis (MS)"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 93,
+         "text": "The commonest valvular heart lesion associated with pregnancy is:",
+         "options": [
+            "Mitral stenosis",
+            "Mitral regurgitation",
+            "Aortic stenosis",
+            "Tricuspid regurgitation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 94,
+         "text": "In stage of iron deficiency anemia, serum ferritin level will be:",
+         "options": [
+            "Less than 40 ng / ml",
+            "Less than 20 ng / ml",
+            "Less than 30 ng / ml",
+            "Less than 50 ng / ml"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 95,
+         "text": "What is the dose folic acid per day for treating megaloplastic anemia in pregnancy?",
+         "options": [
+            "2 mg",
+            "1 mg",
+            "400 mg",
+            "4 gm"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 96,
+         "text": "Blood transfusion is not indicated in the following condition associated with sickle cell anemia:",
+         "options": [
+            "Hemoglobin level 9 gm /dl",
+            "Frequent sickling episodes",
+            "Twins pregnancy",
+            "Poor obstetric outcomes"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 97,
+         "text": "Folic acid deficiency results in:",
+         "options": [
+            "Aplastic anemia",
+            "Microcytic hypochromic anemia",
+            "Megaloplastic anemia",
+            "Glucose 6- phosphate dehydrogenase deficiency (G6PD)"
+         ],
+         "correct_answer": 2
+      }
    ]
 }
