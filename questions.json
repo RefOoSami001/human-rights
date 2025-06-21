@@ -1638,5 +1638,502 @@
          ],
          "correct_answer": 0
       }
+   ],
+   "list3": [
+      {
+         "number": 1,
+         "text": "Anti-D prophylaxis:",
+         "options": [
+            "Should be given to all sensitized Rhesus negative women after delivery",
+            "Should be given to all Rhesus negative women after amniocentesis.",
+            "Should be given to all women who's babies are Rhesus negative",
+            "Is contra-indicated during pregnancy if the women is Rhesus negative"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 2,
+         "text": "In Rhesus iso-immunization, the following test may be helpful :",
+         "options": [
+            "Rhesus antibody titer in liquor",
+            "Maternal serum bilirubin level",
+            "Liquor bilirubin level",
+            "Maternal hemoglobin"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 3,
+         "text": "RH disease:",
+         "options": [
+            "Occurs when the mother is Rh+",
+            "Can never occurs in the 1st pregnancy",
+            "Occurs when the father is RH negative.",
+            "Occurs when the fetus is Rh positive"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 4,
+         "text": "RH incompatibility occurs with :",
+         "options": [
+            "Rh –ve father & Rh+ve mother",
+            "Rh –ve mother & Rh –ve father",
+            "Rh –ve mother & Rh +ve father",
+            "Rh +ve mother & Rh +ve father"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 5,
+         "text": "In ABO incompatibility :",
+         "options": [
+            "The mother has to be blood group AB",
+            "The father has to be blood group O",
+            "It is an antigen antibody reaction",
+            "It doesn't protect against RH disease"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 6,
+         "text": "Anti-D immunoglobulin should be given:",
+         "options": [
+            "To Rh-negative mothers after every abortion occurring beyond 6-8 week's gestation.",
+            "To all sensitized Rh-negative females who have Rh-positive.",
+            "Postpartum only to Rh-negative females who are sensitized regardless of the fetal blood type.","Postpartum to Rh-positive females with Rh-negative husbands."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 7,
+         "text": "Rh negative women has increase the chances of being immunized during pregnancy when:",
+         "options": [
+            "Performing External cephalic version.",
+            "Premature labor.",
+            "Maternal Thyrotoxicosis.",
+            "Multiple pregnancy."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 8,
+         "text": "Fetal manifestations of erythroblastosis fetalis may include all of the following, EXCEPT:",
+         "options": [
+            "Kernicterus",
+            "Hepatomegaly",
+            "Placental edema",
+            "Splenomegaly"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 9,
+         "text": "All of the following maternal antibodies may cause erythroblastosis fetalis in the fetus, EXCEPT:",
+         "options": [
+            "Anti-nuclear antibodies",
+            "Anti-E antibodies",
+            "Anti-D antibodies",
+            "Anti-lewis antibodies"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 10,
+         "text": "If blood must be given without adequate cross matching, the best to use is:",
+         "options": [
+            "A Rh-positive.",
+            "AB Rh-negative.",
+            "O Rh-positive.",
+            "O Rh-negative."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 11,
+         "text": "Rh negative woman with a history of stillborn at 38 weeks due to hemolytic diseases, her husbands-genotype CDE/cde. In her current pregnancy which of the following statements is CORRECT:",
+         "options": [
+            "100 % of her babies will be Rh positive.",
+            "Immunoglobulin should not be given regardless of baby's Rh status.",
+            "There is 50% chance that her baby will be Rh negative.",
+            "Immunoglobulin should be given regardless of baby's Rh status."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 12,
+         "text": "The following may be indicative of chorioamnionitis, EXCEPT:",
+         "options": [
+            "Maternal pyrexia",
+            "Maternal tachycardia.",
+            "Tender uterus",
+            "Fetal bradycardia"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 13,
+         "text": "Genital tract Candida occurs more frequent in all these patients, EXCEPT :",
+         "options": [
+            "Diabetic patients",
+            "Patients on long term antibiotic therapy",
+            "Thyrotoxicosis",
+            "Patients on oral contraceptive pills"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 14,
+         "text": "The following are possible complications of intrauterine growth restriction (IUGR), EXCEPT:",
+         "options": [
+            "Intrauterine death",
+            "Severe hypoxia and fetal distress in labor",
+            "Meconium aspiration",
+            "Post maturity"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 15,
+         "text": "The most accurate method for diagnosis of intrauterine fetal death ( IUFD) :",
+         "options": [
+            "No fetal movement by the mother",
+            "Decrease in symptoms & signs of pregnancy",
+            "Absence of fetal heart sound by Doppler",
+            "Absence of fetal heart beats by real time US"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 16,
+         "text": "Recognized feature of postmenopausal women is:",
+         "options": [
+            "Low FSH & LH.",
+            "Increased bone mineral density.",
+            "High FSH.",
+            "High level of estrogen"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 17,
+         "text": "Sure sign of pregnancy is:",
+         "options": [
+            "Amenorrhea & Hegar's sign",
+            "Nausea and vomiting",
+            "Auscultation of fetal heart",
+            "Abdominal distension"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 18,
+         "text": "If your patient is 8 weeks pregnant which one of the following Ultrasound measurement is most useful:",
+         "options": [
+            "Crown rump length",
+            "Biparietal diameter",
+            "Femur length",
+            "Abdominal circumference"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 19,
+         "text": "The following statement are all true about vomiting in pregnancy, EXCEPT:",
+         "options": [
+            "May be cured by admission to hospital",
+            "Is commonest in the third trimester",
+            "Associated with multiple pregnancy",
+            "Is associated with urinary tract infection"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 20,
+         "text": "First trimester pregnancy may be terminated by:",
+         "options": [
+            "Prostaglandin inhibitor",
+            "Anti-progesterone",
+            "Synthetic estrogen",
+            "Medroxy-progesterone"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 21,
+         "text": "The following ultrasonic measurements may be used to confirm or establish gestational age:",
+         "options": [
+            "Crown rump length",
+            "Nuchal pad thickening",
+            "Amniotic fluid volume",
+            "Biophysical profile"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 22,
+         "text": "Antenatal booking investigations include all of the following, EXCEPT:",
+         "options": [
+            "Complete blood count",
+            "Blood sugar",
+            "Hepatitis screening",
+            "Thyroid function"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 23,
+         "text": "An Ultrasound in the 1st trimester of pregnancy is done for :",
+         "options": [
+            "Placental localization",
+            "Detecting of fetal weight",
+            "Assessment of amniotic fluid volume",
+            "Dating of the pregnancy"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 24,
+         "text": "A serum progesterone value less than 5ng/ml can exclude the diagnosis of viable pregnancy with a certainty of:",
+         "options": [
+            "20%",
+            "40%",
+            "80%",
+            "100%"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 25,
+         "text": "In normal pregnancy, the value of β-hCG doubles every:",
+         "options": [
+            "2days.",
+            "4 days.",
+            "8 days.",
+            "10 days."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 26,
+         "text": "The β-hCG curve in maternal serum in a normal pregnancy peaks at:",
+         "options": [
+            "6 weeks of pregnancy.",
+            "8 weeks of pregnancy.",
+            "10 weeks of pregnancy.",
+            "14 weeks of pregnancy."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 27,
+         "text": "The followings are considered normal symptoms of pregnancy, EXCEPT:",
+         "options": [
+            "Backache due to an increased lumbar lordosis.",
+            "Lower abdominal pain and groin pain due to stretch of round ligaments.",
+            "Visual disturbance.",
+            "Calf pain due to muscle spasm."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 28,
+         "text": "A woman in early pregnancy is worried because of several small raised nodules on areola of both breasts. There are no other findings. Your immediate management should be:",
+         "options": [
+            "Reassurance after thorough examination.",
+            "Needle aspiration of the nodules.",
+            "Surgical removal of the areola.",
+            "Mammography."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 29,
+         "text": "The source of progesterone that maintains the pregnancy during early first trimester:",
+         "options": [
+            "Placenta.",
+            "Corpus luteum.",
+            "Corpus albicans.",
+            "Adrenal glands."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 30,
+         "text": "During normal pregnancy, a weight gain anticipated. The average weight gain is approximately:",
+         "options": [
+            "5-10 kg.",
+            "10-15 kg.",
+            "15-20 kg.",
+            "20-30 kg."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 31,
+         "text": "Counseling of a pregnant patient during early prenatal care should include detection of & information on:",
+         "options": [
+            "Smoking.",
+            "Alcohol abuse.",
+            "Avoiding infections.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 32,
+         "text": "Which of the following medications, when given before & during pregnancy may help to protect neural tube defe",
+         "options": [
+            "Vitamin B6.",
+            "Iron.",
+            "Folic acid.",
+            "Zinc."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 33,
+         "text": "Which of the following is/are needed by women in increased amount during pregnancy?",
+         "options": [
+            "Iron.",
+            "Folic acid.",
+            "Calcium.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 34,
+         "text": "Often, an increase in vaginal discharge may be noted during pregnancy, It may be:",
+         "options": [
+            "Iron.",
+            "Folic acid.",
+            "Calcium.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 35,
+         "text": "The following measures are usually performed during a routine antenatal visit for a healthy uncomplicated pregn gestations, EXCEPT:",
+         "options": [
+            "Bacterial infection.",
+            "Caused by Trichomonas.",
+            "Caused by Candidiasis.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 36,
+         "text": "Which of the following is not a presumptive symptom/sign of pregnancy:",
+         "options": [
+            "Cessation of menstruation.",
+            "Quickening.",
+            "Nausea & vomiting.",
+            "Breast changes."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 37,
+         "text": "The softening of the cervical isthmus that occurs early in gestation is called:",
+         "options": [
+            "Hegar's sign",
+            "Chadwick's sign.",
+            "Braxton Hick's contraction.",
+            "Cullen's sign."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 38,
+         "text": "During early pregnancy, a pelvic examination may reveal that one adnexia is slightly enlarged. This is most likely due to:",
+         "options": [
+            "Fallopian tube hypertrophy.",
+            "Ovarian neoplasm.",
+            "Follicular cyst.",
+            "Corpus luteal cyst."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 39,
+         "text": "Booking investigations include all the following, EXCEPT :",
+         "options": [
+            "Liver function tests.",
+            "Glucose challenge test.",
+            "CBC.",
+            "Ultrasound."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 113,
+         "text": "Antenatal care can prevent all the following complications, EXCEPT :",
+         "options": [
+            "Anemia due to iron deficiency or folic acid deficiency.",
+            "UTI of pyelonephritis.",
+            "Macrosomia.",
+            "Preterm labor."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 41,
+         "text": "High alpha feto protein found in the followings conditions?",
+         "options": [
+            "EXCEPT:",
+            "Multiple pregnancy",
+            "Some Ovarian Cancer",
+            "Trisomy 21",
+            "Neural tube defect"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 42,
+         "text": "Of the following laboratory studies, which test might be done routinely at booking:",
+         "options": [
+            "Electrolytes.",
+            "Urinary estriol.",
+            "Serum glumatic-oxaloacetic transaminase.",
+            "Hemoglobin."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 43,
+         "text": "The following drugs cross the placenta to the fetus, EXCEPT :",
+         "options": [
+            "Heparin",
+            "Tetracycline",
+            "Warfarin",
+            "Diazepam"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 44,
+         "text": "Hypoplasia & yellow discoloration of the primary teeth has occurred in infants whose pregnant mothers were treated with drug:",
+         "options": [
+            "Penicillin.",
+            "Streptomycin.",
+            "Dihydrostretomycin.",
+            "Tetracycline."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 45,
+         "text": "Components of biophysical profile include all of the following, EXCEPT:",
+         "options": [
+            "Fetal movement",
+            "Placental thickness",
+            "Fetal tone",
+            "Fetal breathing movement"
+         ],
+         "correct_answer": 1
+      }
    ]
 }
