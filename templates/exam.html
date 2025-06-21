@@ -407,7 +407,7 @@
             listLabel.className = 'mt-2 mb-2';
             document.getElementById('lobbyStepRoom').prepend(listLabel);
         }
-        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'قائمة 3' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
+        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'قائمة 3' : questionList === 'list4' ? '183 سؤال' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
         // List players
         const playersList = document.getElementById('playersList');
         playersList.innerHTML = '';
@@ -540,7 +540,7 @@
             Object.entries(lists).forEach(([key, count]) => {
                 const option = document.createElement('option');
                 option.value = key;
-                option.textContent = `${key === 'list1' ? 'اخر 50 سؤال' : key === 'list2' ? 'اول 99 سؤال' : key === 'list3' ? 'اخر 45 سؤال قبل اخر 50' : key} (${count} سؤال)`;
+                option.textContent = `${key === 'list1' ? 'اخر 50 سؤال' : key === 'list2' ? 'اول 99 سؤال' : key === 'list3' ? 'اخر 45 سؤال قبل اخر 50' : key === 'list4' ? '183 سؤال' : key} (${count} سؤال)`;
                 select.appendChild(option);
             });
         });
