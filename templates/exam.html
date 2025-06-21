@@ -407,7 +407,7 @@
             listLabel.className = 'mt-2 mb-2';
             document.getElementById('lobbyStepRoom').prepend(listLabel);
         }
-        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'قائمة 3' : questionList === 'list4' ? '183 سؤال' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
+        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'اخر 45 سؤال' : questionList === 'list4' ? '183 سؤال' : questionList === 'list5' ? 'ثاني 100 سؤال' : questionList === 'list6' ? 'ثالث 100 سؤال' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
         // List players
         const playersList = document.getElementById('playersList');
         playersList.innerHTML = '';
@@ -537,11 +537,23 @@
         fetch('/get_question_lists').then(r => r.json()).then(lists => {
             const select = document.getElementById('questionListSelect');
             select.innerHTML = '';
-            Object.entries(lists).forEach(([key, count]) => {
-                const option = document.createElement('option');
-                option.value = key;
-                option.textContent = `${key === 'list1' ? 'اخر 50 سؤال' : key === 'list2' ? 'اول 99 سؤال' : key === 'list3' ? 'اخر 45 سؤال قبل اخر 50' : key === 'list4' ? '183 سؤال' : key} (${count} سؤال)`;
-                select.appendChild(option);
+            // Define the desired order and labels
+            const order = [
+                { key: 'list2', label: 'اول 100 سؤال' },
+                { key: 'list5', label: 'ثاني 100 سؤال' },
+                { key: 'list6', label: 'ثالث 100 سؤال' },
+                { key: 'list4', label: '183 سؤال' },
+                { key: 'list3', label: '45 سؤال' },
+                { key: 'list1', label: 'اخر 50 سؤال' }
+            ];
+            order.forEach(({ key, label }) => {
+                if (lists[key] !== undefined) {
+                    const count = lists[key];
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = `${label} (${count} سؤال)`;
+                    select.appendChild(option);
+                }
             });
         });
     });
