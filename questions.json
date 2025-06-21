@@ -1701,7 +1701,8 @@
          "options": [
             "To Rh-negative mothers after every abortion occurring beyond 6-8 week's gestation.",
             "To all sensitized Rh-negative females who have Rh-positive.",
-            "Postpartum only to Rh-negative females who are sensitized regardless of the fetal blood type.","Postpartum to Rh-positive females with Rh-negative husbands."
+            "Postpartum only to Rh-negative females who are sensitized regardless of the fetal blood type.",
+            "Postpartum to Rh-positive females with Rh-negative husbands."
          ],
          "correct_answer": 0
       },
@@ -2135,5 +2136,1626 @@
          ],
          "correct_answer": 1
       }
+   ],
+   "list4":[
+      {
+         "number": 1,
+         "text": "The most common malignancy in the female reproductive organs is:",
+         "options": [
+            "Cancer cervix",
+            "Cancer ovaries",
+            "Breast cancer",
+            "Endometrial cancer"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 2,
+         "text": "Submucous uterine polyp most often cause:",
+         "options": [
+            "Menorrhagia",
+            "Secondary degeneration",
+            "Rupture into endometrial cavity",
+            "Metrorrhagia"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 3,
+         "text": "The commonest cause of death in cancer ovary is:",
+         "options": [
+            "Uremia",
+            "Hemorrhage",
+            "Cachexia",
+            "Distant metastasis"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 4,
+         "text": "Non-neoplastic ovarian cysts include all of the following , EXCEPT:",
+         "options": [
+            "Corpus leutum cyst",
+            "Follicular cyst",
+            "Theca lutein cyst",
+            "Dermoid cyst"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 5,
+         "text": "Which of the following ovarian tumor causing abdominal pain during pregnancy?",
+         "options": [
+            "Serous cystadenoma",
+            "Mucinous cystadenoma",
+            "Teratoma",
+            "Theca lutein cyst"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 6,
+         "text": "The Commonest ovarian neoplasm complicated with torsion in pregnancy:",
+         "options": [
+            "Thecoma",
+            "Fibroma",
+            "Teratoma",
+            "Simple serous cyst"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 7,
+         "text": "A 16 year old single girl presented with a mass in the pelvis was detected clinically all the following investigation can be done , EXCEPT :",
+         "options": [
+            "Laparoscopy",
+            "PAP smear",
+            "Ultrasound (USS)",
+            "MRI"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 8,
+         "text": "Laparoscopy is used in the diagnosis of the following, EXCEPT:",
+         "options": [
+            "Endometriosis",
+            "Ovarian cyst.",
+            "Tubal patency.",
+            "Submucous fibroid."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 9,
+         "text": "Acceptable treatment for uterine fibroids includes all of the following, EXCEPT:",
+         "options": [
+            "Myomectomy.",
+            "Hysterectomy.",
+            "No treatment.",
+            "Myomectomy during pregnancy if red degeneration occurs."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 10,
+         "text": "In uterine fibroid; Which is true?",
+         "options": [
+            "Is commoner in white people than black.",
+            "All should be treated immediately.",
+            "Sarcomatous change occurs in 1%.",
+            "Can cause obstructed labor."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 11,
+         "text": "The following are TRUE about Leiomyomas, EXCEPT:",
+         "options": [
+            "Usually multiple.",
+            "Usually malignant.",
+            "Usually spherical or irregular lobulated.",
+            "Usually easy enucleated from the surrounding myometrium."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 12,
+         "text": "These are possible symptoms caused by fibroids, EXCEPT:",
+         "options": [
+            "Pelvic pain.",
+            "Subfertility.",
+            "Pressure symptoms.",
+            "Deep vein thrombosis"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 13,
+         "text": "Types of uterine fibroid degeneration include all of the following, EXCEPT :",
+         "options": [
+            "Red degeneration",
+            "Yellow degeneration",
+            "Hyaline degeneration Fatty",
+            "degeneration"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 14,
+         "text": "A patient with uterine leiomyoma accompanied by excessive uterine bleeding should be initially evaluated and /or treated by :",
+         "options": [
+            "myomectomy",
+            "Hysterectomy",
+            "High dose of estrogen",
+            "Hysteroscopy with endometrial biopsy"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 15,
+         "text": "Regarding uterine leiomyomata may undergo the following changes, EXCEPT:",
+         "options": [
+            "Squamous metaplasia",
+            "Hyaline degeneration",
+            "Atrophy.",
+            "Sarcomatous change"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 16,
+         "text": "Regarding red degeneration in fibroids all are true, EXCEPT:",
+         "options": [
+            "Common during pregnancy",
+            "Causes acute abdominal pain",
+            "Surgery is the first line of treatment",
+            "Caused by ischemic necrosis"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 17,
+         "text": "Which of the following is an early symptom of ovarian cancer?",
+         "options": [
+            "Pelvic pain.",
+            "Dysuria.",
+            "Constipation",
+            "It's usually asymptomatic"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 18,
+         "text": "Ovarian neoplasm most commonly arise from:",
+         "options": [
+            "Ovarian epithelium",
+            "Ovarian stroma",
+            "Ovarian germ cells",
+            "Ovarian sex cords"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 19,
+         "text": "Which of the following tumors is NOT an ovarian epithelial neoplasm:",
+         "options": [
+            "Serous tumor",
+            "Mucinous tumor",
+            "Endometrioid tumor",
+            "Endodermal sinus tumor"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 20,
+         "text": "Metastatic tumors to the ovary rarely originate from the:",
+         "options": [
+            "Breast.",
+            "Stomach",
+            "Uterus",
+            "Vagina."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 21,
+         "text": "The following are Suspicious criteria for malignancy in ovarian tumors, EXCEPT:",
+         "options": [
+            "Presence of Ascites",
+            "Presence of cachexia",
+            "Edema of the lower limbs",
+            "Elevated serum Estradiol"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 22,
+         "text": "Regarding Ovarian cysts in pregnancy:",
+         "options": [
+            "The dermoid accounts for up to 50% of total.",
+            "They are commonly malignant in origin.",
+            "Corpus luteal accounts for the majority of cases.",
+            "Torsion does not occur during pregnancy."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 23,
+         "text": "Which of the following ovarian tumors is the most common ?",
+         "options": [
+            "Granulosa cell tumors.",
+            "Arrhenoblastoma.",
+            "Endometrial sinus tumors.",
+            "Mucinous Cystadenoma."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 24,
+         "text": "Suggestive ultrasound features of ovarian malignancy include following, EXCEPT :",
+         "options": [
+            "Bilateral",
+            "Presence of ascites",
+            "Contain solid component",
+            "Unilocular"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 25,
+         "text": "Which of the following tumors produces estrogen?",
+         "options": [
+            "Endodermal sinus tumors.",
+            "Choriocarcinoma.",
+            "Granulosa-cell tumors.",
+            "Dysgerminoma."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 26,
+         "text": "The tumor marker secreted by Endodermal sinus (yolk sac) tumor is:",
+         "options": [
+            "Alpha-Fetoprotein.",
+            "hCG.",
+            "LDH.",
+            "Progesterone"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 27,
+         "text": "The most common germ cell tumor is:",
+         "options": [
+            "Dysgerminoma.",
+            "Endodermal sinus tumor.",
+            "Embryonal carcinoma.",
+            "Immature teratoma."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 28,
+         "text": "Which of the following ovarian tumors are thought to be derived from ovarian germinal epithelium:",
+         "options": [
+            "Dysgerminoma.",
+            "Fibroma.",
+            "Theca cell tumors.",
+            "Endometrioid."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 29,
+         "text": "The commonest site for metastasis form ovarian carcinoma is:",
+         "options": [
+            "Pouch of Douglus.",
+            "Liver.",
+            "Uterus",
+            "Peritoneum."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 30,
+         "text": "In patient with endometrial cancer and less than 50% myometrial invasion, the stage is at least:",
+         "options": [
+            "Stage 1A",
+            "Stage 1B",
+            "Stage IIA",
+            "Stage III"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 31,
+         "text": "Endometrial adenocarcinoma is most often preceded by:",
+         "options": [
+            "Cystic hyperplasia.",
+            "Endometrial hyperplasia.",
+            "Endometrial hyperplasia with cytological atypia.",
+            "Microcytic glandular hyperplasia."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 32,
+         "text": "Regarding benign endometrial polyps all are correct, EXCEPT:",
+         "options": [
+            "May present with postmenopausal bleeding.",
+            "Commonly cause inter-menstrual bleeding.",
+            "May present with menorrhagia.",
+            "Are often pre-malignant."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 33,
+         "text": "An increased incidence of endometrial hyperplasia & endometrial carcinoma has been described in patients with which of the following:",
+         "options": [
+            "Multiparity.",
+            "Chron's diseases.",
+            "Delayed menarche.",
+            "Exogenous of estrogen."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 34,
+         "text": "Endometrial hyperplasia would be most likely found in:",
+         "options": [
+            "An obese, nulliparus, diabetic woman.",
+            "An ovulating woman.",
+            "A woman on cyclic combination birth control pills.",
+            "A woman on depo-medhydroxyprogresterone acetate for endometriosis."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 35,
+         "text": "Risk of endometrial cancer include all of the followings, EXCEPT :",
+         "options": [
+            "Nulliparity",
+            "Delayed menopause",
+            "Patient with poly cystic ovarian cancer",
+            "History of oral contraceptive pills"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 36,
+         "text": "Endometrial adenocanthoma is best described as:",
+         "options": [
+            "Adenocarcinoma with benign squamous components.",
+            "Adenocarcinoma with papillary formation.",
+            "Squamous carcinoma with benign glandular components.",
+            "A mixture of malignant glandular & squamous components."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 37,
+         "text": "Which of the following types of endometrial carcinoma has the best prognosis ?",
+         "options": [
+            "Adenosquamous carcinoma.",
+            "Clear-cell adenocarcinoma.",
+            "Secretory carcinoma.",
+            "Serous carcinoma."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 38,
+         "text": "The most common uterine tumors in reproductive age is:",
+         "options": [
+            "Sarcoma.",
+            "Adenocarcinoma.",
+            "Adenomyosis.",
+            "Leiomyoma."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 39,
+         "text": "Screening is most effective in preventing which of the following cancers:",
+         "options": [
+            "Cervical cancer",
+            "Endometrial cancer Ovarian cancer",
+            "Cancer of Fallopian tubes."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 40,
+         "text": "Untreated patients with cancer of the cervix usually die with :",
+         "options": [
+            "Cachexia and starvation.",
+            "Bowel obstruction.",
+            "Renal failure and uremia.",
+            "Multi organ failure."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 41,
+         "text": "Occult carcinoma of the cervix:",
+         "options": [
+            "Stage IA.",
+            "Micro-invasive carcinoma.",
+            "Best treated by cone biopsy.",
+            "Found incidentally in a surgical specimen following hysterectomy."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 42,
+         "text": "The following is true regarding carcinoma of the cervix, EXCEPT:",
+         "options": [
+            "The region originates within the transformation zone in the majority of cases.",
+            "The disease is more common in multiparous women.",
+            "It's unlikely to produce ureteric obstruction.",
+            "Spread to iliac nodes usually."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 43,
+         "text": "The most common benign neoplasm of the cervix & endocervix is:",
+         "options": [
+            "Cervical Polyp.",
+            "Cervical hematoma.",
+            "Nabothain cyst.",
+            "Gartner's duct cyst."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 44,
+         "text": "Risk factors of cervical cancer include all of the following, EXCEPT :",
+         "options": [
+            "1st sexual intercourse at a young age.",
+            "Multiple sexual partner.",
+            "History of papilloma virus infection",
+            "Smoking"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 45,
+         "text": "The most common clinical presentation of early cervical cancer is:",
+         "options": [
+            "Foul-smelling vaginal discharge.",
+            "Asymptomatic.",
+            "Post-coital Bleeding.",
+            "Pelvic pain with leg edema."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 46,
+         "text": "Accurate diagnosis of Hydatiform mole can be made by:",
+         "options": [
+            "Elevated β-hCG",
+            "Ultrasound",
+            "Pelvic examination Chest radiography"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 47,
+         "text": "Risk Factors of gestational trophoblastic disease include all of the following, EXCEPT:",
+         "options": [
+            "Age under 20 years old",
+            "Diet high Folic acid",
+            "Age above 40 years old",
+            "Diet lower beta carotene"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 48,
+         "text": "In complete Hydatiform mole:",
+         "options": [
+            "A Rarely contains maternal genetic material",
+            "Can present with hypothyroidism",
+            "Prophylactic cytotoxic therapy should be given",
+            "Diagnosis is confirm with a very low blood level of human β Gonadotropins"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 49,
+         "text": "Definitive initial therapy for Hydatiform mole is most commonly:",
+         "options": [
+            "Evacuation.",
+            "Abdominal hysterectomy.",
+            "Evacuation followed by Methotrexate therapy.",
+            "Evacuation followed by hysterectomy."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 50,
+         "text": "Evacuation of Hydatiform mole may be complicated by:",
+         "options": [
+            "Hemorrhage necessitating transfusion.",
+            "Acute respiratory distress.",
+            "Both of them",
+            "Neither of them"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 51,
+         "text": "After the β-hCG titer becomes undetectable, the patient treated for Hydatiform mole should be followed with monthly titers for a period of:",
+         "options": [
+            "One month",
+            "Three month",
+            "One year",
+            "Two years"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 52,
+         "text": "What is the most frequent site for metastasis from a malignant gestational trophoblastic neoplasms:",
+         "options": [
+            "Brain",
+            "Liver.",
+            "Kidney.",
+            "Lung.(cannon balls appearance)."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 53,
+         "text": "A 25 –year- old patient with amenorrhea of 18 weeks duration had an elevated serum hCG, and absent fetal heart & movement and uterine size 28 weeks, which would be the most likely diagnosis ?",
+         "options": [
+            "Normal pregnancy",
+            "Hydatiform mole",
+            "Twin pregnancy",
+            "Missed abortion"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 54,
+         "text": "Signs and symptoms of Hydatiform mole include all of the following, EXCEPT :",
+         "options": [
+            "1st trimester bleeding",
+            "A Uterus larger than expected gestational age",
+            "Hypothyroidism",
+            "Nausea and vomiting"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 55,
+         "text": "Hydatiform mole is characterized by all of the following, EXCEPT:",
+         "options": [
+            "Theca-lutein cyst of the ovary.",
+            "Severe Hyperemesis.",
+            "Uterus larger than date.",
+            "Elevated maternal blood sugar level."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 56,
+         "text": "Choriocarcinomas can occur:",
+         "options": [
+            "After abortion.",
+            "After Hydatiform mole.",
+            "After normal pregnancy.",
+            "All of the above."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 57,
+         "text": "Which of the following contraceptive methods should NOT be used by a patient with coronary heart disease?",
+         "options": [
+            "Combined oral contraceptive pills",
+            "Male condom",
+            "Female condom",
+            "Intrauterine contraceptive device (IUCD)"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 58,
+         "text": "Permanent sterilization include all of the following, EXCEPT:",
+         "options": [
+            "Vasectomy",
+            "Tubal ligation",
+            "Mirena IUCD",
+            "Hysterectomy"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 59,
+         "text": "The combined contraceptive pills:",
+         "options": [
+            "Which is true?",
+            "Pre-dispose to pelvic inflammatory disease",
+            "Predispose to ovarian cyst",
+            "Predispose to benign breast cyst",
+            "Contra indicated in a patient with history of DVT"
+         ],
+         "correct_answer": 4
+      },
+      {
+         "number": 60,
+         "text": "The following is an absolute contraindications to the combined oral contraceptive pills:",
+         "options": [
+            "Varicose veins",
+            "Previous history of viral hepatitis",
+            "Prosthetic heart valve",
+            "Diabetes mellitus"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 61,
+         "text": "The following conditions are aggravated by oral contraceptive pills:",
+         "options": [
+            "Hirsutism",
+            "Endometriosis",
+            "Pre-menstrual syndrome",
+            "Genital fungal infection"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 62,
+         "text": "Regarding Intra uterine contraceptive device (IUCD);",
+         "options": [
+            "Reduces pelvic inflammatory disease",
+            "Inhibits ovulation",
+            "Increases incidence of endometrial cancer",
+            "If pregnancy occurs there is increased risk of ectopic pregnancy."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 63,
+         "text": "Combined Oral Contraceptive Pills contain:",
+         "options": [
+            "A synthetic estrogen alone",
+            "A progestin alone",
+            "Both estrogen and progestin",
+            "Bromocriptine"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 64,
+         "text": "Mechanisms of Oral Contraceptive Pills include all of the following, EXCEPT:",
+         "options": [
+            "Ovulation suppression",
+            "Enhanced ovarian androgen production",
+            "Altered cervical mucus",
+            "Altered endometrium"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 65,
+         "text": "Postulated mechanism of the IUCD include all of the following action, EXCEPT:",
+         "options": [
+            "Altered tubal motility",
+            "Altered endometrium",
+            "Altered cervical mucus",
+            "Cupper has spermicidal effect"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 66,
+         "text": "Regarding injectable progesterone contraception, all of the following is true, EXCEPT:",
+         "options": [
+            "Medroxyparogesterone acetate is the most commonly used",
+            "May cause irregular uterine bleeding",
+            "May cause amenorrhea.",
+            "Should not be given to lactating mother."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 67,
+         "text": "With regards to contraception failure, the pearl index refers to:",
+         "options": [
+            "Numbers of Pregnancies in years.",
+            "Number of pregnancies in 1 woman-year.",
+            "Number of pregnancies in 100 woman-year.",
+            "Number of pregnancies in 100 woman-years over pregnancy losses."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 68,
+         "text": "Contraindication of OCP, EXCEPT:",
+         "options": [
+            "Previous DVT",
+            "Previous CVA",
+            "Family History of Breast Cancer.",
+            "35 Y, smokes >15 cigarette per day."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 69,
+         "text": "Combined oral contraceptive pills are associated with :",
+         "options": [
+            "Dysmenorrhea",
+            "Menorrhagia",
+            "Polymenorrhoea",
+            "Intermenstrual bleeding."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 70,
+         "text": "Oral contraceptive pills (OCP) have the following beneficial effects, EXCPET :",
+         "options": [
+            "Decrease benign breast disease",
+            "Decrease iron deficiency anemia",
+            "Decreased ovarian cancer",
+            "Decrease the incidence of renal failure"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 71,
+         "text": "Side effects of oral contraceptive pills (OCP) include all the following, EXCEPT:",
+         "options": [
+            "Break through bleeding",
+            "Dysmenorrhea.",
+            "Mastalgia",
+            "Chloasma"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 72,
+         "text": "The use of oral contraceptive pills (OCP) reduces the risk of all the following, EXCEPT:",
+         "options": [
+            "Ectopic pregnancy",
+            "Hepatic adenoma.",
+            "Salpangitis",
+            "Ovarian cancer"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 73,
+         "text": "Which of the following statements regarding the use of IUCD is TRUE :",
+         "options": [
+            "Most IUCD were withdrawn from the market due to the financial burden",
+            "The Contraceptive effectiveness of IUCD is similar to that of barrier methods.",
+            "The risk of Salpangitis in IUCD wearer is positively correlated with duration of use.",
+            "Contraceptive effectiveness of copper-containing IUCD is higher than that of the inert device."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 74,
+         "text": "All are true regarding oral contraceptive pills (OCP), EXCEPT :",
+         "options": [
+            "Increase viscosity of cervical mucosa",
+            "Can cause venous thrombosis",
+            "Can cause mild hypertension",
+            "Usually cause amenorrhea"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 75,
+         "text": "Intrauterine contraceptive device (IUCD) are relatively contraindicated in the following patient, EXCEPT:",
+         "options": [
+            "With past history of chronic Salpangitis.",
+            "With Submucous fibroid",
+            "With history of ectopic pregnancy",
+            "With history of Cesarean section (CS)"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 76,
+         "text": "Complication of intrauterine contraceptive device (IUCD) include all the following, EXCEPT:",
+         "options": [
+            "Premenstrual spotting",
+            "Dysmenorrhea",
+            "Menorrhagia",
+            "Failure rate are twice that expected in the patients taking progestin only pill."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 77,
+         "text": "Lowest pregnancy rate in 100 women using the method for 1 year :",
+         "options": [
+            "Intrauterine contraceptive device (IUCD)",
+            "Oral contraceptive pills (OCP)",
+            "Condom",
+            "Diaphragm"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 78,
+         "text": "The use of progesterone only pills :",
+         "options": [
+            "Ovulation is not regularly inhibited",
+            "Protection rate is as good as combined pill",
+            "There is a risk of deep venous thrombosis (DVT)",
+            "Breakthrough bleeding is rare"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 79,
+         "text": "A contraceptive method that prevent transmission of STD is:",
+         "options": [
+            "Condom.",
+            "OCP.",
+            "IUCD.",
+            "Spermicide."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 80,
+         "text": "The goal for developing a successful contraception include all of the following, EXCEPT:",
+         "options": [
+            "Regulate fertility.",
+            "Stabilize population growth.",
+            "Reducing maternal morbidity.",
+            "Diminishing the incidence."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 81,
+         "text": "What is the effect of oral contraceptives on the incidence of DVT & embolism?",
+         "options": [
+            "Decreases the incidence.",
+            "Doesn't affect the incidence.",
+            "Increases thrombosis but not pulmonary embolism.",
+            "Increases the incidence."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 82,
+         "text": "The mechanism of action of OCPs include all the following, EXCEPT:",
+         "options": [
+            "Enhances ovarian androgen production.",
+            "Alter the cervical mucus.",
+            "Alter the endometrium.",
+            "Ovulation suppression."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 83,
+         "text": "Postulated mechanism of action of IUD includes all the following, EXCEPT :",
+         "options": [
+            "Alter the cervical mucus.",
+            "Alter the endometrium.",
+            "Inhibits fertilization.",
+            "Alter the tubal motility."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 84,
+         "text": "Types of estrogens commonly used in oral contraceptive pills include.",
+         "options": [
+            "Ethinyl estradiol.",
+            "Ethinyl estriol.",
+            "Northisterone.",
+            "Estradiol valorates."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 85,
+         "text": "The use of Progesterone-only contraceptive pills is governed by the following considerations, choose the CORRECT answer:",
+         "options": [
+            "Ovulation is not regularly inhibited.",
+            "Protection against pregnancy is as good as combined pills.",
+            "There is a substantial risk in older women with venous thrombus & embolism in their user.",
+            "Breakthrough bleeding is rare."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 86,
+         "text": "Regarding IUCD, all of the following are INCORRECT, EXCEPT:",
+         "options": [
+            "Inhibition of ovulation is the main mechanism of action.",
+            "Has a failure of 6%.",
+            "Statistically increases the incidence of ectopic pregnancy.",
+            "Is commonly associated with excessive menstrual loss."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 87,
+         "text": "The following are known contraindications to the use of combined oral contraceptive pills (COCP), EXCEPT:",
+         "options": [
+            "Deep venous thrombosis or pulmonary embolism.",
+            "Active liver disease.",
+            "Benign intracranial hypertension.",
+            "Repeated LSCS."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 88,
+         "text": "The combined oral contraceptive pill, besides being used as a method of contraception, can be used to treat the following, EXCEPT: a.",
+         "options": [
+            "Endometriosis.",
+            "Ovulation pain.",
+            "Menorrhagia.",
+            "Mucinous ovarian cyst."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 89,
+         "text": "Progesterone only pills work as contraceptives by:",
+         "options": [
+            "Suppressing ovulation.",
+            "Altering the cervical mucosa.",
+            "Producing endometrial hyperplasia.",
+            "Reducing libido."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 90,
+         "text": "Combined oral contraceptive pills containing estrogen & progesterone produce the following effects, EXCEPT:",
+         "options": [
+            "Act by preventing ovulation.",
+            "Can cause hypertension.",
+            "Can cause venous thrombosis.",
+            "Usually cause amenorrhea."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 91,
+         "text": "Which of the following is an absolute contraindication to the use of COCP?",
+         "options": [
+            "Varicose veins.",
+            "DM.",
+            "Seizure disorders.",
+            "Recent history of deep venous thrombosis."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 92,
+         "text": "Intrauterine contraceptive device (IUCD) may prevent pregnancy by all of the following mechanism EXCEPT:",
+         "options": [
+            "Creating chronic endometritis.",
+            "Inducing endometrial atrophy.",
+            "Inhibiting ovulation.",
+            "Altering tubal motility."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 93,
+         "text": "Which of the following ovarian tumors is the most common:",
+         "options": [
+            "Arrhenoblastoma.",
+            "Granulosa cell tumors.",
+            "Endometrial sinus tumors.",
+            "Mucinous Cystadenoma."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 94,
+         "text": "The tumor marker secreted by Endodermal sinus (yolk sac) tumor is :",
+         "options": [
+            "Alpha-Fetoprotein.",
+            "hCG.",
+            "LDH.",
+            "Progesterone"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 95,
+         "text": "The most common benign neoplasm of the cervix & endocervix is :",
+         "options": [
+            "Cervical Polyp.",
+            "Cervical hematoma.",
+            "Nabothain cyst.",
+            "Cervical hood."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 96,
+         "text": "A 25 –year- old patient with amenorrhea of 18 weeks duration had an elevated serum hCG, and absent fetal heart & movement and uterine size 28 weeks which of the following would be the most likely diagnosis ?",
+         "options": [
+            "Normal pregnancy",
+            "Hydatiform mole",
+            "Twin pregnancy",
+            "Missed abortion"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 97,
+         "text": "Signs and symptoms of hydatiform mole include the following EXCEPT :",
+         "options": [
+            "1st trimester bleeding",
+            "A Uterus larger than expected gestational age",
+            "Hypothyroidism",
+            "Nausea and vomiting"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 98,
+         "text": "Regarding missed abortion, all of the following are CORRECT, EXCEPT:",
+         "options": [
+            "Patient may present with loss of the symptoms of pregnancy",
+            "Per vaginal bleeding may be one of the presenting symptom",
+            "Immediate evacuation should be done once the diagnosis is made",
+            "Disseminated intra-vascular coagulation may occur as a sequele of missed abortion"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 99,
+         "text": "14 weeks pregnant woman had abortion and she was told that it is a complete abortion.",
+         "options": [
+            "What is true regarding complete abortion ?.",
+            "Uterus is usually bigger than date",
+            "Cervical OS is opened with tissue inside the cervix",
+            "Need to have evacuation of the uterus",
+            "After complete abortion there is minimal or no pain and minimal or no bleeding ."
+         ],
+         "correct_answer": 4
+      },
+      {
+         "number": 100,
+         "text": "In patients with three consecutive spontaneous abortion in the second trimester the most useful investigation is:",
+         "options": [
+            "Chromosomal analysis",
+            "Hysterosalpingogram",
+            "Endometrial biopsy",
+            "Post coital test"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 101,
+         "text": "Regarding cervical incompetence, all of the following are true, EXCEPT:",
+         "options": [
+            "Typically causes painful abortions",
+            "Typically causes mid-trimester abortions",
+            "Is treated by Shirodkar suture (cervical cerculage) which is best preformed early in the second trimester",
+            "May lead to premature rupture of the membrane"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 102,
+         "text": "Causes of first trimester abortion:",
+         "options": [
+            "Chromosomal abnormalities",
+            "Cervical incompetence",
+            "Bicornuate uterus",
+            "Gestational hypertension"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 103,
+         "text": "Management of a patient with threatened abortion includes all of the following, EXCEPT:",
+         "options": [
+            "Ultrasound",
+            "Physical examination",
+            "Derailed menstrual history",
+            "Dilatation and curettage."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 104,
+         "text": "25-year-old primigravida with 8 weeks threatened abortion, ultrasound would most likely reveal:",
+         "options": [
+            "Thickened endometrium with no gestational sac",
+            "Feral heart motion in the adnexia",
+            "Empty gestational sac",
+            "An intact gestational sac with fetal"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 105,
+         "text": "Regarding incomplete abortion, all are true, EXCEPT:",
+         "options": [
+            "There is a history of tissue passed per vagina",
+            "The cervix is open on vaginal examination",
+            "Ultrasound shows retained product of conception",
+            "Ultrasound shows intact gestational sac non- viable fetus"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 106,
+         "text": "Incompetent cervix:",
+         "options": [
+            "Is a cause for early pregnancy loss",
+            "Is best diagnosed by history",
+            "Is a cause for fetal congenital abnormalities",
+            "Is not encounted with uterine anomalies"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 107,
+         "text": "Of the proposed etiologies for recurrent pregnancy wastage, the least likely is:",
+         "options": [
+            "Maternal trauma.",
+            "Maternal balanced translocation.",
+            "Paternal balanced translocation.",
+            "Luteal phase deficiency."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 108,
+         "text": "The most common etiology for spontaneous abortion of a recognized first trimester gestation:",
+         "options": [
+            "Chromosomal anomaly in 50-60% of gestations.",
+            "Chromosomal anomaly in 20-30% of gestations.",
+            "Maternal hypothyroidism.",
+            "Maternal Diabetes."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 109,
+         "text": "In threatened abortion, which one of the following items is TRUE?",
+         "options": [
+            "The cervix is open",
+            "Evacuation is the best treatment",
+            "All patients should be admitted to the hospital",
+            "In the majority of cases pregnancy will continue without any complication"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 110,
+         "text": "In case of threatened abortion :",
+         "options": [
+            "Fetal heart is present",
+            "Cervix is dilated",
+            "There is a history of passing tissue per vagina.",
+            "Patients needs immediate evacuation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 111,
+         "text": "Missed abortion may cause one of the following complication:",
+         "options": [
+            "Bone marrow depression",
+            "Rupture uterus",
+            "High positive serum β-hCG",
+            "Coagulopathy"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 112,
+         "text": "In threatened abortion at 15 weeks gestation in a nulliparous patient:",
+         "options": [
+            "Severe abdominal pain",
+            "The internal os is often opened.",
+            "Fainting is characteristic.",
+            "Vaginal bleeding is usually mild."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 113,
+         "text": "Regarding threatened abortion:",
+         "options": [
+            "Anti-D should be given to Rh- positive mother.",
+            "All patients should be admitted to the hospital.",
+            "Ultrasound should be done to confirm the diagnosis.",
+            "Vaginal examination will reveal severe pain."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 114,
+         "text": "Therapy in threatened abortion should include:",
+         "options": [
+            "Progesterone IM",
+            "Dilatation & curettage (D & C )",
+            "Prolonged bed rest",
+            "Restricted activity"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 115,
+         "text": "During the first & second trimester of pregnancy, the most common pathologic cause of vaginal bleeding :",
+         "options": [
+            "Vesicular mole",
+            "Abruptio placenta",
+            "Ectopic pregnancy",
+            "Abortion"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 116,
+         "text": "Which of the following items may be associated with a mid trimester abortion:",
+         "options": [
+            "Recurrent pelvic infection",
+            "Maternal smoking",
+            "Uterine anomalies",
+            "Sickle cell disease"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 117,
+         "text": "Bleeding in early pregnancy could be causes by all of the following, EXCEPT :",
+         "options": [
+            "An ectopic pregnancy",
+            "Trophoblastic disease",
+            "Cancer ovary",
+            "Invasive carcinoma of the cervix"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 118,
+         "text": "Which of the following is correct in the treatment of a case of threatened abortion :",
+         "options": [
+            "Bed rest",
+            "Oral stillbosterol",
+            "Dilatation & Curettage (D & C)",
+            "Urgent admission to hospital"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 119,
+         "text": "Abortion :",
+         "options": [
+            "Has an incidence of 15% of all pregnancy",
+            "18 weeks missed abortion is usually managed with suction curettage",
+            "In threatened abortion, the cervix is always open",
+            "1st trimester abortion is usually causes by incompetent cervical os"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 120,
+         "text": "Etiological factors in spontaneous abortion include :",
+         "options": [
+            "Chromosomal abnormalities",
+            "Placental abnormalities",
+            "Uterine abnormalities",
+            "All of the above"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 121,
+         "text": "A missed abortion is :",
+         "options": [
+            "Death of the fetus at 36 weeks of gestation",
+            "In which the products of conception are expelled completely",
+            "In which the products of conception are partially expelled",
+            "Death of the fetus before 24 weeks gestation"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 122,
+         "text": "A 26- year- old married white whose LMP was 2 ½ months ago developed bleeding, uterine cramps, and passed some tissue per vagina. Two hours later she began to bleed heavily . What is The most likely diagnosis is :",
+         "options": [
+            "Twin pregnancy",
+            "Threatened abortion",
+            "Premature labor",
+            "Incomplete abortion"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 123,
+         "text": "Cervical cerculage:",
+         "options": [
+            "Closure of incompetence cervix",
+            "Effective in prevention of all types of abortion",
+            "Should be removed at 32 weeks of pregnancy",
+            "Protect against exposure of the pregnant lady to infection"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 124,
+         "text": "A 25 primigravida with 8 weeks threatened abortion. The Ultrasound would most likely reveal :",
+         "options": [
+            "Thickened endometrium with no gestational sac.",
+            "Fetal heart motion in the adnexia.",
+            "Empty gestational sac.",
+            "An intact gestational sac with fetal heart motion."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 125,
+         "text": "A 14 weeks pregnant woman had abortion and she was told that it is a complete abortion. This is true regarding complete abortion:",
+         "options": [
+            "Uterus is usually bigger than date",
+            "Cervical OS is opened with tissue inside the cervix",
+            "Need to have evacuation of the uterus",
+            "After complete abortion there is minimal or no pain and minimal or no bleeding"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 126,
+         "text": "Regarding Cervical incompetence, one is true:",
+         "options": [
+            "Cone biopsy is not a predisposing factor",
+            "Cervical cerculage is contraindicated",
+            "Is not encountered with uterine anomalies",
+            "Best diagnosed by History"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 127,
+         "text": "Repeated 2nd trimester abortions, especially when associated with a lack of painful uterine contractions, suggests most strongly:",
+         "options": [
+            "Defective germ plasma.",
+            "Uterine myoma.",
+            "Maternal hyperthyroidism.",
+            "Incompetent cervical os."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 128,
+         "text": "Inevitable abortion is usually associated with all of the following, EXCEPT:",
+         "options": [
+            "Lower abdominal Pain.",
+            "Dilated cervix.",
+            "Vaginal bleeding.",
+            "Fever."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 129,
+         "text": "In spontaneous abortion:",
+         "options": [
+            "Uncontrolled blood sugar increases the risk of abortion in diabetic patients.",
+            "If the patient has mild bleeding with opened internal os this is considered to be threatened abortion.",
+            "Cervical incompetence is the most common cause of abortion in the first trimester.",
+            "History of bleeding & passing of tissue per vagina indicates the need for curettage without the need for US."
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 130,
+         "text": "Early bleeding in pregnancy may be caused by the following, EXCEPT:",
+         "options": [
+            "Incomplete abortion",
+            "Cervical cancer C.",
+            "Threatened abortion.",
+            "Ectopic pregnancy",
+            "Vasa previa"
+         ],
+         "correct_answer": 4
+      },
+      {
+         "number": 131,
+         "text": "Regarding ectopic pregnancy, all of the following are true, EXCEPT:",
+         "options": [
+            "Is associated with uterine enlargement",
+            "Is situated in the ovary in about 0.5% of all cases",
+            "Is more dangerous when it is situated in the isthmus of the fallopian tube",
+            "Can only be diagnosed after it has ruptured."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 132,
+         "text": "Acceptable management of ruptured ectopic pregnancy",
+         "options": [
+            "Observation followed by Methotrexate",
+            "Diagnostic laparoscopy followed by observation",
+            "Repeat ultrasound next 24 hours to confirm the diagnosis",
+            "Exploratory laparotomy and salpingectomy"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 133,
+         "text": "The following are factors affecting the choice of Methotrexate as a choice of treatment for ectopic pregnancy, EXCEPT:",
+         "options": [
+            "Size of the ectopic",
+            "Presence or absence of cardiac activity",
+            "Level of β-hCG",
+            "Parity of the patient"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 134,
+         "text": "The most common cause of ectopic pregnancy is:",
+         "options": [
+            "History of pelvic inflammatory disease",
+            "Congenital anomalies of the tube",
+            "Endometriosis",
+            "Tubal surgery"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 135,
+         "text": "Following evacuation of a molar pregnancy, β-hCG titers will fall to untraceable levels in about 90% of patients within:",
+         "options": [
+            "a 2 weeks.",
+            "4 weeks.",
+            "8 weeks.",
+            "12 weeks."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 136,
+         "text": "The most common symptom of ectopic pregnancy is :",
+         "options": [
+            "Profuse vaginal bleeding.",
+            "Abdominal pain.",
+            "Syncope.",
+            "Dyspareunia."
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 137,
+         "text": "Acceptable management of possible rupture ectopic pregnancy would include all of the following EXCEPT:",
+         "options": [
+            "Exploratory laparotomy.",
+            "Diagnostic laparoscopy.",
+            "Partial salpingectomy.",
+            "Observation followed by Methotrexate."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 138,
+         "text": "If the above described patient has had a previous term pregnancy prior to her ectopic pregnancy, her chances of subsequent intrauterine pregnancy would be about:",
+         "options": [
+            "80%",
+            "60%.",
+            "40%",
+            "20%"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 139,
+         "text": "The commonest site of ectopic pregnancy is :",
+         "options": [
+            "Peritoneal cavity",
+            "Mesosalpinx",
+            "Ovary",
+            "Ampulla of the fallopian tube"
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 140,
+         "text": "Etiological factor of ectopic pregnancy include all of the following, EXCEPT:",
+         "options": [
+            "Gonococcal Salpangitis",
+            "Tubal surgery",
+            "Combined OCP",
+            "TB salpingitis"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 141,
+         "text": "Patient with ectopic pregnancy:",
+         "options": [
+            "Present with heavy per-vaginal bleeding",
+            "Methotrexate is the treatment of the choice in patient with ruptured one",
+            "May complain of shoulder pain.",
+            "Present with cardio vascular collapse in all the cases"
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 142,
+         "text": "In the management of ectopic pregnancy:",
+         "options": [
+            "β-hCG titer has a role in the diagnosis & management of ectopic pregnancy.",
+            "D&C is the treatment of choice",
+            "Methotrexate should be used if the patient hemodynamically unstable",
+            "Shoulder pain is referred from bowel irritation"
+         ],
+         "correct_answer": 0
+      },
+      {
+         "number": 143,
+         "text": "Methotrexate Treatment in ectopic is contraindicated if:",
+         "options": [
+            "β-hCG < 1500",
+            "No fetal heart.",
+            "Hemoperitonium",
+            "Gestational sac < 3 cm e."
+         ],
+         "correct_answer": 2
+      },
+      {
+         "number": 144,
+         "text": "Lower abdominal pain and six weeks gestation:",
+         "options": [
+            "Vaginal examination is contraindicated.",
+            "Right iliac fossa pain is diagnostic of appendicitis.",
+            "Placental abruption should be considered.",
+            "Ultrasound has reliable diagnostic information."
+         ],
+         "correct_answer": 3
+      },
+      {
+         "number": 145,
+         "text": "The endometrial change of ectopic pregnancy:",
+         "options": [
+            "Glandular cystic hyperplasia",
+            "Decidual transformation",
+            "Atypical hyperplasia",
+            "Proliferation endometrium"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 146,
+         "text": "In ectopic pregnancy :",
+         "options": [
+            "The ovarian ectopic pregnancy is the most common site",
+            "More than 90% of ectopic pregnancies occurs in the fallopian tube",
+            "The majority of tubal pregnancies occurs in the fimbria",
+            "The most common symptoms of ectopic pregnancy is vaginal bleeding without abdominal pain"
+         ],
+         "correct_answer": 1
+      },
+      {
+         "number": 147,
+         "text": "The quantitative β subunit of HCG in a serum of patient with ectopic pregnancy will :",
+         "options": [
+            "Rise in a rate greater than expected.",
+            "Rise at rate consistent with the normal curve.",
+            "Rise at a slower than expected.",
+            "Plateau."
+         ],
+         "correct_answer": 2
+      }
+
    ]
 }
