@@ -2082,15 +2082,14 @@
       },
       {
          "number": 41,
-         "text": "High alpha feto protein found in the followings conditions?",
+         "text": "High alpha feto protein found in the followings conditions? EXCEPT:",
          "options": [
-            "EXCEPT:",
             "Multiple pregnancy",
             "Some Ovarian Cancer",
             "Trisomy 21",
             "Neural tube defect"
          ],
-         "correct_answer": 3
+         "correct_answer": 2
       },
       {
          "number": 42,
