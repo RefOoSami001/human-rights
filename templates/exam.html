@@ -410,7 +410,7 @@
             listLabel.className = 'mt-2 mb-2';
             document.getElementById('lobbyStepRoom').prepend(listLabel);
         }
-        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'اخر 45 سؤال' : questionList === 'list4' ? '183 سؤال' : questionList === 'list5' ? 'ثاني 100 سؤال' : questionList === 'list6' ? 'ثالث 100 سؤال' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
+        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'اخر 45 سؤال' : questionList === 'list4' ? '183 سؤال' : questionList === 'list5' ? 'ثاني 100 سؤال' : questionList === 'list6' ? 'ثالث 100 سؤال' : questionList === 'all_questions' ? 'شاااااااامل' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
         // List players
         const playersList = document.getElementById('playersList');
         playersList.innerHTML = '';
@@ -558,11 +558,16 @@
                     select.appendChild(option);
                 }
             });
-            // Add the new random 120 questions option
+            // Add the random 120 questions option
             const random120Option = document.createElement('option');
             random120Option.value = 'random120';
             random120Option.textContent = '120 سؤال عشوائي';
             select.appendChild(random120Option);
+            // Add the all questions option
+            const allQuestionsOption = document.createElement('option');
+            allQuestionsOption.value = 'all_questions';
+            allQuestionsOption.textContent = 'شاااااااامل';
+            select.appendChild(allQuestionsOption);
         });
     });
 
