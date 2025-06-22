@@ -176,12 +176,16 @@ def exam():
         session['randomize_questions'] = True  # Default to true
         session['question_list'] = 'list1'
 
-    # Load and randomize questions using the stored seed and settings
     all_questions = load_questions()
     exam_seed = session.get('exam_seed')
     randomize_questions = session.get('randomize_questions', True)
     question_list_key = session.get('question_list', 'list1')
-    questions = all_questions.get(question_list_key, [])
+    if question_list_key == 'random120':
+        questions = get_all_questions_for_random120()
+        random.seed(exam_seed)
+        questions = random.sample(questions, min(120, len(questions)))
+    else:
+        questions = all_questions.get(question_list_key, [])
 
     randomized_questions = randomize_questions_and_options(
         questions,
@@ -320,20 +324,29 @@ def get_questions_data():
     if not session.get('exam_started'):
         return jsonify({'error': 'No exam started'}), 400
 
-    # Check if this is a multiplayer request (room_code param)
     room_code = request.args.get('room_code')
     if room_code and room_code in GAMES:
         game = GAMES[room_code]
-        questions = load_questions().get(game['question_list'], [])
-        exam_seed = game['seed']
+        if game['question_list'] == 'random120':
+            questions = get_all_questions_for_random120()
+            exam_seed = game['seed']
+            random.seed(exam_seed)
+            questions = random.sample(questions, min(120, len(questions)))
+        else:
+            questions = load_questions().get(game['question_list'], [])
+            exam_seed = game['seed']
         randomize_questions = game.get('randomize_questions', True)
     else:
-        # Single player mode
         all_questions = load_questions()
         exam_seed = session.get('exam_seed')
         randomize_questions = session.get('randomize_questions', True)
         question_list_key = session.get('question_list', 'list1')
-        questions = all_questions.get(question_list_key, [])
+        if question_list_key == 'random120':
+            questions = get_all_questions_for_random120()
+            random.seed(exam_seed)
+            questions = random.sample(questions, min(120, len(questions)))
+        else:
+            questions = all_questions.get(question_list_key, [])
 
     if not exam_seed:
         return jsonify({'error': 'Invalid exam session'}), 400
@@ -357,6 +370,13 @@ def generate_room_code(length=6):
         if code not in GAMES:
             return code
 
+def get_all_questions_for_random120():
+    questions = load_questions()
+    all_questions = []
+    for k in ['list1', 'list2', 'list3', 'list4', 'list5', 'list6']:
+        all_questions.extend(questions.get(k, []))
+    return all_questions
+
 @socketio.on('create_room')
 def handle_create_room(data):
     name = data.get('name', 'مجهول')
@@ -365,10 +385,16 @@ def handle_create_room(data):
     room_code = generate_room_code()
     question_list_key = data.get('question_list', 'list1')
     all_questions = load_questions()
-    if question_list_key not in all_questions:
-        question_list_key = 'list1'
-    questions = all_questions[question_list_key]
-    seed = random.randint(1, 1000000)
+    if question_list_key == 'random120':
+        questions = get_all_questions_for_random120()
+        seed = random.randint(1, 1000000)
+        random.seed(seed)
+        questions = random.sample(questions, min(120, len(questions)))
+    else:
+        if question_list_key not in all_questions:
+            question_list_key = 'list1'
+        questions = all_questions[question_list_key]
+        seed = random.randint(1, 1000000)
     randomized_questions = randomize_questions_and_options(questions, seed, True)
     GAMES[room_code] = {
         'host': client_id,
@@ -392,14 +418,18 @@ def handle_join_room(data):
     room_code = data.get('room_code', '').upper().strip()
     client_id = data.get('client_id')
     session_id = request.sid
+    question_list_key = data.get('question_list', None)
     if room_code not in GAMES:
         emit('error', {'message': 'رمز الغرفة غير صحيح.'}, room=session_id)
         return
-    # Check if game has already started
     if GAMES[room_code]['started']:
         emit('error', {'message': 'الامتحان قد بدأ بالفعل، لا يمكن الانضمام الآن.'}, room=session_id)
         return
-    # Always update or create player by client_id
+    if question_list_key and question_list_key == 'random120':
+        # Only allow if the room was created with random120
+        if GAMES[room_code]['question_list'] != 'random120':
+            emit('error', {'message': 'قائمة الأسئلة لا تطابق الغرفة.'}, room=session_id)
+            return
     GAMES[room_code]['players'][client_id] = GAMES[room_code]['players'].get(client_id, {'name': name, 'score': 0, 'time': 0, 'finished': False})
     GAMES[room_code]['players'][client_id]['sid'] = session_id
     join_room(room_code)
