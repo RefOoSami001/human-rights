@@ -307,7 +307,8 @@
     if (document.getElementById('createRoomBtn')) {
         document.getElementById('createRoomBtn').onclick = function () {
             playerName = document.getElementById('playerName').value.trim() || 'مجهول';
-            const questionList = document.getElementById('questionListSelect').value || 'list1';
+            let questionList = document.getElementById('questionListSelect').value || 'list1';
+            if (questionList === 'random120') questionList = 'random120';
             socket.emit('create_room', { name: playerName, client_id: clientId, question_list: questionList });
         };
     }
@@ -315,10 +316,12 @@
         document.getElementById('joinRoomBtn').onclick = function () {
             playerName = document.getElementById('playerName').value.trim() || 'مجهول';
             const code = document.getElementById('joinRoomCode').value.trim().toUpperCase();
+            let questionList = document.getElementById('questionListSelect').value || 'list1';
+            if (questionList === 'random120') questionList = 'random120';
             if (code.length === 6) {
                 roomCode = code;
                 localStorage.setItem('room_code', roomCode);
-                socket.emit('join_room', { name: playerName, room_code: code, client_id: clientId });
+                socket.emit('join_room', { name: playerName, room_code: code, client_id: clientId, question_list: questionList });
             }
         };
     }
@@ -555,6 +558,11 @@
                     select.appendChild(option);
                 }
             });
+            // Add the new random 120 questions option
+            const random120Option = document.createElement('option');
+            random120Option.value = 'random120';
+            random120Option.textContent = '120 سؤال عشوائي';
+            select.appendChild(random120Option);
         });
     });
 
