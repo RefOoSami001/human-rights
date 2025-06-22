@@ -184,6 +184,8 @@ def exam():
         questions = get_all_questions_for_random120()
         random.seed(exam_seed)
         questions = random.sample(questions, min(120, len(questions)))
+    elif question_list_key == 'all_questions':
+        questions = get_all_questions()
     else:
         questions = all_questions.get(question_list_key, [])
 
@@ -345,6 +347,8 @@ def get_questions_data():
             questions = get_all_questions_for_random120()
             random.seed(exam_seed)
             questions = random.sample(questions, min(120, len(questions)))
+        elif question_list_key == 'all_questions':
+            questions = get_all_questions()
         else:
             questions = all_questions.get(question_list_key, [])
 
@@ -377,6 +381,14 @@ def get_all_questions_for_random120():
         all_questions.extend(questions.get(k, []))
     return all_questions
 
+def get_all_questions():
+    """Get all questions from all lists combined"""
+    questions = load_questions()
+    all_questions = []
+    for k in ['list1', 'list2', 'list3', 'list4', 'list5', 'list6']:
+        all_questions.extend(questions.get(k, []))
+    return all_questions
+
 @socketio.on('create_room')
 def handle_create_room(data):
     name = data.get('name', 'مجهول')
@@ -390,6 +402,9 @@ def handle_create_room(data):
         seed = random.randint(1, 1000000)
         random.seed(seed)
         questions = random.sample(questions, min(120, len(questions)))
+    elif question_list_key == 'all_questions':
+        questions = get_all_questions()
+        seed = random.randint(1, 1000000)
     else:
         if question_list_key not in all_questions:
             question_list_key = 'list1'
@@ -428,6 +443,11 @@ def handle_join_room(data):
     if question_list_key and question_list_key == 'random120':
         # Only allow if the room was created with random120
         if GAMES[room_code]['question_list'] != 'random120':
+            emit('error', {'message': 'قائمة الأسئلة لا تطابق الغرفة.'}, room=session_id)
+            return
+    elif question_list_key and question_list_key == 'all_questions':
+        # Only allow if the room was created with all_questions
+        if GAMES[room_code]['question_list'] != 'all_questions':
             emit('error', {'message': 'قائمة الأسئلة لا تطابق الغرفة.'}, room=session_id)
             return
     GAMES[room_code]['players'][client_id] = GAMES[room_code]['players'].get(client_id, {'name': name, 'score': 0, 'time': 0, 'finished': False})
