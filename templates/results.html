@@ -1,99 +1,92 @@
 {% extends "base.html" %}
-
-{% block title %}النتيجة - امتحان حقوق الإنسان{% endblock %}
+{% block title %}النتيجة — بنك طب نساء{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header bg-success text-white text-center">
-                <h3 class="mb-0">
-                    <i class="fas fa-trophy me-2"></i>
-                    نتيجة الامتحان
-                </h3>
-            </div>
+  <div class="col-12 col-md-7">
+    <div class="card p-0 overflow-hidden mt-4">
 
-            <div class="card-body text-center p-5">
-                <div class="score-display mb-4">
-                    {{ "%.1f"|format(score_percentage) }}%
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <h5 class="text-success">
-                                    <i class="fas fa-check-circle me-2"></i>
-                                    الإجابات الصحيحة
-                                </h5>
-                                <h2 class="text-success">{{ correct_answers }}</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <h5 class="text-danger">
-                                    <i class="fas fa-times-circle me-2"></i>
-                                    الإجابات الخاطئة
-                                </h5>
-                                <h2 class="text-danger">{{ total_questions - correct_answers }}</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="progress mb-4 results-progress">
-                    <div class="progress-bar bg-success results-progress-bar" role="progressbar"
-                        data-score="{{ score_percentage }}" data-correct="{{ correct_answers }}"
-                        data-total="{{ total_questions }}">
-                        {{ correct_answers }}/{{ total_questions }}
-                    </div>
-                </div>
-
-                <div class="alert alert-info">
-                    <h5>
-                        <i class="fas fa-info-circle me-2"></i>
-                        ملخص الأداء
-                    </h5>
-                    <p class="mb-0">
-                        {% if score_percentage >= 90 %}
-                        <strong>ممتاز!</strong> أداء رائع، احتفظ بهذا المستوى.
-                        {% elif score_percentage >= 80 %}
-                        <strong>جيد جداً!</strong> أداء ممتاز، واصل التقدم.
-                        {% elif score_percentage >= 70 %}
-                        <strong>جيد!</strong> أداء مقبول، يمكنك التحسن أكثر.
-                        {% elif score_percentage >= 60 %}
-                        <strong>مقبول!</strong> تحتاج إلى مراجعة أكثر.
-                        {% else %}
-                        <strong>تحتاج إلى تحسين!</strong> راجع المادة جيداً وحاول مرة أخرى.
-                        {% endif %}
-                    </p>
-                </div>
-
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="{{ url_for('restart') }}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-redo me-2"></i>
-                        إعادة الامتحان
-                    </a>
-                    <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg">
-                        <i class="fas fa-home me-2"></i>
-                        العودة للرئيسية
-                    </a>
-                </div>
-            </div>
+      <!-- Header -->
+      <div class="p-4 text-white text-center"
+           style="background: linear-gradient(135deg,{% if score_percentage >= 70 %}#16a34a,#22c55e{% elif score_percentage >= 50 %}#d97706,#f59e0b{% else %}#dc2626,#ef4444{% endif %});">
+        <div class="mb-2" style="font-size:2.5rem;">
+          {% if score_percentage >= 90 %}🏆
+          {% elif score_percentage >= 70 %}🎉
+          {% elif score_percentage >= 50 %}👍
+          {% else %}📚{% endif %}
         </div>
-    </div>
-</div>
+        <h3 class="fw-800 mb-0" style="font-weight:800;">نتيجة الامتحان</h3>
+      </div>
 
-<script>
-    // Set progress bar width using data attributes
-    document.addEventListener('DOMContentLoaded', function () {
-        const progressBar = document.querySelector('.results-progress-bar');
-        if (progressBar) {
-            const score = progressBar.getAttribute('data-score');
-            progressBar.style.width = score + '%';
-        }
-    });
-</script>
+      <div class="card-body p-4 text-center">
+
+        <!-- Score ring -->
+        <div class="score-ring mb-3" style="--pct:{{ score_percentage | round(1) }};">
+          <div class="score-inner">
+            <span class="score-value">{{ "%.0f"|format(score_percentage) }}%</span>
+            <span class="score-label">النتيجة</span>
+          </div>
+        </div>
+
+        <!-- Stats cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-6">
+            <div class="rounded-3 p-3 h-100" style="background:#f0fdf4; border:2px solid #bbf7d0;">
+              <i class="fas fa-check-circle fa-lg mb-1" style="color:#22c55e;"></i>
+              <div class="fw-800 fs-3" style="font-weight:800; color:#16a34a;">{{ correct_answers }}</div>
+              <div style="font-size:.82rem; color:#15803d;">إجابة صحيحة</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="rounded-3 p-3 h-100" style="background:#fef2f2; border:2px solid #fecaca;">
+              <i class="fas fa-times-circle fa-lg mb-1" style="color:#ef4444;"></i>
+              <div class="fw-800 fs-3" style="font-weight:800; color:#dc2626;">{{ total_questions - correct_answers }}</div>
+              <div style="font-size:.82rem; color:#b91c1c;">إجابة خاطئة</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress mb-4" style="height:14px;">
+          <div class="progress-bar"
+               role="progressbar"
+               style="width:{{ score_percentage }}%"
+               aria-valuenow="{{ score_percentage }}"
+               aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="alert mb-4 text-start"
+             style="border-radius:14px; border:none;
+             {% if score_percentage >= 90 %}background:#f0fdf4; color:#166534;
+             {% elif score_percentage >= 70 %}background:#f0fdf4; color:#166534;
+             {% elif score_percentage >= 50 %}background:#fffbeb; color:#92400e;
+             {% else %}background:#fef2f2; color:#991b1b;{% endif %}">
+          <strong>
+            {% if score_percentage >= 90 %}ممتاز! أداء رائع جداً.
+            {% elif score_percentage >= 80 %}جيد جداً! واصل التقدم.
+            {% elif score_percentage >= 70 %}جيد! يمكنك التحسن أكثر.
+            {% elif score_percentage >= 60 %}مقبول. تحتاج إلى مراجعة أكثر.
+            {% elif score_percentage >= 50 %}ضعيف. راجع المادة جيداً.
+            {% else %}تحتاج إلى تحسين كبير. حاول مرة أخرى بعد المراجعة.{% endif %}
+          </strong>
+          <div style="font-size:.88rem; margin-top:.25rem;">
+            أجبت على {{ correct_answers }} من أصل {{ total_questions }} سؤال بشكل صحيح.
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+          <a href="{{ url_for('restart') }}" class="btn btn-primary btn-lg">
+            <i class="fas fa-redo me-2"></i>إعادة الامتحان
+          </a>
+          <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg">
+            <i class="fas fa-home me-2"></i>الرئيسية
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

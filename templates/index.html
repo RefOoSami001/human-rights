@@ -1,90 +1,117 @@
 {% extends "base.html" %}
-
-{% block title %}الرئيسية - امتحان حقوق الإنسان{% endblock %}
+{% block title %}الرئيسية — بنك طب نساء{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
-        <div class="card text-center">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">
-                    <i class="fas fa-graduation-cap me-2"></i>
-                    امتحان حقوق الإنسان
-                </h3>
+  <div class="col-12 col-md-8 col-lg-6">
+
+    <div class="card p-0 overflow-hidden mt-4">
+
+      <!-- Header banner -->
+      <div class="p-4 text-white text-center"
+           style="background: linear-gradient(135deg,#1e3a8a,#3730a3);">
+        <div class="mb-3" style="font-size:3rem;">🎓</div>
+        <h2 class="fw-800 mb-1" style="font-weight:800;">بنك طب نساء</h2>
+        <p class="mb-0 opacity-75">أسئلة متعددة الخيارات — تدريب وامتحانات</p>
+      </div>
+
+      <div class="card-body p-4">
+
+        <!-- Stats row -->
+        <div class="row g-3 mb-4 text-center">
+          <div class="col-6 col-sm-3">
+            <div class="rounded-3 p-3" style="background:#eef2ff;">
+              <i class="fas fa-question-circle fa-lg mb-1" style="color:#4f5ef9;"></i>
+              <div class="fw-700 fs-5">600+</div>
+              <div class="text-muted" style="font-size:.78rem;">سؤال</div>
             </div>
-            <div class="card-body p-4 p-md-5">
-                <div class="mb-4">
-                    <i class="fas fa-book-open fa-3x text-primary mb-3"></i>
-                    <h4 class="mb-3">مرحباً بك في امتحان حقوق الإنسان</h4>
-                    <p class="text-muted mb-4">
-                        هذا الامتحان يحتوي على أسئلة متعددة الخيارات حول حقوق الإنسان.
-                        <br class="d-none d-sm-block">
-                        اختر الإجابة الصحيحة لكل سؤال.
-                    </p>
-                </div>
-
-                <div class="row mb-4">
-                    <div class="col-6 col-md-3 mb-3">
-                        <div class="text-center">
-                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
-                                style="width: 50px; height: 50px;">
-                                <i class="fas fa-question"></i>
-                            </div>
-                            <div class="small text-muted">عدد الأسئلة</div>
-                            <div class="fw-bold">{{ total_questions if total_questions else 147 }}</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 mb-3">
-                        <div class="text-center">
-                            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
-                                style="width: 50px; height: 50px;">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="small text-muted">الوقت المتوقع</div>
-                            <div class="fw-bold">30 دقيقة</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 mb-3">
-                        <div class="text-center">
-                            <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
-                                style="width: 50px; height: 50px;">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div class="small text-muted">خيار واحد</div>
-                            <div class="fw-bold">لكل سؤال</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-3 mb-3">
-                        <div class="text-center">
-                            <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2"
-                                style="width: 50px; height: 50px;">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="small text-muted">النتيجة</div>
-                            <div class="fw-bold">فورية</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <strong>تعليمات:</strong>
-                    <ul class="mb-0 mt-2 text-start">
-                        <li>اقرأ كل سؤال بعناية قبل الإجابة</li>
-                        <li>يمكنك العودة للسؤال السابق في أي وقت</li>
-                        <li>ستظهر النتيجة النهائية بعد الانتهاء من جميع الأسئلة</li>
-                        <li>يمكنك إعادة الامتحان في أي وقت</li>
-                    </ul>
-                </div>
-
-                <div class="d-grid gap-2">
-                    <a href="{{ url_for('start_exam') }}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-play me-2"></i>
-                        بدء الامتحان
-                    </a>
-                </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="rounded-3 p-3" style="background:#f0fdf4;">
+              <i class="fas fa-random fa-lg mb-1" style="color:#22c55e;"></i>
+              <div class="fw-700 fs-5">عشوائي</div>
+              <div class="text-muted" style="font-size:.78rem;">ترتيب</div>
             </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="rounded-3 p-3" style="background:#fffbeb;">
+              <i class="fas fa-users fa-lg mb-1" style="color:#f59e0b;"></i>
+              <div class="fw-700 fs-5">تنافسي</div>
+              <div class="text-muted" style="font-size:.78rem;">متعدد لاعبين</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="rounded-3 p-3" style="background:#fef2f2;">
+              <i class="fas fa-chart-bar fa-lg mb-1" style="color:#ef4444;"></i>
+              <div class="fw-700 fs-5">فوري</div>
+              <div class="text-muted" style="font-size:.78rem;">نتائج</div>
+            </div>
+          </div>
         </div>
+
+        <!-- Quick-start question list selector -->
+        <div class="mb-4">
+          <label class="form-label fw-600" style="font-weight:600;">
+            <i class="fas fa-list-ul me-2 text-primary"></i>اختر قائمة الأسئلة
+          </label>
+          <select id="listSelect" class="form-select rounded-pill">
+            <option value="list2">اول 100 سؤال</option>
+            <option value="list5">ثاني 100 سؤال</option>
+            <option value="list6">ثالث 100 سؤال</option>
+            <option value="list4">183 سؤال</option>
+            <option value="list3">45 سؤال</option>
+            <option value="list1" selected>اخر 50 سؤال</option>
+            <option value="random120">120 سؤال عشوائي</option>
+            <option value="all_questions">شامل (كل الأسئلة)</option>
+          </select>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert d-flex align-items-start gap-2 mb-4"
+             style="background:#eef2ff; border:none; border-radius:12px; color:#3730a3;">
+          <i class="fas fa-info-circle mt-1" style="flex-shrink:0;"></i>
+          <div>
+            <strong>تعليمات سريعة:</strong>
+            <ul class="mb-0 mt-1 pe-3" style="font-size:.9rem;">
+              <li>اقرأ كل سؤال بعناية ثم اختر الإجابة</li>
+              <li>يظهر الجواب الصحيح فوراً بعد اختيارك</li>
+              <li>يمكنك التنقل بين الأسئلة بحرية</li>
+              <li>وضع تنافسي متاح من داخل صفحة الامتحان</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <a id="startBtn" href="{{ url_for('start_exam') }}" class="btn btn-primary btn-lg">
+            <i class="fas fa-play me-2"></i>ابدأ الامتحان
+          </a>
+        </div>
+
+      </div>
     </div>
+
+  </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Populate count labels from API
+    fetch('/get_question_lists').then(r => r.json()).then(lists => {
+      const sel = document.getElementById('listSelect');
+      Array.from(sel.options).forEach(opt => {
+        if (lists[opt.value] !== undefined) {
+          opt.textContent += ' (' + lists[opt.value] + ' سؤال)';
+        }
+      });
+    }).catch(() => {});
+
+    document.getElementById('startBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      const list = document.getElementById('listSelect').value;
+      window.location.href = "{{ url_for('start_exam') }}?list=" + encodeURIComponent(list);
+    });
+  });
+</script>
 {% endblock %}

@@ -1,1110 +1,886 @@
 {% extends "base.html" %}
-
-{% block title %}الامتحان التنافسي - بنك طب نساء{% endblock %}
+{% block title %}الامتحان — بنك طب نساء{% endblock %}
 
 {% block content %}
-<main id="mainContent" role="main" tabindex="-1">
-    <!-- Multiplayer Lobby -->
-    <section id="multiplayerLobby" class="mb-4">
-        <div class="card shadow-sm border-0 rounded-4">
-            <div class="card-body">
-                <div id="lobbyStepCreateJoin" class="p-4 bg-light rounded-4 mb-4">
-                    <div class="text-center mb-4">
-                        <h4 class="fw-bold mb-1"><i class="fas fa-users me-2 text-primary"></i>بنك طب نساء</h4>
-                        <p class="text-muted mb-0">يمكنك إنشاء غرفة جديدة أو الانضمام إلى غرفة موجودة باستخدام رمز
-                            الغرفة.</p>
-                    </div>
-                    <form class="row g-3 align-items-end justify-content-center" autocomplete="off"
-                        onsubmit="return false;">
-                        <div class="col-12 col-md-4">
-                            <label class="form-label fw-semibold" for="playerName"><i
-                                    class="fas fa-user me-1"></i>اسمك</label>
-                            <input type="text" id="playerName" class="form-control form-control-lg rounded-pill"
-                                placeholder="أدخل اسمك" aria-label="اسمك" required>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <label class="form-label fw-semibold" for="questionListSelect"><i
-                                    class="fas fa-list me-1"></i>اختر قائمة الأسئلة</label>
-                            <select id="questionListSelect" class="form-select form-select-lg rounded-pill"
-                                aria-label="اختر قائمة الأسئلة"></select>
-                        </div>
-                        <div class="col-12 col-md-4 d-grid">
-                            <button type="button" class="btn btn-primary btn-lg rounded-pill mb-2 mb-md-0 w-100"
-                                id="createRoomBtn">
-                                <i class="fas fa-plus me-1"></i> إنشاء غرفة جديدة
-                            </button>
-                        </div>
-                    </form>
-                    <form class="row g-3 align-items-end justify-content-center mt-2" autocomplete="off"
-                        onsubmit="return false;">
-                        <div class="col-6 col-md-2">
-                            <label class="form-label fw-semibold" for="joinRoomCode"><i class="fas fa-key me-1"></i>رمز
-                                الغرفة</label>
-                            <input type="text" id="joinRoomCode"
-                                class="form-control form-control-lg rounded-pill text-center" maxlength="6"
-                                placeholder="رمز الغرفة" aria-label="رمز الغرفة" required>
-                        </div>
-                        <div class="col-6 col-md-2 d-grid">
-                            <button type="button" class="btn btn-success btn-lg rounded-pill w-100" id="joinRoomBtn">
-                                <i class="fas fa-sign-in-alt me-1"></i> انضمام
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div id="lobbyStepRoom" style="display:none;">
-                    <div class="row g-2 align-items-center mb-2">
-                        <div class="col-12 col-md-auto mb-2 mb-md-0">
-                            <span class="fw-bold">رمز الغرفة:</span>
-                            <span id="roomCodeDisplay" class="badge bg-primary fs-5"></span>
-                            <button class="btn btn-outline-secondary btn-sm ms-2" id="copyRoomCodeBtn"
-                                aria-label="نسخ رمز الغرفة"><i class="fas fa-copy"></i></button>
-                        </div>
-                    </div>
-                    <div class="row g-2 mb-2">
-                        <div class="col-12">
-                            <span class="fw-bold">اللاعبون في الغرفة:</span>
-                            <ul id="playersList" class="list-group list-group-flush mb-2"></ul>
-                        </div>
-                    </div>
-                    <div class="row g-2 mb-2">
-                        <div class="col-12 d-grid">
-                            <div id="hostControls" style="display:none;">
-                                <button class="btn btn-warning w-100" id="startGameBtn"><i class="fas fa-play"></i> بدء
-                                    الامتحان</button>
-                            </div>
-                            <div class="alert alert-info mt-2" id="waitingMsg">بانتظار بدء الامتحان من قبل المضيف...
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Leaderboard -->
-    <section id="leaderboardSection" class="mb-3" style="display:none;">
-        <div class="card border-0 shadow-sm rounded-4">
-            <div class="card-header py-2 px-3 text-white bg-gradient"
-                style="background: var(--primary, #3a47d5); border-radius: 12px 12px 0 0; min-height: 36px;">
-                <span class="fw-bold" style="font-size: 1rem;"><i class="fas fa-trophy me-2"></i>المتصدرون</span>
-            </div>
-            <div class="card-body p-2">
-                <div class="table-responsive" style="max-height: 120px; overflow-y: auto;">
-                    <table class="table table-borderless table-sm text-center mb-0 align-middle"
-                        style="font-size: 0.95rem;">
-                        <thead style="background: #f4f6fa;">
-                            <tr style="font-weight: 600;">
-                                <th style="color: var(--primary, #3a47d5);">#</th>
-                                <th style="color: var(--primary, #3a47d5);">الاسم</th>
-                                <th style="color: var(--primary, #3a47d5);">النتيجة</th>
-                                <th style="color: var(--primary, #3a47d5);">الزمن</th>
-                                <th style="color: var(--primary, #3a47d5);">التقدم</th>
-                            </tr>
-                        </thead>
-                        <tbody id="leaderboardBody"></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ───────────────────────── Multiplayer Lobby ───────────────────────── -->
+<section id="sectionLobby">
 
-    <!-- Exam Container -->
-    <section id="examContainer" class="exam-container" style="display:none;">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="card rounded-4 shadow-sm" style="display:none;">
-                    <!-- Sticky Progress Bar -->
-                    <div class="card-header bg-primary text-white sticky-top" style="z-index: 1020;"
-                        style="height:0px;">
-                        <div class="progress-bar bg-light" id="progressBar" role="progressbar"
-                            style="width: 1%; display: none;">
-                        </div>
-                    </div>
-                    <div class="card-header bg-primary text-white">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="mb-0">
-                                    <i class="fas fa-question-circle me-2"></i>
-                                    السؤال <span id="questionNumber">1</span>
-                                </h5>
-                            </div>
-                            <div class="col-auto d-flex gap-2">
-                                <button class="question-list-btn" onclick="showQuestionList()" title="قائمة الأسئلة"
-                                    aria-label="قائمة الأسئلة">
-                                    <i class="fas fa-list"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body p-4" style="background-color: #f4f6fa; border-radius: 15px;">
-                    <div id="questionsContainer" dir="ltr" style="text-align: left;"></div>
-                </div>
-            </div>
-        </div>
+  <!-- Step 1: Create / Join -->
+  <div id="lobbyCreateJoin" class="card p-4 mt-4">
+    <div class="text-center mb-4">
+      <div style="font-size:2rem;">🏆</div>
+      <h4 class="fw-700 mb-1" style="font-weight:700;">وضع تنافسي</h4>
+      <p class="text-muted small mb-0">أنشئ غرفة أو انضم بالرمز لتبدأ المنافسة</p>
+    </div>
 
-        <!-- Fixed Bottom Navigation -->
-        <div class="fixed-bottom-nav">
-            <div class="nav-btn-group">
-                <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" aria-label="السابق">
-                    <i class="fas fa-arrow-right me-2"></i>
-                </button>
-                <div class="question-counter" onclick="showQuestionList()" style="cursor: pointer;"
-                    title="عرض قائمة الأسئلة">
-                    <span id="questionCounterNumber">1</span> / <span id="questionCounterTotal">1</span>
-                </div>
-                <div class="next-finish-wrapper">
-                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">
-                        <i class="fas fa-arrow-left me-2"></i> التالي
-                    </button>
-                    <button class="btn btn-success" id="finishBtn" onclick="finishExam()" style="display: none;">
-                        <i class="fas fa-check me-2"></i> إنهاء الامتحان
-                    </button>
-                </div>
-            </div>
-            <div class="exam-footer">
-                Made with ❤️ by Raafat Sami
-            </div>
-        </div>
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-6">
+        <label class="form-label fw-600" style="font-weight:600;">
+          <i class="fas fa-user me-1 text-primary"></i>اسمك
+        </label>
+        <input type="text" id="playerName" class="form-control rounded-pill"
+               placeholder="أدخل اسمك" maxlength="30" autocomplete="off">
+      </div>
+      <div class="col-12 col-md-6">
+        <label class="form-label fw-600" style="font-weight:600;">
+          <i class="fas fa-list me-1 text-primary"></i>قائمة الأسئلة
+        </label>
+        <select id="mpListSelect" class="form-select rounded-pill"></select>
+      </div>
+    </div>
 
-        <!-- Question List Modal -->
-        <div class="modal fade" id="questionListModal" tabindex="-1" aria-modal="true"
-            aria-labelledby="questionListModalLabel">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content rounded-4">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="questionListModalLabel">قائمة الأسئلة</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row" id="questionList"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Results Modal -->
-        <div class="modal fade" id="resultsModal" tabindex="-1" aria-modal="true" aria-labelledby="resultsModalLabel">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content rounded-4">
-                    <div class="modal-header bg-success text-white">
-                        <h5 class="modal-title" id="resultsModalLabel"><i class="fas fa-trophy me-2"></i>نتيجة الامتحان
-                        </h5>
-                    </div>
-                    <div class="modal-body text-center">
-                        <div class="score-display mb-4" id="finalScore" aria-live="polite">0%</div>
-                        <div class="row mb-4">
-                            <div class="col-md-6 mb-3">
-                                <div class="card bg-light rounded-3">
-                                    <div class="card-body">
-                                        <h5 class="text-success"><i class="fas fa-check-circle me-2"></i>الإجابات
-                                            الصحيحة</h5>
-                                        <h2 class="text-success" id="correctCount">0</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card bg-light rounded-3">
-                                    <div class="card-body">
-                                        <h5 class="text-danger"><i class="fas fa-times-circle me-2"></i>الإجابات الخاطئة
-                                        </h5>
-                                        <h2 class="text-danger" id="incorrectCount">0</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="progress mb-4" style="height: 20px;">
-                            <div class="progress-bar bg-success" id="finalProgressBar" role="progressbar"
-                                style="width: 0%"></div>
-                        </div>
-                        <div class="alert alert-info" id="performanceMessage" aria-live="polite"></div>
-                        <!-- Review Section -->
-                        <div id="reviewSection" style="display: none;">
-                            <div class="review-section" onclick="toggleReview()" tabindex="0" role="button"
-                                aria-expanded="false">
-                                <h5 class="mb-2"><i class="fas fa-eye me-2"></i>مراجعة الإجابات الخاطئة</h5>
-                                <p class="mb-0">اضغط هنا لمراجعة الأسئلة التي أجبت عليها خطأ</p>
-                            </div>
-                            <div id="reviewContent" style="display: none;">
-                                <div class="text-start">
-                                    <h6 class="mb-3 text-danger"><i class="fas fa-exclamation-triangle me-2"></i>الأسئلة
-                                        الخاطئة:</h6>
-                                    <div id="reviewQuestions"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer flex-column flex-sm-row">
-                        <a href="{{ url_for('restart') }}" class="btn btn-primary mb-2 mb-sm-0"><i
-                                class="fas fa-redo me-2"></i>إعادة الامتحان</a>
-                        <button type="button" class="btn btn-secondary" onclick="closeResultsModal()"><i
-                                class="fas fa-times me-2"></i>إغلاق</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="d-flex flex-column flex-sm-row gap-3 mb-3">
+      <button id="btnCreateRoom" class="btn btn-primary flex-fill">
+        <i class="fas fa-plus me-2"></i>إنشاء غرفة جديدة
+      </button>
+    </div>
 
-    <!-- Sound effect audio elements using Mixkit URLs -->
-    <audio id="sound-correct" src="https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3"
-        preload="auto"></audio>
-    <audio id="sound-wrong" src="https://assets.mixkit.co/active_storage/sfx/950/950-preview.mp3"
-        preload="auto"></audio>
-    <audio id="sound-toggle" src="https://assets.mixkit.co/active_storage/sfx/2579/2579-preview.mp3"
-        preload="auto"></audio>
+    <hr class="my-2">
 
-    <!-- Floating buttons -->
-    <button id="muteBtn" class="floating-btn" aria-label="تبديل الصوت" title="تبديل الصوت">
-        <i class="fas fa-volume-up"></i>
+    <div class="row g-2 align-items-end">
+      <div class="col-8 col-sm-9">
+        <label class="form-label fw-600" style="font-weight:600;">
+          <i class="fas fa-key me-1 text-success"></i>رمز الغرفة
+        </label>
+        <input type="text" id="joinCode" class="form-control rounded-pill text-center fw-700"
+               style="letter-spacing:.2rem; font-size:1.1rem; text-transform:uppercase;"
+               maxlength="6" placeholder="XXXXXX" autocomplete="off">
+      </div>
+      <div class="col-4 col-sm-3">
+        <button id="btnJoinRoom" class="btn btn-success w-100">
+          <i class="fas fa-sign-in-alt me-1"></i>انضمام
+        </button>
+      </div>
+    </div>
+
+    <hr class="mt-3 mb-2">
+    <div class="text-center">
+      <button id="btnSkipMultiplayer" class="btn btn-outline-primary btn-sm rounded-pill">
+        <i class="fas fa-user me-1"></i>العب منفرداً
+      </button>
+    </div>
+  </div>
+
+  <!-- Step 2: Waiting room -->
+  <div id="lobbyRoom" class="card p-4 mt-4" style="display:none;">
+    <div class="text-center mb-3">
+      <div class="room-badge mb-2" id="roomCodeDisplay">------</div>
+      <button id="btnCopyCode" class="btn btn-outline-primary btn-sm rounded-pill">
+        <i class="fas fa-copy me-1"></i>نسخ الرمز
+      </button>
+    </div>
+
+    <div id="selectedListInfo" class="text-center mb-3 text-muted small"></div>
+
+    <div class="mb-3">
+      <div class="fw-600 mb-2" style="font-weight:600;">
+        <i class="fas fa-users me-1 text-primary"></i>اللاعبون
+      </div>
+      <ul id="playersList" class="list-group list-group-flush rounded-3" style="border:1px solid #e2e8f0;"></ul>
+    </div>
+
+    <div id="hostControls" style="display:none;">
+      <button id="btnStartGame" class="btn btn-primary w-100 btn-lg">
+        <i class="fas fa-play me-2"></i>ابدأ الامتحان
+      </button>
+    </div>
+    <div id="waitingMsg" class="alert text-center mb-0"
+         style="background:#eef2ff; color:#3730a3; border:none; border-radius:12px;">
+      <i class="fas fa-hourglass-half me-2"></i>بانتظار بدء الامتحان من قبل المضيف…
+    </div>
+  </div>
+
+</section>
+
+<!-- ─────────────────────── Leaderboard (multiplayer) ─────────────────────── -->
+<section id="sectionLeaderboard" class="mt-3" style="display:none;">
+  <div class="card p-0 overflow-hidden">
+    <div class="px-3 py-2 text-white d-flex align-items-center gap-2"
+         style="background:linear-gradient(135deg,#1e3a8a,#3730a3);">
+      <i class="fas fa-trophy"></i>
+      <span class="fw-700" style="font-weight:700;">لوحة المتصدرين</span>
+    </div>
+    <div class="p-0" style="overflow-x:auto; max-height:150px; overflow-y:auto;">
+      <table class="table table-sm table-borderless mb-0 text-center lb-table">
+        <thead style="position:sticky; top:0; background:#f8fafc;">
+          <tr>
+            <th>#</th><th>الاسم</th><th>النتيجة</th><th>الزمن</th><th>التقدم</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────── Exam container ──────────────────────────── -->
+<section id="sectionExam" class="exam-pad" style="display:none;">
+
+  <!-- Question header card -->
+  <div class="card p-3 mt-3 mb-3">
+    <div class="d-flex align-items-center justify-content-between gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <span class="fw-700" style="font-weight:700; color:#1e3a8a;">
+          <i class="fas fa-question-circle me-1"></i>السؤال
+          <span id="hdrQNum">1</span>/<span id="hdrQTotal">1</span>
+        </span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <!-- Answered counter badge -->
+        <span class="badge rounded-pill"
+              style="background:#eef2ff; color:#3730a3; font-size:.78rem; font-weight:600;"
+              id="answeredBadge">0 / 0</span>
+        <!-- Question list toggle -->
+        <button class="btn btn-sm rounded-pill px-3"
+                style="background:#eef2ff; color:#3730a3; font-weight:600; border:none;"
+                onclick="openQList()" aria-label="قائمة الأسئلة">
+          <i class="fas fa-th-large me-1"></i>القائمة
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress mt-2" style="height:6px;">
+      <div class="progress-bar" id="progressBar" role="progressbar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div id="questionsContainer"></div>
+
+</section>
+
+<!-- ─────────────────────── Fixed bottom nav ─────────────────────────── -->
+<div class="fixed-nav" id="fixedNav" style="display:none;">
+  <div class="nav-row">
+    <button class="btn btn-secondary btn-prev" id="prevBtn" onclick="prevQuestion()" aria-label="السابق">
+      <i class="fas fa-arrow-right"></i>
     </button>
-    <button id="randomizeToggle" class="floating-btn" title="ترتيب عشوائي للأسئلة" aria-label="ترتيب عشوائي للأسئلة">
-        <i class="fas fa-random"></i>
-    </button>
-</main>
+
+    <div class="question-counter" onclick="openQList()" title="فتح قائمة الأسئلة">
+      <span id="counterNum">1</span> / <span id="counterTotal">1</span>
+    </div>
+
+    <div class="btn-next-wrap">
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+        <i class="fas fa-arrow-left me-1"></i>التالي
+      </button>
+      <button class="btn btn-success" id="finishBtn" onclick="submitExam()" style="display:none;">
+        <i class="fas fa-check me-1"></i>إنهاء الامتحان
+      </button>
+    </div>
+  </div>
+  <div class="nav-footer">صُنع بـ ❤️ بواسطة Raafat Sami</div>
+</div>
+
+<!-- ─────────────────── FABs (randomize / mute) ──────────────────────── -->
+<button id="fabRandomize" class="fab active" title="عشوائي" aria-label="ترتيب عشوائي">
+  <i class="fas fa-random"></i>
+</button>
+<button id="fabMute" class="fab" title="الصوت" aria-label="تبديل الصوت">
+  <i class="fas fa-volume-up"></i>
+</button>
+
+<!-- ─────────────────── Sounds (CDN, no server dependency) ───────────── -->
+<audio id="sndCorrect" src="https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3" preload="none"></audio>
+<audio id="sndWrong"   src="https://assets.mixkit.co/active_storage/sfx/950/950-preview.mp3"   preload="none"></audio>
+
+<!-- ────────────────────── Question list modal ──────────────────────── -->
+<div class="modal fade" id="modalQList" tabindex="-1" aria-labelledby="modalQListLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"
+           style="background:linear-gradient(135deg,#1e3a8a,#3730a3); color:#fff; border-radius:24px 24px 0 0;">
+        <h5 class="modal-title fw-700" id="modalQListLabel" style="font-weight:700;">
+          <i class="fas fa-th-large me-2"></i>قائمة الأسئلة
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-wrap gap-2" id="qListGrid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────────── Results modal ──────────────────────────── -->
+<div class="modal fade" id="modalResults" tabindex="-1" aria-labelledby="modalResultsLabel"
+     data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header" id="resultsHeader"
+           style="border-radius:24px 24px 0 0; color:#fff;
+                  background:linear-gradient(135deg,#16a34a,#22c55e);">
+        <h5 class="modal-title fw-700" id="modalResultsLabel" style="font-weight:700;">
+          <i class="fas fa-trophy me-2"></i>نتيجة الامتحان
+        </h5>
+      </div>
+
+      <div class="modal-body text-center py-4">
+        <!-- Score ring -->
+        <div class="score-ring mb-3" id="scoreRing" style="--pct:0;">
+          <div class="score-inner">
+            <span class="score-value" id="scorePct">0%</span>
+            <span class="score-label">النتيجة</span>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-4 justify-content-center">
+          <div class="col-5">
+            <div class="rounded-3 p-3" style="background:#f0fdf4; border:2px solid #bbf7d0;">
+              <i class="fas fa-check-circle fa-lg mb-1" style="color:#22c55e;"></i>
+              <div class="fw-800 fs-3" style="font-weight:800; color:#16a34a;" id="rCorrect">0</div>
+              <div style="font-size:.8rem; color:#15803d;">صحيحة</div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="rounded-3 p-3" style="background:#fef2f2; border:2px solid #fecaca;">
+              <i class="fas fa-times-circle fa-lg mb-1" style="color:#ef4444;"></i>
+              <div class="fw-800 fs-3" style="font-weight:800; color:#dc2626;" id="rWrong">0</div>
+              <div style="font-size:.8rem; color:#b91c1c;">خاطئة</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress mb-4" style="height:12px;">
+          <div class="progress-bar" id="rProgressBar" role="progressbar" style="width:0%"></div>
+        </div>
+
+        <div class="alert text-start mb-4" id="rFeedback"
+             style="border-radius:14px; border:none; background:#f0fdf4; color:#166534;"></div>
+
+        <!-- Review wrong answers section -->
+        <div id="reviewWrap" style="display:none;">
+          <hr>
+          <button class="btn btn-outline-primary w-100 mb-3 rounded-pill"
+                  type="button" data-bs-toggle="collapse"
+                  data-bs-target="#reviewCollapse" aria-expanded="false">
+            <i class="fas fa-eye me-2"></i>مراجعة الإجابات الخاطئة
+          </button>
+          <div class="collapse text-start" id="reviewCollapse">
+            <div id="reviewContent"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer flex-column flex-sm-row gap-2">
+        <a href="{{ url_for('restart') }}" class="btn btn-primary rounded-pill">
+          <i class="fas fa-redo me-2"></i>إعادة الامتحان
+        </a>
+        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">
+          <i class="fas fa-times me-2"></i>إغلاق
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block scripts %}
-<!-- Socket.IO client -->
 <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-<!-- Pass server data to JavaScript -->
+
+<!-- Server-rendered initial data -->
 <script type="application/json" id="serverData">
 {
-    "questions": {{ questions | tojson | safe }},
-    "totalQuestions": {{ total_questions }},
-    "randomizeQuestions": {{ 'true' if randomize_questions else 'false' }}
+  "questions":         {{ questions | tojson | safe }},
+  "totalQuestions":    {{ total_questions }},
+  "randomizeQuestions":{{ 'true' if randomize_questions else 'false' }}
 }
 </script>
 
 <script>
-    // Multiplayer variables
-    let socket = io();
-    let roomCode = localStorage.getItem('room_code') || null;
-    let isHost = false;
-    let playerName = '';
-    let gameStarted = false;
-    let multiplayerMode = true; // Always multiplayer for this version
-    let resultsShown = false; // Flag to track if results modal has been shown
+'use strict';
+/* ═══════════════════════════════════════════════════════════════════════════
+   State
+   ═══════════════════════════════════════════════════════════════════════════ */
+let questions        = [];
+let totalQuestions   = 0;
+let currentIdx       = 0;
+let userAnswers      = {};   // { questionIndex: optionIndex }
+let randomize        = true;
+let isMuted          = false;
+let resultsShown     = false;
 
-    // Hide exam UI until game starts
-    const examContainer = document.getElementById('examContainer');
-    const leaderboardSection = document.getElementById('leaderboardSection');
-    const lobbyStepCreateJoin = document.getElementById('lobbyStepCreateJoin');
-    const lobbyStepRoom = document.getElementById('lobbyStepRoom');
-    const hostControls = document.getElementById('hostControls');
-    const waitingMsg = document.getElementById('waitingMsg');
+// Multiplayer
+let socket          = null;
+let roomCode        = null;
+let clientId        = getOrCreateClientId();
+let playerName      = '';
+let isHost          = false;
+let gameStarted     = false;
+let mpMode          = false;   // true once a room is created/joined
 
-    // Persistent client_id for each browser
-    function getClientId() {
-        let cid = localStorage.getItem('client_id');
-        if (!cid) {
-            cid = self.crypto?.randomUUID ? self.crypto.randomUUID() : ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
-            localStorage.setItem('client_id', cid);
-        }
-        return cid;
-    }
-    const clientId = getClientId();
+/* ═══════════════════════════════════════════════════════════════════════════
+   Bootstrap
+   ═══════════════════════════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
+  // Load data injected from server
+  try {
+    const sd = JSON.parse(document.getElementById('serverData').textContent);
+    questions      = sd.questions;
+    totalQuestions = sd.totalQuestions;
+    randomize      = sd.randomizeQuestions;
+  } catch (e) {
+    console.error('Failed to parse server data:', e);
+  }
 
-    // Lobby event listeners
-    if (document.getElementById('createRoomBtn')) {
-        document.getElementById('createRoomBtn').onclick = function () {
-            playerName = document.getElementById('playerName').value.trim() || 'مجهول';
-            let questionList = document.getElementById('questionListSelect').value || 'list1';
-            if (questionList === 'random120') questionList = 'random120';
-            socket.emit('create_room', { name: playerName, client_id: clientId, question_list: questionList });
-        };
-    }
-    if (document.getElementById('joinRoomBtn')) {
-        document.getElementById('joinRoomBtn').onclick = function () {
-            playerName = document.getElementById('playerName').value.trim() || 'مجهول';
-            const code = document.getElementById('joinRoomCode').value.trim().toUpperCase();
-            let questionList = document.getElementById('questionListSelect').value || 'list1';
-            if (questionList === 'random120') questionList = 'random120';
-            if (code.length === 6) {
-                roomCode = code;
-                localStorage.setItem('room_code', roomCode);
-                socket.emit('join_room', { name: playerName, room_code: code, client_id: clientId, question_list: questionList });
-            }
-        };
-    }
-    if (document.getElementById('copyRoomCodeBtn')) {
-        document.getElementById('copyRoomCodeBtn').onclick = function () {
-            navigator.clipboard.writeText(roomCode);
-        };
-    }
+  initSocket();
+  populateMpListSelect();
+  bindLobbyButtons();
+  bindFABs();
 
-    // Socket.IO events
-    socket.on('room_created', function (data) {
-        roomCode = data.room_code;
-        localStorage.setItem('room_code', roomCode);
-        isHost = true;
-        showRoomLobby(data.players, data.question_list, data.total_questions);
-    });
-    socket.on('player_joined', function (data) {
-        showRoomLobby(data.players, data.question_list, data.total_questions);
-        // Show leaderboard immediately with all participants
-        updateLeaderboard(Object.values(data.players).map(p => ({
-            name: p.name,
-            score: p.score || 0,
-            time: p.time || 0,
-            finished: p.finished || false,
-            progress: p.progress || 0
-        })));
-    });
-    socket.on('player_left', function (data) {
-        showRoomLobby(data.players, data.question_list, data.total_questions);
-        // Update leaderboard when players leave
-        updateLeaderboard(Object.values(data.players).map(p => ({
-            name: p.name,
-            score: p.score || 0,
-            time: p.time || 0,
-            finished: p.finished || false,
-            progress: p.progress || 0
-        })));
-    });
-    socket.on('game_started', function (data) {
-        gameStarted = true;
-        questions = data.questions;
-        totalQuestions = data.total_questions;
-        document.getElementById('multiplayerLobby').style.display = 'none';
-        examContainer.style.display = 'block';
-        leaderboardSection.style.display = 'block';
-        // Reset answers and question index for each user
-        userAnswers = {};
-        currentQuestionIndex = 0;
-        loadQuestions();
-        showQuestion(0);
-        updateProgress();
-        generateQuestionList();
-        updateNavigationButtons();
-        updateLeaderboard([]);
+  // Show lobby by default
+  showSection('lobby');
+});
 
-        // Set total questions display
-        document.getElementById('questionCounterTotal').textContent = totalQuestions;
-    });
-    socket.on('leaderboard_update', function (data) {
-        updateLeaderboard(data.leaderboard);
-        if (data.total_questions) totalQuestions = data.total_questions;
-        // If this player finished, show results modal (only if not already shown)
-        const me = data.leaderboard.find(p => p.name === playerName);
-        if (me && me.finished && !resultsShown) {
-            resultsShown = true; // Mark as shown
-            showResults({
-                correct_answers: me.score,
-                total_questions: totalQuestions,
-                score_percentage: (me.score / totalQuestions) * 100
-            });
-        }
-    });
-    socket.on('error', function (data) {
-        alert(data.message);
-    });
+/* ═══════════════════════════════════════════════════════════════════════════
+   Section visibility
+   ═══════════════════════════════════════════════════════════════════════════ */
+function showSection(name) {
+  document.getElementById('sectionLobby').style.display       = (name === 'lobby')  ? '' : 'none';
+  document.getElementById('sectionLeaderboard').style.display = (name === 'exam' && mpMode) ? '' : 'none';
+  document.getElementById('sectionExam').style.display        = (name === 'exam')  ? '' : 'none';
+  document.getElementById('fixedNav').style.display           = (name === 'exam')  ? '' : 'none';
+}
 
-    function showRoomLobby(players, questionList, totalQuestions) {
-        lobbyStepCreateJoin.style.display = 'none';
-        lobbyStepRoom.style.display = 'block';
-        document.getElementById('roomCodeDisplay').textContent = roomCode;
-        // Show selected list
-        let listLabel = document.getElementById('selectedListLabel');
-        if (!listLabel) {
-            listLabel = document.createElement('div');
-            listLabel.id = 'selectedListLabel';
-            listLabel.className = 'mt-2 mb-2';
-            document.getElementById('lobbyStepRoom').prepend(listLabel);
-        }
-        listLabel.innerHTML = `<span class="fw-bold">قائمة الأسئلة المختارة:</span> <span class="badge bg-info">${questionList === 'list1' ? 'اخر 50 سؤال' : questionList === 'list2' ? 'اول 99 سؤال' : questionList === 'list3' ? 'اخر 45 سؤال' : questionList === 'list4' ? '183 سؤال' : questionList === 'list5' ? 'ثاني 100 سؤال' : questionList === 'list6' ? 'ثالث 100 سؤال' : questionList === 'all_questions' ? 'شاااااااامل' : questionList}</span> <span class="fw-bold ms-2">عدد الأسئلة:</span> <span class="badge bg-secondary">${totalQuestions}</span>`;
-        // List players
-        const playersList = document.getElementById('playersList');
-        playersList.innerHTML = '';
-        let i = 1;
-        for (const [sid, player] of Object.entries(players)) {
-            const li = document.createElement('li');
-            li.className = 'list-group-item';
-            li.innerHTML = `<span class="fw-bold">${i++}.</span> ${player.name}`;
-            playersList.appendChild(li);
-        }
-        // Host controls
-        if (isHost) {
-            hostControls.style.display = 'block';
-            waitingMsg.style.display = 'none';
-        } else {
-            hostControls.style.display = 'none';
-            waitingMsg.style.display = 'block';
-        }
-        // Show leaderboard immediately with all participants
-        updateLeaderboard(Object.values(players).map(p => ({
-            name: p.name,
-            score: p.score || 0,
-            time: p.time || 0,
-            finished: p.finished || false,
-            progress: p.progress || 0
-        })));
-    }
-    if (document.getElementById('startGameBtn')) {
-        document.getElementById('startGameBtn').onclick = function () {
-            socket.emit('start_game', { room_code: roomCode, client_id: clientId });
-        };
-    }
+/* ═══════════════════════════════════════════════════════════════════════════
+   Exam initialisation (solo & multiplayer)
+   ═══════════════════════════════════════════════════════════════════════════ */
+function startExam(qs, total) {
+  questions      = qs;
+  totalQuestions = total;
+  currentIdx     = 0;
+  userAnswers    = {};
+  resultsShown   = false;
 
-    function updateLeaderboard(leaderboard) {
-        const tbody = document.getElementById('leaderboardBody');
-        tbody.innerHTML = '';
-        leaderboard.forEach((player, idx) => {
-            const progressPercent = Math.round((player.progress || 0) / totalQuestions * 100);
-            const isMe = player.name === playerName;
-            const rowClass = isMe ? 'table-primary fw-bold' : '';
-            const tr = document.createElement('tr');
-            tr.className = rowClass;
-            const progressBar = `<div class='progress leaderboard-progress-bar' style='height:16px; min-width:80px;'>
-                <div class='progress-bar ${player.finished ? 'bg-success' : ''}' role='progressbar' style='width:${progressPercent}%; transition: width 0.5s;'>
-                    <span style='color:#fff; font-size:0.9em;'>${progressPercent}%</span>
-                </div>
-            </div>`;
-            tr.innerHTML = `
-                <td>${idx + 1}</td>
-                <td>${player.name} ${isMe ? '<i class=\'fas fa-user\'></i>' : ''}</td>
-                <td>${player.score || 0}</td>
-                <td>${player.finished ? (player.time || 0).toFixed(1) : '-'}</td>
-                <td>${player.finished ? '<span class=\'badge bg-success\'>انتهى</span>' : progressBar}</td>
-            `;
-            tbody.appendChild(tr);
-        });
-    }
+  renderQuestions();
+  showQuestion(0);
+  updateNav();
+  buildQListGrid();
+  updateAnsweredBadge();
 
-    // Exam logic integration
-    function finishExam() {
-        // Submit exam to server via Socket.IO
-        const codeToSend = roomCode || localStorage.getItem('room_code');
-        socket.emit('submit_answers', { room_code: codeToSend, answers: userAnswers, client_id: clientId });
-    }
+  document.getElementById('counterTotal').textContent = totalQuestions;
+  document.getElementById('hdrQTotal').textContent    = totalQuestions;
 
-    // Show leaderboard after submit
-    socket.on('leaderboard_update', function (data) {
-        updateLeaderboard(data.leaderboard);
-        // If this player finished, show results modal (only if not already shown)
-        const me = data.leaderboard.find(p => p.name === playerName);
-        if (me && me.finished && !resultsShown) {
-            resultsShown = true; // Mark as shown
-            showResults({
-                correct_answers: me.score,
-                total_questions: totalQuestions,
-                score_percentage: (me.score / totalQuestions) * 100
-            });
-        }
-    });
+  showSection('exam');
+}
 
-    // Hide exam UI until multiplayer game starts
-    examContainer.style.display = 'none';
-    leaderboardSection.style.display = 'none';
+/* ─── Render all question slides ───────────────────────────────────────── */
+function renderQuestions() {
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
 
-    // Global variables
-    let currentQuestionIndex = 0;
-    let questions = [];
-    let userAnswers = {};
-    let totalQuestions = 0;
-    let incorrectAnswers = [];
-    let randomizeQuestions = true;
+  questions.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.className = 'question-slide';
+    div.id = 'slide-' + qi;
+    div.style.display = qi === 0 ? 'block' : 'none';
 
-    // Initialize the exam
-    document.addEventListener('DOMContentLoaded', function () {
-        // Load server data
-        try {
-            const serverData = JSON.parse(document.getElementById('serverData').textContent);
-            questions = serverData.questions;
-            totalQuestions = serverData.totalQuestions;
-            randomizeQuestions = serverData.randomizeQuestions;
-        } catch (e) {
-            console.error('Error loading server data:', e);
-        }
+    const labels = ['أ', 'ب', 'ج', 'د', 'هـ'];
+    const opts = q.options.map((opt, oi) => `
+      <div class="option-item" id="opt-${qi}-${oi}"
+           data-question="${qi}" data-option="${oi}" data-correct="${q.correct_answer}">
+        <input type="radio" name="q${qi}" value="${oi}">
+        <div class="option-badge">${labels[oi] || (oi+1)}</div>
+        <span class="flex-grow-1">${escHtml(opt)}</span>
+      </div>
+    `).join('');
 
-        loadQuestions();
-        showQuestion(0);
-        updateProgress();
-        generateQuestionList();
-        updateNavigationButtons();
-        setupRandomizationControls();
-        updateRandomizationStatus();
-
-        // Set total questions display
-        document.getElementById('questionCounterTotal').textContent = totalQuestions;
-
-        // Prevent zoom on double tap for mobile
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Fetch available question lists and populate the select
-        fetch('/get_question_lists').then(r => r.json()).then(lists => {
-            const select = document.getElementById('questionListSelect');
-            select.innerHTML = '';
-            // Define the desired order and labels
-            const order = [
-                { key: 'list2', label: 'اول 100 سؤال' },
-                { key: 'list5', label: 'ثاني 100 سؤال' },
-                { key: 'list6', label: 'ثالث 100 سؤال' },
-                { key: 'list4', label: '183 سؤال' },
-                { key: 'list3', label: '45 سؤال' },
-                { key: 'list1', label: 'اخر 50 سؤال' }
-            ];
-            order.forEach(({ key, label }) => {
-                if (lists[key] !== undefined) {
-                    const count = lists[key];
-                    const option = document.createElement('option');
-                    option.value = key;
-                    option.textContent = `${label} (${count} سؤال)`;
-                    select.appendChild(option);
-                }
-            });
-            // Add the random 120 questions option
-            const random120Option = document.createElement('option');
-            random120Option.value = 'random120';
-            random120Option.textContent = '120 سؤال عشوائي';
-            select.appendChild(random120Option);
-            // Add the all questions option
-            const allQuestionsOption = document.createElement('option');
-            allQuestionsOption.value = 'all_questions';
-            allQuestionsOption.textContent = 'شاااااااامل';
-            select.appendChild(allQuestionsOption);
-        });
-    });
-
-    function setupRandomizationControls() {
-        const randomizeToggle = document.getElementById('randomizeToggle');
-
-        randomizeToggle.addEventListener('click', function () {
-            randomizeQuestions = !randomizeQuestions;
-            updateRandomizationSettings();
-            updateRandomizationStatus();
-        });
-    }
-
-    function updateRandomizationStatus() {
-        const randomizeToggle = document.getElementById('randomizeToggle');
-        if (randomizeQuestions) {
-            randomizeToggle.classList.add('active');
-            randomizeToggle.classList.remove('inactive');
-        } else {
-            randomizeToggle.classList.add('inactive');
-            randomizeToggle.classList.remove('active');
-        }
-    }
-
-    function updateRandomizationSettings() {
-        let url = '/update_randomization';
-        if (multiplayerMode && roomCode) {
-            url += `?room_code=${encodeURIComponent(roomCode)}`;
-        }
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                randomize_questions: randomizeQuestions
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Show success feedback
-                    showRandomizationFeedback();
-
-                    // Reload questions with new settings
-                    reloadQuestionsWithNewSettings();
-                }
-            })
-            .catch(error => {
-                console.error('Error updating randomization settings:', error);
-            });
-    }
-
-    function reloadQuestionsWithNewSettings() {
-        // Store current question index and answers
-        const currentIndex = currentQuestionIndex;
-        const savedAnswers = { ...userAnswers };
-
-        // Get updated questions data from server
-        let url = '/get_questions_data';
-        if (multiplayerMode && roomCode) {
-            url += `?room_code=${encodeURIComponent(roomCode)}`;
-        }
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    console.error('Error:', data.error);
-                    return;
-                }
-
-                // Update global variables
-                questions = data.questions;
-                totalQuestions = data.total_questions;
-                randomizeQuestions = data.randomize_questions;
-
-                // Reload questions in the container
-                loadQuestions();
-
-                // Restore current question and answers
-                currentQuestionIndex = currentIndex;
-                userAnswers = savedAnswers;
-
-                // Show the current question with restored state
-                showQuestion(currentIndex);
-
-                // Update question list
-                generateQuestionList();
-
-                // Update progress
-                updateProgress();
-
-                // Show success message
-                showRandomizationFeedback();
-            })
-            .catch(error => {
-                console.error('Error reloading questions:', error);
-                // Fallback: reload the page
-                window.location.reload();
-            });
-    }
-
-    function showRandomizationFeedback() {
-        // Create a temporary success message
-        const feedback = document.createElement('div');
-        feedback.className = 'alert alert-success alert-dismissible fade show position-fixed';
-        feedback.style.cssText = 'top: 20px; right: 20px; z-index: 1050; min-width: 300px;';
-        feedback.innerHTML = `
-        <i class="fas fa-check-circle me-2"></i>
-        تم تحديث إعدادات الامتحان بنجاح
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
-
-        document.body.appendChild(feedback);
-
-        // Remove after 3 seconds
-        setTimeout(() => {
-            if (feedback.parentNode) {
-                feedback.parentNode.removeChild(feedback);
-            }
-        }, 3000);
-    }
-
-    function loadQuestions() {
-        const container = document.getElementById('questionsContainer');
-        container.innerHTML = '';
-
-        questions.forEach((question, index) => {
-            const questionDiv = document.createElement('div');
-            questionDiv.className = 'question-slide';
-            questionDiv.style.display = index === 0 ? 'block' : 'none';
-            questionDiv.innerHTML = `
-        <div class="question-text">
-            ${question.text}
+    div.innerHTML = `
+      <div class="card mb-3">
+        <div class="card-body p-4">
+          <div class="question-text">${escHtml(q.text)}</div>
+          <div class="options-container">${opts}</div>
         </div>
-        
-        <div class="options-container">
-            ${question.options.map((option, optionIndex) => `
-                <div class="option-item" data-question="${index}" data-option="${optionIndex}" data-correct="${question.correct_answer}">
-                    <div class="form-check w-100">
-                        <input class="form-check-input" type="radio" 
-                               name="answer_${index}" id="option_${index}_${optionIndex}" 
-                               value="${optionIndex}">
-                        <label class="form-check-label" for="option_${index}_${optionIndex}">
-                            ${option}
-                        </label>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `;
-            container.appendChild(questionDiv);
-        });
+      </div>`;
+    container.appendChild(div);
+  });
 
-        // Add event listeners to options
-        addOptionEventListeners();
-    }
+  // Attach click listeners
+  container.querySelectorAll('.option-item').forEach(el => {
+    el.addEventListener('click', onOptionClick);
+  });
+}
 
-    function addOptionEventListeners() {
-        const options = document.querySelectorAll('.option-item');
-        options.forEach(option => {
-            option.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
 
-                const questionIndex = parseInt(this.dataset.question);
-                const optionIndex = parseInt(this.dataset.option);
-                const correctAnswer = parseInt(this.dataset.correct);
+/* ─── Option click ──────────────────────────────────────────────────────── */
+function onOptionClick(e) {
+  const el   = e.currentTarget;
+  const qi   = parseInt(el.dataset.question);
+  const oi   = parseInt(el.dataset.option);
+  const corr = parseInt(el.dataset.correct);
 
-                // Store the answer
-                userAnswers[questionIndex] = optionIndex;
+  // Already answered?
+  if (el.closest('.options-container').querySelector('.correct, .incorrect')) return;
 
-                // Show feedback
-                showAnswerFeedback(questionIndex, optionIndex, correctAnswer);
+  userAnswers[qi] = oi;
+  updateAnsweredBadge();
 
-                // Update navigation buttons
-                updateNavigationButtons();
+  // Style all options in this question
+  const siblings = el.closest('.options-container').querySelectorAll('.option-item');
+  siblings.forEach(s => s.classList.add('answered'));  // disables hover
 
-                // Show next button instead of auto-advancing
-                showNextButton();
+  el.classList.add(oi === corr ? 'correct' : 'incorrect');
+  if (oi !== corr) {
+    siblings[corr].classList.add('correct');
+  }
 
-                if (!window.isMuted && gameStarted) {
-                    if (optionIndex === correctAnswer) {
-                        playSound('correct');
-                    } else {
-                        playSound('wrong');
-                    }
-                }
-            });
+  playSound(oi === corr ? 'correct' : 'wrong');
 
-            // Add touch event listeners for better mobile experience
-            option.addEventListener('touchstart', function () {
-                this.style.transform = 'scale(0.98)';
-            });
-
-            option.addEventListener('touchend', function () {
-                this.style.transform = '';
-            });
-        });
-    }
-
-    function showAnswerFeedback(questionIndex, selectedAnswer, correctAnswer) {
-        const questionDiv = document.querySelector(`[data-question="${questionIndex}"]`).parentElement;
-        const options = questionDiv.querySelectorAll('.option-item');
-
-        // Remove previous feedback
-        options.forEach(opt => {
-            opt.classList.remove('correct', 'incorrect');
-        });
-
-        // Show feedback
-        if (selectedAnswer === correctAnswer) {
-            options[selectedAnswer].classList.add('correct');
-
-            // Add celebration animation
-            setTimeout(() => {
-                options[selectedAnswer].style.animation = 'correctPulse 0.6s ease-in-out';
-            }, 100);
-        } else {
-            options[selectedAnswer].classList.add('incorrect');
-            options[correctAnswer].classList.add('correct');
-
-            // Store incorrect answer for review
-            incorrectAnswers.push({
-                questionIndex: questionIndex,
-                question: questions[questionIndex],
-                userAnswer: selectedAnswer,
-                correctAnswer: correctAnswer
-            });
-
-            // Add shake animation
-            setTimeout(() => {
-                options[selectedAnswer].style.animation = 'incorrectShake 0.6s ease-in-out';
-            }, 100);
-        }
-
-        // Disable further interaction
-        options.forEach(opt => {
-            opt.style.pointerEvents = 'none';
-        });
-    }
-
-    function showQuestion(index) {
-        const slides = document.querySelectorAll('.question-slide');
-        const currentSlide = slides[currentQuestionIndex];
-        const newSlide = slides[index];
-
-        if (currentSlide && newSlide && currentQuestionIndex !== index) {
-            // Add fade-out animation to current question
-            currentSlide.classList.add('fade-out');
-
-            // After fade-out animation, show new question with fade-in animation
-            setTimeout(() => {
-                // Hide all slides
-                slides.forEach((slide, i) => {
-                    slide.style.display = i === index ? 'block' : 'none';
-                });
-
-                // Remove fade-out class and add fade-in class
-                currentSlide.classList.remove('fade-out');
-                newSlide.classList.add('fade-in');
-
-                // Remove fade-in class after animation completes
-                setTimeout(() => {
-                    newSlide.classList.remove('fade-in');
-                }, 200);
-            }, 200);
-        } else {
-            // Simple show/hide for initial load or same question
-            slides.forEach((slide, i) => {
-                slide.style.display = i === index ? 'block' : 'none';
-            });
-        }
-
-        document.getElementById('questionNumber').textContent = index + 1;
-        document.getElementById('questionCounterNumber').textContent = index + 1;
-        document.getElementById('questionCounterTotal').textContent = totalQuestions;
-        currentQuestionIndex = index;
-
-        updateNavigationButtons();
-        updateProgress();
-
-        // Show previous answers if they exist
-        if (userAnswers[index] !== undefined) {
-            const question = questions[index];
-            showAnswerFeedback(index, userAnswers[index], question.correct_answer);
-            showNextButton(); // Show next button if question was already answered
-        } else {
-            hideNextButton(); // Hide next button for unanswered questions
-        }
-
-        // Emit progress update for multiplayer
-        if (multiplayerMode && roomCode) {
-            socket.emit('progress_update', { room_code: roomCode, current_index: index, client_id: clientId });
-        }
-    }
-
-    function nextQuestion() {
-        if (currentQuestionIndex < totalQuestions - 1) {
-            showQuestion(currentQuestionIndex + 1);
-        }
-    }
-
-    function previousQuestion() {
-        if (currentQuestionIndex > 0) {
-            showQuestion(currentQuestionIndex - 1);
-        }
-    }
-
-    function showNextButton() {
-        const nextBtn = document.getElementById('nextBtn');
-        const finishBtn = document.getElementById('finishBtn');
-
-        if (currentQuestionIndex === totalQuestions - 1) {
-            // Last question - show finish button
-            nextBtn.style.display = 'none';
-            finishBtn.style.display = 'inline-block';
-        } else {
-            // Not last question - show next button
-            nextBtn.style.display = 'inline-block';
-            finishBtn.style.display = 'none';
-        }
-    }
-
-    function hideNextButton() {
-        const nextBtn = document.getElementById('nextBtn');
-        const finishBtn = document.getElementById('finishBtn');
-
-        nextBtn.style.display = 'none';
-        finishBtn.style.display = 'none';
-    }
-
-    function updateNavigationButtons() {
-        const prevBtn = document.getElementById('prevBtn');
-
-        // Enable/disable previous button
-        prevBtn.disabled = currentQuestionIndex === 0;
-    }
-
-    function updateProgress() {
-        const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
-        document.getElementById('progressBar').style.width = progress + '%';
-    }
-
-    function generateQuestionList() {
-        const container = document.getElementById('questionList');
-        container.innerHTML = '';
-
-        questions.forEach((question, index) => {
-            const questionBtn = document.createElement('div');
-            questionBtn.className = 'col-6 col-md-3 mb-2';
-            questionBtn.innerHTML = `
-        <button class="btn btn-outline-primary w-100 question-nav-btn" 
-                onclick="goToQuestion(${index})" 
-                data-question="${index}">
-            ${index + 1}
-        </button>
-    `;
-            container.appendChild(questionBtn);
-        });
-    }
-
-    function goToQuestion(index) {
-        showQuestion(index);
-        // Close modal
-        const modal = bootstrap.Modal.getInstance(document.getElementById('questionListModal'));
-        modal.hide();
-    }
-
-    function showQuestionList() {
-        const modal = new bootstrap.Modal(document.getElementById('questionListModal'));
-        modal.show();
-    }
-
-    function showResults(data) {
-        document.getElementById('finalScore').textContent = data.score_percentage.toFixed(1) + '%';
-        document.getElementById('correctCount').textContent = data.correct_answers;
-        document.getElementById('incorrectCount').textContent = data.total_questions - data.correct_answers;
-        document.getElementById('finalProgressBar').style.width = data.score_percentage + '%';
-
-        // Performance message
-        let message = '';
-        if (data.score_percentage >= 90) {
-            message = '<strong>ممتاز!</strong> أداء رائع، احتفظ بهذا المستوى.';
-        } else if (data.score_percentage >= 80) {
-            message = '<strong>جيد جداً!</strong> أداء ممتاز، واصل التقدم.';
-        } else if (data.score_percentage >= 70) {
-            message = '<strong>جيد!</strong> أداء مقبول، يمكنك التحسن أكثر.';
-        } else if (data.score_percentage >= 60) {
-            message = '<strong>مقبول!</strong> تحتاج إلى مراجعة أكثر.';
-        } else {
-            message = '<strong>تحتاج إلى تحسين!</strong> راجع المادة جيداً وحاول مرة أخرى.';
-        }
-        document.getElementById('performanceMessage').innerHTML = message;
-
-        // Show review section if there are incorrect answers
-        if (incorrectAnswers.length > 0) {
-            document.getElementById('reviewSection').style.display = 'block';
-            generateReviewContent();
-        }
-
-        const modal = new bootstrap.Modal(document.getElementById('resultsModal'));
-        modal.show();
-    }
-
-    function generateReviewContent() {
-        const container = document.getElementById('reviewQuestions');
-        container.innerHTML = '';
-
-        incorrectAnswers.forEach((item, index) => {
-            const reviewDiv = document.createElement('div');
-            reviewDiv.className = 'review-question';
-            reviewDiv.innerHTML = `
-            <h6 class="mb-2">
-                <i class="fas fa-question-circle me-2"></i>
-                السؤال ${item.questionIndex + 1}:
-            </h6>
-            <p class="mb-3">${item.question.text}</p>
-            
-            <div class="options-review">
-                ${item.question.options.map((option, optionIndex) => {
-                let className = 'review-option';
-                if (optionIndex === item.userAnswer) {
-                    className += ' user-answer';
-                }
-                if (optionIndex === item.correctAnswer) {
-                    className += ' correct-answer';
-                }
-
-                return `
-                    <div class="${className}">
-                        <i class="fas ${optionIndex === item.correctAnswer ? 'fa-check text-success' :
-                        optionIndex === item.userAnswer ? 'fa-times text-danger' : 'fa-circle text-muted'} me-2"></i>
-                        ${option}
-                    </div>
-                `;
-            }).join('')}
-            </div>
-        `;
-            container.appendChild(reviewDiv);
-        });
-    }
-
-    function toggleReview() {
-        const content = document.getElementById('reviewContent');
-        const isVisible = content.style.display !== 'none';
-
-        if (isVisible) {
-            content.style.display = 'none';
-            content.style.animation = 'slideInUp 0.3s ease-in-out reverse';
-        } else {
-            content.style.display = 'block';
-            content.style.animation = 'slideInUp 0.3s ease-in-out';
-        }
-    }
-
-    function closeResultsModal() {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('resultsModal'));
-        modal.hide();
-    }
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function (e) {
-        if (!gameStarted) return; // Only allow keyboard navigation when game has started
-
-        if (e.key >= '1' && e.key <= '3') {
-            const currentQuestion = questions[currentQuestionIndex];
-            const optionIndex = parseInt(e.key) - 1;
-            if (optionIndex < currentQuestion.options.length) {
-                const optionElement = document.querySelector(`[data-question="${currentQuestionIndex}"][data-option="${optionIndex}"]`);
-                if (optionElement) {
-                    optionElement.click();
-                }
-            }
-        } else if (e.key === 'ArrowRight') {
-            previousQuestion();
-        }
+  // Multiplayer progress
+  if (mpMode && roomCode) {
+    socket.emit('progress_update', {
+      room_code: roomCode,
+      client_id: clientId,
+      current_index: Object.keys(userAnswers).length,
     });
+  }
 
-    // Swipe navigation for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
+  updateNav();
+  updateQListGrid();
+}
 
-    document.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
+/* ─── Navigation ────────────────────────────────────────────────────────── */
+function showQuestion(idx) {
+  document.querySelectorAll('.question-slide').forEach((s, i) => {
+    s.style.display = i === idx ? 'block' : 'none';
+  });
+  currentIdx = idx;
+
+  document.getElementById('counterNum').textContent  = idx + 1;
+  document.getElementById('hdrQNum').textContent     = idx + 1;
+
+  const pct = ((idx + 1) / totalQuestions * 100).toFixed(1);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressBar').setAttribute('aria-valuenow', pct);
+
+  updateNav();
+  updateQListGrid();
+}
+
+function prevQuestion() {
+  if (currentIdx > 0) showQuestion(currentIdx - 1);
+}
+
+function nextQuestion() {
+  if (currentIdx < totalQuestions - 1) showQuestion(currentIdx + 1);
+}
+
+function updateNav() {
+  const prev   = document.getElementById('prevBtn');
+  const next   = document.getElementById('nextBtn');
+  const finish = document.getElementById('finishBtn');
+
+  prev.disabled = currentIdx === 0;
+
+  const isLast = currentIdx === totalQuestions - 1;
+  next.style.display   = isLast ? 'none'  : 'block';
+  finish.style.display = isLast ? 'block' : 'none';
+}
+
+/* ─── Question list modal ───────────────────────────────────────────────── */
+function buildQListGrid() {
+  const grid = document.getElementById('qListGrid');
+  grid.innerHTML = '';
+  for (let i = 0; i < totalQuestions; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'q-nav-btn';
+    btn.id = 'qnav-' + i;
+    btn.textContent = i + 1;
+    btn.addEventListener('click', function () {
+      showQuestion(i);
+      bootstrap.Modal.getInstance(document.getElementById('modalQList'))?.hide();
     });
+    grid.appendChild(btn);
+  }
+}
 
-    document.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+function updateQListGrid() {
+  for (let i = 0; i < totalQuestions; i++) {
+    const btn = document.getElementById('qnav-' + i);
+    if (!btn) continue;
+    btn.classList.remove('active', 'done');
+    if (i === currentIdx)          btn.classList.add('active');
+    else if (userAnswers[i] != null) btn.classList.add('done');
+  }
+}
+
+function openQList() {
+  updateQListGrid();
+  new bootstrap.Modal(document.getElementById('modalQList')).show();
+}
+
+function updateAnsweredBadge() {
+  const done = Object.keys(userAnswers).length;
+  document.getElementById('answeredBadge').textContent = done + ' / ' + totalQuestions;
+}
+
+/* ─── Submit exam ───────────────────────────────────────────────────────── */
+function submitExam() {
+  if (mpMode && roomCode) {
+    // Multiplayer: emit to server
+    socket.emit('submit_answers', {
+      room_code: roomCode,
+      client_id: clientId,
+      answers: userAnswers,
     });
+    return;
+  }
 
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
+  // Solo: POST to Flask
+  fetch('/submit_exam', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ answers: userAnswers }),
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) { showToast(data.error, 'danger'); return; }
+      showResults({
+        correct_answers: data.correct_answers,
+        total_questions: data.total_questions,
+        score_percentage: data.score_percentage,
+      });
+    })
+    .catch(() => showToast('حدث خطأ أثناء الإرسال. حاول مرة أخرى.', 'danger'));
+}
 
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left - go to next question
-                if (currentQuestionIndex < totalQuestions - 1) {
-                    nextQuestion();
-                }
-            } else {
-                // Swipe right - go to previous question
-                if (currentQuestionIndex > 0) {
-                    previousQuestion();
-                }
-            }
-        }
+/* ─── Show results modal ────────────────────────────────────────────────── */
+function showResults(data) {
+  if (resultsShown) return;
+  resultsShown = true;
+
+  const pct = parseFloat(data.score_percentage).toFixed(1);
+  const correct = parseInt(data.correct_answers);
+  const total   = parseInt(data.total_questions);
+  const wrong   = total - correct;
+
+  // Score ring
+  document.getElementById('scoreRing').style.setProperty('--pct', pct);
+  document.getElementById('scorePct').textContent   = pct + '%';
+  document.getElementById('rCorrect').textContent   = correct;
+  document.getElementById('rWrong').textContent     = wrong;
+  document.getElementById('rProgressBar').style.width = pct + '%';
+
+  // Colour header based on score
+  const hdr = document.getElementById('resultsHeader');
+  if (pct >= 70) {
+    hdr.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
+  } else if (pct >= 50) {
+    hdr.style.background = 'linear-gradient(135deg,#d97706,#f59e0b)';
+  } else {
+    hdr.style.background = 'linear-gradient(135deg,#dc2626,#ef4444)';
+  }
+
+  // Feedback text
+  let msg = '';
+  if      (pct >= 90) msg = '🏆 ممتاز! أداء رائع جداً.';
+  else if (pct >= 80) msg = '🎉 جيد جداً! واصل التقدم.';
+  else if (pct >= 70) msg = '👍 جيد! يمكنك التحسن أكثر.';
+  else if (pct >= 60) msg = '📘 مقبول. راجع المادة وحاول مجدداً.';
+  else if (pct >= 50) msg = '📚 ضعيف. يحتاج مراجعة أكثر.';
+  else                msg = '⚠️ تحتاج إلى تحسين كبير. راجع المادة جيداً.';
+
+  const fb = document.getElementById('rFeedback');
+  fb.textContent = msg + ' أجبت على ' + correct + ' من أصل ' + total + ' سؤال.';
+  fb.style.background = pct >= 70 ? '#f0fdf4' : pct >= 50 ? '#fffbeb' : '#fef2f2';
+  fb.style.color      = pct >= 70 ? '#166534' : pct >= 50 ? '#92400e' : '#991b1b';
+
+  // Wrong answers review
+  buildReview();
+
+  new bootstrap.Modal(document.getElementById('modalResults')).show();
+}
+
+function buildReview() {
+  const wrongItems = [];
+
+  questions.forEach((q, qi) => {
+    const ua = userAnswers[qi];
+    if (ua == null || parseInt(ua) === parseInt(q.correct_answer)) return;
+    wrongItems.push({ q, qi, ua: parseInt(ua) });
+  });
+
+  const wrap = document.getElementById('reviewWrap');
+  const cont = document.getElementById('reviewContent');
+
+  if (!wrongItems.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+
+  const labels = ['أ', 'ب', 'ج', 'د', 'هـ'];
+  cont.innerHTML = wrongItems.map(({ q, qi, ua }) => {
+    const opts = q.options.map((opt, oi) => {
+      let cls = '';
+      if (oi === q.correct_answer) cls = 'correct';
+      else if (oi === ua)           cls = 'user-wrong';
+      if (!cls) return '';
+      return `<div class="review-opt ${cls}">
+        <i class="fas fa-${cls === 'correct' ? 'check' : 'times'} me-2"></i>
+        <strong>${labels[oi] || (oi+1)}.</strong> ${escHtml(opt)}
+      </div>`;
+    }).join('');
+    return `<div class="review-card wrong">
+      <div class="fw-700 mb-2" style="font-weight:700; font-size:.9rem; color:#1e293b;">
+        <span class="badge rounded-pill me-1" style="background:#eef2ff; color:#3730a3;">${qi+1}</span>
+        ${escHtml(q.text)}
+      </div>${opts}
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Sound
+   ═══════════════════════════════════════════════════════════════════════════ */
+function playSound(type) {
+  if (isMuted) return;
+  const el = document.getElementById(type === 'correct' ? 'sndCorrect' : 'sndWrong');
+  if (!el) return;
+  el.currentTime = 0;
+  el.play().catch(() => {});
+}
+
+function bindFABs() {
+  const fabR = document.getElementById('fabRandomize');
+  const fabM = document.getElementById('fabMute');
+
+  fabR.addEventListener('click', function () {
+    randomize = !randomize;
+    fabR.classList.toggle('active', randomize);
+    fetch('/update_randomization', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ randomize_questions: randomize }),
+    }).catch(() => {});
+    showToast(randomize ? 'الترتيب العشوائي مفعّل' : 'الترتيب العشوائي معطّل', 'info');
+  });
+
+  fabM.addEventListener('click', function () {
+    isMuted = !isMuted;
+    fabM.classList.toggle('active', !isMuted);
+    fabM.querySelector('i').className = isMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Toast helper
+   ═══════════════════════════════════════════════════════════════════════════ */
+function showToast(msg, type) {
+  const colours = { info:'#eef2ff', danger:'#fef2f2', success:'#f0fdf4' };
+  const textC   = { info:'#3730a3', danger:'#991b1b', success:'#166534' };
+  const div = document.createElement('div');
+  div.className = 'toast-alert';
+  div.style.background = colours[type] || colours.info;
+  div.style.color      = textC[type]   || textC.info;
+  div.textContent = msg;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 3000);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Multiplayer — Socket.IO
+   ═══════════════════════════════════════════════════════════════════════════ */
+function initSocket() {
+  socket = io({ transports: ['websocket', 'polling'] });
+
+  socket.on('room_created', function (data) {
+    roomCode = data.room_code;
+    isHost   = true;
+    mpMode   = true;
+    showLobbyRoom(data.players, data.question_list, data.total_questions);
+  });
+
+  socket.on('player_joined', function (data) {
+    showLobbyRoom(data.players, data.question_list, data.total_questions);
+    updateLeaderboard(playersToLb(data.players));
+  });
+
+  socket.on('player_left', function (data) {
+    showLobbyRoom(data.players, data.question_list, data.total_questions);
+    updateLeaderboard(playersToLb(data.players));
+  });
+
+  socket.on('game_started', function (data) {
+    gameStarted = true;
+    startExam(data.questions, data.total_questions);
+    document.getElementById('sectionLeaderboard').style.display = '';
+    updateLeaderboard([]);
+  });
+
+  socket.on('leaderboard_update', function (data) {
+    updateLeaderboard(data.leaderboard);
+    if (data.total_questions) totalQuestions = data.total_questions;
+
+    const me = (data.leaderboard || []).find(p => p.name === playerName);
+    if (me && me.finished && !resultsShown) {
+      showResults({
+        correct_answers: me.score,
+        total_questions: totalQuestions,
+        score_percentage: (me.score / totalQuestions * 100),
+      });
     }
+  });
 
-    // Efficient sound effect handling
-    const soundUrls = {
-        correct: 'https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3',
-        wrong: 'https://assets.mixkit.co/active_storage/sfx/950/950-preview.mp3',
-        toggle: 'https://assets.mixkit.co/active_storage/sfx/2579/2579-preview.mp3'
-    };
-    const soundEffects = {
-        correct: new Audio(soundUrls.correct),
-        wrong: new Audio(soundUrls.wrong),
-        toggle: new Audio(soundUrls.toggle)
-    };
-    // Preload sounds
-    Object.values(soundEffects).forEach(audio => { audio.preload = 'auto'; audio.load(); });
-    window.isMuted = false;
-    function playSound(type) {
-        if (window.isMuted) return;
-        const audio = soundEffects[type];
-        if (audio) {
-            audio.currentTime = 0;
-            audio.play();
-        }
-    }
-    document.getElementById('muteBtn').onclick = function () {
-        window.isMuted = !window.isMuted;
-        this.innerHTML = window.isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
-        playSound('toggle');
-    };
+  socket.on('error', function (data) {
+    showToast(data.message || 'حدث خطأ', 'danger');
+  });
+
+  socket.on('disconnect', function () {
+    if (gameStarted) showToast('انقطع الاتصال. جارٍ إعادة الاتصال…', 'danger');
+  });
+}
+
+function getOrCreateClientId() {
+  let cid = localStorage.getItem('mcq_client_id');
+  if (!cid) {
+    cid = (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36));
+    localStorage.setItem('mcq_client_id', cid);
+  }
+  return cid;
+}
+
+function bindLobbyButtons() {
+  document.getElementById('btnCreateRoom').onclick = function () {
+    playerName = (document.getElementById('playerName').value.trim() || 'مجهول');
+    const list = document.getElementById('mpListSelect').value || 'list1';
+    socket.emit('create_room', { name: playerName, client_id: clientId, question_list: list });
+  };
+
+  document.getElementById('btnJoinRoom').onclick = function () {
+    playerName = (document.getElementById('playerName').value.trim() || 'مجهول');
+    const code = document.getElementById('joinCode').value.trim().toUpperCase();
+    if (code.length !== 6) { showToast('أدخل رمز الغرفة (6 أحرف)', 'danger'); return; }
+    roomCode = code;
+    mpMode = true;
+    const list = document.getElementById('mpListSelect').value || 'list1';
+    socket.emit('join_room', { name: playerName, room_code: code, client_id: clientId, question_list: list });
+  };
+
+  document.getElementById('btnCopyCode').onclick = function () {
+    navigator.clipboard.writeText(roomCode || '').catch(() => {});
+    showToast('تم نسخ رمز الغرفة', 'success');
+  };
+
+  document.getElementById('btnStartGame').onclick = function () {
+    socket.emit('start_game', { room_code: roomCode, client_id: clientId });
+  };
+
+  document.getElementById('btnSkipMultiplayer').onclick = function () {
+    // Start a solo session with already-loaded questions
+    startExam(questions, totalQuestions);
+  };
+}
+
+function populateMpListSelect() {
+  const sel = document.getElementById('mpListSelect');
+  sel.innerHTML = '';
+  const opts = [
+    { v:'list2', l:'اول 100 سؤال' },
+    { v:'list5', l:'ثاني 100 سؤال' },
+    { v:'list6', l:'ثالث 100 سؤال' },
+    { v:'list4', l:'183 سؤال' },
+    { v:'list3', l:'45 سؤال' },
+    { v:'list1', l:'اخر 50 سؤال' },
+    { v:'random120', l:'120 سؤال عشوائي' },
+    { v:'all_questions', l:'شامل (كل الأسئلة)' },
+  ];
+  opts.forEach(o => {
+    const el = document.createElement('option');
+    el.value = o.v; el.textContent = o.l;
+    sel.appendChild(el);
+  });
+
+  fetch('/get_question_lists').then(r => r.json()).then(lists => {
+    Array.from(sel.options).forEach(opt => {
+      if (lists[opt.value] !== undefined) {
+        opt.textContent += ' (' + lists[opt.value] + ')';
+      }
+    });
+  }).catch(() => {});
+}
+
+/* ─── Lobby room display ─────────────────────────────────────────────── */
+function showLobbyRoom(players, qList, total) {
+  document.getElementById('lobbyCreateJoin').style.display = 'none';
+  document.getElementById('lobbyRoom').style.display = '';
+
+  document.getElementById('roomCodeDisplay').textContent = roomCode || '';
+  document.getElementById('selectedListInfo').textContent =
+    'قائمة الأسئلة: ' + listLabel(qList) + ' — ' + total + ' سؤال';
+
+  const ul = document.getElementById('playersList');
+  ul.innerHTML = '';
+  let i = 1;
+  Object.values(players).forEach(p => {
+    const li = document.createElement('li');
+    li.className = 'list-group-item py-2 px-3';
+    li.innerHTML = `<span class="fw-700 me-2">${i++}.</span>${escHtml(p.name)}`;
+    ul.appendChild(li);
+  });
+
+  document.getElementById('hostControls').style.display = isHost ? '' : 'none';
+  document.getElementById('waitingMsg').style.display   = isHost ? 'none' : '';
+}
+
+function listLabel(key) {
+  const m = {
+    list1:'اخر 50 سؤال', list2:'اول 100 سؤال', list3:'45 سؤال',
+    list4:'183 سؤال', list5:'ثاني 100 سؤال', list6:'ثالث 100 سؤال',
+    random120:'120 عشوائي', all_questions:'شامل',
+  };
+  return m[key] || key;
+}
+
+/* ─── Leaderboard ────────────────────────────────────────────────────── */
+function updateLeaderboard(lb) {
+  const tbody = document.getElementById('leaderboardBody');
+  tbody.innerHTML = '';
+  lb.forEach((p, idx) => {
+    const isMe = p.name === playerName;
+    const pct  = totalQuestions > 0 ? Math.round((p.progress || 0) / totalQuestions * 100) : 0;
+    const tr   = document.createElement('tr');
+    if (isMe) tr.className = 'lb-me';
+    tr.innerHTML = `
+      <td>${idx+1}</td>
+      <td>${escHtml(p.name)} ${isMe ? '<i class="fas fa-user text-primary" style="font-size:.7rem;"></i>' : ''}</td>
+      <td class="fw-700" style="font-weight:700;">${p.score || 0}</td>
+      <td>${p.finished ? (p.time||0).toFixed(1)+'s' : '—'}</td>
+      <td style="min-width:80px;">
+        ${p.finished
+          ? '<span class="badge rounded-pill" style="background:#dcfce7;color:#15803d;">انتهى ✓</span>'
+          : `<div class="progress" style="height:10px;"><div class="progress-bar" style="width:${pct}%;"></div></div>`}
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function playersToLb(players) {
+  return Object.values(players).map(p => ({
+    name: p.name, score: p.score||0, time: p.time||0,
+    finished: p.finished||false, progress: p.progress||0,
+  }));
+}
+
+/* ─── Keyboard shortcuts ─────────────────────────────────────────────── */
+document.addEventListener('keydown', function (e) {
+  if (document.getElementById('sectionExam').style.display === 'none') return;
+  if (['1','2','3','4','5'].includes(e.key)) {
+    const oi = parseInt(e.key) - 1;
+    const opt = document.querySelector(`#slide-${currentIdx} .option-item:nth-child(${oi+1})`);
+    if (opt) opt.click();
+  }
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowDown')  nextQuestion();
+  if (e.key === 'ArrowRight' || e.key === 'ArrowUp')    prevQuestion();
+});
 </script>
 {% endblock %}
